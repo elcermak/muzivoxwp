@@ -6,17 +6,21 @@
             'theme_location' => 'footer',
             'container' => false,
             'menu_class' => 'menu__list',
+
           ) );
 
 
-          $logoFooter = get_field('infos_logo_footer', 'infos');
+          $logoFooter = get_field('logo_footer');
+          echo $logoFooter;
         ; ?>
 
 
-<div class="footer__logo">
-+ <img src="<?php echo $logoFooter['url']; ?>" class="style-svg"/>
 
-</div>
+
+<!-- <div class="footer__logo center">
+<img src="http://localhost:8888/muzivox_jm/wp-content/uploads/2023/01/etoile_grise.png" class="style-svg"/>
+
+</div> -->
       <!-- <ul>
         <li><a href="#">Conditions Générales de ventes</a></li>
         <li><a href="#">Mentions Legales</a></li>
