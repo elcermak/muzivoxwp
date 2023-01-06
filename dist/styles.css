@@ -1,0 +1,139 @@
+@import url("https://fonts.googleapis.com/css2?family=Akshar:wght@300;400;700&family=Inter:wght@300;400;700&display=swap");
+* {
+  margin: 0;
+}
+
+header {
+  margin-top: 30px;
+  margin-bottom: 60px;
+}
+
+/* The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+.switchinput {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: #FF6B00;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: #1A1A1A;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #1A1A1A;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #FF6B00;
+  height: 160px;
+}
+footer img {
+  justify-content: center;
+  height: 174px;
+}
+
+.nav_start {
+  white-space: pre-line;
+}
+.nav_start li {
+  margin-left: 20px;
+  gap: 10px;
+  list-style-type: none;
+  color: white;
+  text-transform: uppercase;
+  font-family: "Inter", sans-serif;
+}
+.nav_start li a {
+  color: white;
+  text-decoration: none;
+}
+
+.nav_end {
+  white-space: pre-line;
+}
+.nav_end li {
+  list-style-type: none;
+  text-transform: uppercase;
+  font-family: "Inter", sans-serif;
+}
+.nav_end li a {
+  text-decoration: none;
+  color: white;
+}
+
+.media {
+  color: white;
+  margin-right: 40px;
+}
+.media i {
+  margin-right: 20px;
+}
+
+.header {
+  display: flex;
+}
+
+.menu {
+  display: flex;
+  margin: 0 140px;
+}
+.menu ul {
+  display: flex;
+  font-family: "Akshar", sans-serif;
+  font-size: 20px;
+  list-style: none;
+  width: 1090px;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0;
+}
+
+/*# sourceMappingURL=styleCompile.css.map */
