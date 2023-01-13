@@ -265,14 +265,26 @@ border-bottom: 5px solid #FF6B00;
 .nav_start li {
   margin-left: 20px;
   gap: 10px;
-  list-style-type: none;
   color: white;
   text-transform: uppercase;
   font-family: "Inter", sans-serif;
 }
-.nav_start li a {
+footer .menu-item a {
   color: white;
+}
+
+header .menu-item a {
+  color: black;
+}
+
+.menu-item a{
   text-decoration: none;
+  list-style-type: none;
+}
+
+.current-menu-item, .page_item a :active{
+  border-bottom: 5px solid #FF6B00;
+  padding: 5px 10px;
 }
 
 .nav_end {
@@ -407,15 +419,13 @@ footer {
 .media {
   color: white;
   margin-right: 40px;
-  grid-area: social ;
-
 }
 .media :hover{
   color:black;
 }
 
 .media i {
-  margin-right: 20px;
+  margin-left: 20px;
 }
 
 .menu-item {
