@@ -160,7 +160,7 @@ header .menu-item a {
   font-family: "Akshar", sans-serif;
   font-size: 20px;
   list-style: none;
-  /* width: 1090px; */
+  width: 1090px;
   justify-content: space-around;
   align-items: center;
   padding: 0;
