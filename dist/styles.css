@@ -205,6 +205,12 @@ border-bottom: 5px solid #FF6B00;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  background-color: #FF6B00;
+  background-image: url(../image/etoile_grise.png);
+  background-position-y: -20px;
+  background-position-x: 444px;
+  background-repeat: no-repeat;
+  height: 160px;
 }
 .galerie {
   overflow: hidden;
@@ -265,14 +271,26 @@ border-bottom: 5px solid #FF6B00;
 .nav_start li {
   margin-left: 20px;
   gap: 10px;
-  list-style-type: none;
   color: white;
   text-transform: uppercase;
   font-family: "Inter", sans-serif;
 }
-.nav_start li a {
+footer .menu-item a {
   color: white;
+}
+
+header .menu-item a {
+  color: black;
+}
+
+.menu-item a{
   text-decoration: none;
+  list-style-type: none;
+}
+
+.current-menu-item, .page_item a :active{
+  border-bottom: 5px solid #FF6B00;
+  padding: 5px 10px;
 }
 
 .nav_end {
@@ -415,10 +433,44 @@ footer {
 }
 
 .media i {
-  margin-right: 20px;
+  margin-left: 20px;
 }
 
 .menu-item {
   padding: 5px 10px;
 }
 
+.menu {
+  display: flex;
+  margin: 0 140px;
+}
+.menu ul {
+  display: flex;
+  font-family: "Akshar", sans-serif;
+  font-size: 20px;
+  list-style: none;
+  /* width: 1090px; */
+  justify-content: space-around;
+  align-items: center;
+  padding: 0;
+}
+
+footer .menu ul li {
+  font-size: 16px;
+}
+
+.menu-item-70{
+  margin-left: 430px;
+}
+
+
+/* Ajout du soulignement du lien courant (classe wordpress) */
+/* .current_menu_item > a {
+border-bottom: 5px solid #FF6B00;
+} */
+
+.menu-item{
+  padding: 5px 10px;
+}
+
+/*# sourceMappingURL=styleCompile.css.map */
