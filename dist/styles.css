@@ -425,8 +425,6 @@ footer {
 .media {
   color: white;
   margin-right: 40px;
-  grid-area: social ;
-
 }
 .media :hover{
   color:black;
