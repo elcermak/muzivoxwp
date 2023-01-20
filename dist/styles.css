@@ -230,7 +230,12 @@ footer img {
 .description__text {
   margin: 0px 50px;
   overflow: hidden;
-  max-height: 240px;
+  /* max-height: 240px; */
+}
+
+#d1 {
+  display: none;
+  transition: all 0.5s ease-out;
 }
 .description p:first-of-type {
   font-size: 1.5rem;

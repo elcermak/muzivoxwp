@@ -28,8 +28,45 @@ function get_last_concert($concerts, $name_artiste)
 			}
 		}
 	}
-echo '<pre>';
-print_r($next_concert);
-echo '</pre>';
 	return $next_concert;
+}
+
+/**
+ * Cette fonction prend en entrée une date au le format "YYYY/MM/DD" et la convertit en date au format ('D d M Y') et traduit en Francais
+ * @param date $dateRaw  date au le format "YYYY/MM/DD" 
+ * @return date $convertDate date au format ('D d M Y')
+ */
+function convert_date_format($rawDate) {
+	// définition des traductions anglais/francais des jours et mois dans un tableau associatif
+	$fr_days = array(
+		'Monday' => 'Lundi', 
+		'Tuesday' => 'Mardi', 
+		'Wednesday' => 'Mercredi', 
+		'Thursday' => 'Jeudi', 
+		'Friday' => 'Vendredi', 
+		'Saturday' => 'Samedi', 
+		'Sunday' => 'Dimanche'
+);
+	$fr_months = array(
+		'January' => 'Janvier', 
+		'February' => 'Février', 
+		'March' => 'Mars', 
+		'April' => 'Avril', 
+		'May' => 'Mai', 
+		'June' => 'Juin', 
+		'July' => 'Juillet', 
+		'August' => 'Août', 
+		'September' => 'Septembre', 
+		'October' => 'Octobre', 
+		'November' => 'Novembre', 
+		'December' => 'Décembre'
+	);
+
+	$date = date_create($rawDate);
+	$day = date_format($date, 'l'); // récupère le jour de la date
+	$month = date_format($date, 'F'); // récupère le mois de la date
+	$day_number = date_format($date, 'd'); // conbertit le jour en nombre
+	$year = date_format($date, 'Y'); // récupère l'année de la date
+	$converted_date = $fr_days[$day] . ' ' . $day_number . ' ' . $fr_months[$month] . ' ' . $year; // création de la chaine de caractère de la date en Francais
+	return $converted_date;
 }

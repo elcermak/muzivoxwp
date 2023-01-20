@@ -6,11 +6,11 @@
 
 get_header();
 while (have_posts()) : the_post(); ?>
-<?php
-$name_artiste = get_the_title();
-?>
+	<?php
+	$name_artiste = get_the_title();
+	?>
 
-<?php
+	<?php
 	$args = array(
 		'post_type' => 'agenda',
 		'posts_per_page' => -1
@@ -18,31 +18,31 @@ $name_artiste = get_the_title();
 	$artiste_posts = get_posts($args);
 	$i = 0;
 	foreach ($artiste_posts as $post) :
-	
+
 		setup_postdata($post);
-	
+
 		$artiste_concert = get_field('artiste_concert')[0];
 		// $name_artiste = $artiste_concert->post_title; //Tout les artistes présent dans la base de donnée
 		$artiste = $name_artiste; //Récupère le nom de l'artiste de la page
-	
+
 		if ($artiste_concert->post_title == $name_artiste) {
 			$region_name = get_term(get_field('region_concert'))->name;
-	
+
 			$concert[$artiste][$i]['id_region'] = $region_name;
 			$concert[$artiste][$i]['ville'] = get_field('ville');
 			$concert[$artiste][$i]['date'] = get_field('date');
 			$concert[$artiste][$i]['lien'] = get_field('lien_reservation');
 			$concert[$artiste][$i]['salle'] = get_field('salle_de_concert');
 			$concert[$artiste][$i]['complet'] = get_field('complet');
-	
+
 			$i++;
 		}
 	endforeach;
 
-	$last_concert= get_last_concert($concert, $name_artiste);
+	$next_concert = get_last_concert($concert, $name_artiste);
 	wp_reset_postdata();
 
-?>
+	?>
 
 	<main>
 		<div class="wrapper">
@@ -77,14 +77,23 @@ $name_artiste = get_the_title();
 				<hr>
 				<div class="agenda__concert">
 					<div class="agenda__concert--date">
-						Ven 18 Nov 2022
+						<?php echo convert_date_format($next_concert['date']); ?>
 					</div>
 					<div class="agenda__concert--lieu">
-						Peroy-les-Gobries (60)
+						<?php echo $next_concert['ville']; ?>
 					</div>
-					<div class="btn-full">
-						Complet
-					</div>
+					<?php
+					if ($next_concert['complet'] == 1) { ?>
+						<div class="btn-full">
+							Complet
+						</div>
+					<?php
+					} else { ?>
+						<div></div>
+					<?php
+					}
+					?>
+
 					<div class="agenda__concert--booked">
 						<a href="#">
 							<i class="fa fa-calendar"></i>
@@ -124,9 +133,8 @@ $name_artiste = get_the_title();
 						<p>
 							<?php the_field('description_courte'); ?>
 						</p>
-						<p>
+						<p id='d1' class='collapsed'>
 							<?php the_field('description_longue'); ?>
-
 						</p>
 					</div>
 					<div class="description__savoirPlus">
