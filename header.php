@@ -24,10 +24,6 @@
       <!-- fin du menu -->
         
       </nav>
-              <!-- Bouton changement de langue -->
-              <label class="switch">
-                <span class="slider round"></span>
-              </label>
     </div>
   </header>
 
