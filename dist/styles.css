@@ -149,6 +149,7 @@ header .menu-item a {
 
 .header {
   display: flex;
+  justify-content: center;
 }
 
 .menu {

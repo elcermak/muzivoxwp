@@ -17,16 +17,13 @@
             'theme_location' => 'header',
             'container' => false,
             'menu_class' => 'menu__list',
+            'walker' => new MyCustom_Walker_Nav_Menu(),
           ) );
         ; ?>
         
       <!-- fin du menu -->
         
       </nav>
-              <!-- Bouton changement de langue -->
-              <label class="switch">
-                <span class="slider round"></span>
-              </label>
     </div>
   </header>
 
