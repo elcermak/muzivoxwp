@@ -17,6 +17,7 @@
             'theme_location' => 'header',
             'container' => false,
             'menu_class' => 'menu__list',
+            'walker' => new MyCustom_Walker_Nav_Menu(),
           ) );
         ; ?>
         
