@@ -58,6 +58,9 @@
   function muzivox_scripts_styles() {
     wp_enqueue_style( 'muzivox-style', get_template_directory_uri() . '/dist/styles.css' );
     wp_enqueue_script('muzivox-script', get_template_directory_uri() . '/dist/scripts.js',  array(), '', true  );
+    wp_enqueue_script('savoir_plus', get_template_directory_uri() . '/dist/savoirPlus.js',  array(), '', true  );
+    wp_enqueue_script('gallerie_artiste', get_template_directory_uri() . '/dist/gallerieArtiste.js',  array(), '', true  );
+
   }
   
 
