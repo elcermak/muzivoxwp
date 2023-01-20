@@ -156,3 +156,312 @@ footer img {
 
 
 /*# sourceMappingURL=styleCompile.css.map */
+
+
+/* PAGE ARTISTE */
+
+.btn-full {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 35px;
+  gap: 10px;
+  height: 30px;
+  background: rgba(255, 13, 13, 0.85);
+  border-radius: 8px;
+  color: #FFFFFF;
+}
+
+.btn__arrow {
+  width: 50px;
+  height: 50px;
+  background-color: #808080;
+  position: relative;
+  border: none;
+}
+.btn__arrow:hover {
+  background-color: #FF6B00;
+}
+.btn__arrow--left {
+  position: absolute;
+  top: 5px;
+  left: -7px;
+  width: 0px;
+  height: 0px;
+  border-style: solid;
+  border-width: 20px;
+  border-color: transparent #FFFFFF transparent transparent;
+  z-index: 10;
+}
+.btn__arrow--right {
+  position: absolute;
+  top: 5px;
+  left: 14px;
+  width: 0px;
+  height: 0px;
+  border-style: solid;
+  border-width: 20px;
+  border-color: transparent transparent transparent #FFFFFF;
+  z-index: 10;
+}
+
+.description {
+  color: #FFFFFF;
+  background-color: #303030;
+  font-family: "Akshar", sans-serif;
+  font-size: 1.125rem;
+}
+.description__title {
+  text-transform: uppercase;
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 5px;
+  text-shadow: 0px 4px 4px #FF6B00;
+  font-size: 3rem;
+}
+.description__rs {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+  color: #FF6B00;
+}
+.description__text {
+  margin: 0px 50px;
+  overflow: hidden;
+  max-height: 240px;
+}
+.description p:first-of-type {
+  font-size: 1.5rem;
+}
+.description p {
+  margin: 20px 0;
+}
+.description p:first-of-type::first-letter {
+  color: #FF6B00;
+  font-size: 2rem;
+}
+.description__savoirPlus {
+  text-align: center;
+  text-transform: uppercase;
+  padding-bottom: 20px;
+}
+.description__savoirPlus a {
+  text-decoration: none;
+  color: #FF6B00;
+}
+
+.agenda {
+  font-family: "Akshar", sans-serif;
+  font-weight: 400;
+  text-transform: uppercase;
+  font-size: 1.5rem;
+  line-height: 1.625rem;
+}
+.agenda a {
+  color: #FF6B00;
+  text-decoration: none;
+}
+.agenda__header {
+  margin: 10px;
+  font-size: 2rem;
+  line-height: 1.5rem;
+}
+.agenda__concert {
+  margin: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.agenda__footer {
+  margin: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.galerie {
+  overflow: hidden;
+}
+.galerie img {
+  display: none;
+  width: 100px;
+  height: auto;
+}
+.galerie img.active {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  display: block;
+}
+
+.carousel-container {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+@media screen and (max-width: 1400px) {
+  .carousel-container {
+    height: 400px;
+  }
+}
+.carousel-slide {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.carousel-slide img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.galerie_area {
+  position: relative;
+}
+.galerie_area-nav {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+}
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #FF6B00;
+  height: 160px;
+}
+footer img {
+  justify-content: center;
+  height: 174px;
+}
+
+.nav_start {
+  white-space: pre-line;
+}
+.nav_start li {
+  margin-left: 20px;
+  gap: 10px;
+  list-style-type: none;
+  color: white;
+  text-transform: uppercase;
+  font-family: "Inter", sans-serif;
+}
+.nav_start li a {
+  color: white;
+  text-decoration: none;
+}
+
+.nav_end {
+  white-space: pre-line;
+}
+.nav_end li {
+  list-style-type: none;
+  text-transform: uppercase;
+  font-family: "Inter", sans-serif;
+}
+.nav_end li a {
+  text-decoration: none;
+  color: white;
+}
+
+.media {
+  color: white;
+  margin-right: 40px;
+}
+.media i {
+  margin-right: 20px;
+}
+
+.header {
+  display: flex;
+}
+
+.menu {
+  display: flex;
+  margin: 0 140px;
+}
+.menu ul {
+  display: flex;
+  font-family: "Akshar", sans-serif;
+  font-size: 20px;
+  list-style: none;
+  width: 1090px;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0;
+}
+.menu-item {
+  padding: 5px 10px;
+}
+
+.current_menu_item {
+  border-bottom: 5px solid #FF6B00;
+}
+
+.wrapper {
+  display: grid;
+  grid-template-columns: 0.6fr 2% 1fr;
+  grid-template-rows: 150px 250px 400px 50px auto;
+  margin: 50px 140px;
+}
+
+.galerie_area {
+  grid-column: 1/3;
+  grid-row: 1/3;
+  z-index: 10;
+}
+
+.agenda {
+  grid-column: 3;
+  grid-row: 1;
+}
+
+.soundcloud {
+  grid-column: 1;
+  grid-row: 3/5;
+}
+
+.description_area {
+  grid-column: 2/4;
+  grid-row: 2/6;
+}
+
+.youtube {
+  grid-column: 1;
+  grid-row: 5;
+}
+
+@media screen and (max-width: 1400px) {
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+    margin: 50px 20px;
+    gap: 10px;
+  }
+  .galerie_area {
+    flex: 1;
+  }
+  .agenda {
+    flex: 1;
+  }
+  .soundcloud {
+    flex: 1;
+  }
+  .description_area {
+    flex: 1;
+  }
+  .youtube {
+    flex: 1;
+  }
+}
+
+/* FIN PAGE ARTISTE */

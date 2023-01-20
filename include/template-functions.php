@@ -68,3 +68,9 @@
     ) );
   }
   
+  function single_template_for_artiste( $template ) {
+    if ( is_singular( 'artiste' ) ) {
+        $template = locate_template( 'template-parts/single-artiste.php' );
+    }
+    return $template;
+}

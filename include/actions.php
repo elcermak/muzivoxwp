@@ -9,3 +9,5 @@
   
   // Register the menu locations
   add_action('init', 'muzivox_register_menus');
+  
+  add_filter( 'single_template', 'single_template_for_artiste' );
