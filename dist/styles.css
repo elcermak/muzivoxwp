@@ -84,7 +84,7 @@ header .menu a {
   list-style: none;
   align-items: center;
   padding: 0;
-  justify-content: space-around
+  justify-content: space-around;
 }
 
 footer .menu ul li {
@@ -336,24 +336,6 @@ footer img {
   margin-right: 20px;
 }
 
-.header {
-  display: flex;
-}
-
-.menu {
-  display: flex;
-  margin: 0 140px;
-}
-.menu ul {
-  display: flex;
-  font-family: "Akshar", sans-serif;
-  font-size: 20px;
-  list-style: none;
-  width: 1090px;
-  justify-content: space-around;
-  align-items: center;
-  padding: 0;
-}
 .menu-item {
   padding: 5px 10px;
 }
