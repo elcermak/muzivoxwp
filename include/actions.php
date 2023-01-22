@@ -5,7 +5,6 @@
 
   // File d'attente des styles et des scripts
   add_action('wp_enqueue_scripts', 'muzivox_scripts_styles');
-
   
   // Register the menu locations
   add_action('init', 'muzivox_register_menus');

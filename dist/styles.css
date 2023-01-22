@@ -2,7 +2,11 @@
 * {
   margin: 0;
 }
+a {
+  text-decoration:none;
+ }
 
+ /* HEADER */
 
 .header {
   margin-top: 30px;
@@ -12,34 +16,20 @@
   
 }
 
-footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #FF6B00;
-  background-image: url(../image/etoile_grise.png);
-  background-position-y: -20px;
-  background-position-x: 444px;
-  background-repeat: no-repeat;
-  height: 160px;
-}
-footer img {
-  justify-content: center;
-  height: 174px;
-}
-
-.nav_start {
+/* .nav_start {
   white-space: pre-line;
-}
-.nav_start li {
+}  */
+/* .nav_start li {
   margin-left: 20px;
   gap: 10px;
   color: white;
   text-transform: uppercase;
   font-family: "Inter", sans-serif;
 }
-footer .menu-item a {
-  color: white;
+/*  */
+
+header .menu { 
+  width: 80%;
 }
 
 header .menu a {
@@ -53,31 +43,18 @@ header .menu a {
   padding: 5px 10px;
 }
 
-.nav_end {
+/* .nav_end {
   white-space: pre-line;
 }
-.nav_end li {
-  list-style-type: none;
-  text-transform: uppercase;
-  font-family: "Inter", sans-serif;
-}
+
 .nav_end li a {
   text-decoration: none;
   color: white;
-}
+} */
 
-.media {
-  color: white;
-}
-.media i {
-  margin-left: 20px;
-}
 
-.menu { 
-  width: 80%;
-}
 
-.menu ul {
+header .menu ul {
   display: flex;
   font-family: "Akshar", sans-serif;
   font-size: 20px;
@@ -87,13 +64,7 @@ header .menu a {
   justify-content: space-around;
 }
 
-footer .menu ul li {
-  font-size: 16px;
-}
 
-.menu-item-70{
-  margin-left: 430px;
-}
 
 
 /* Ajout du soulignement du lien courant (classe wordpress) */
@@ -287,17 +258,6 @@ border-bottom: 5px solid #FF6B00;
   left: 10px;
 }
 
-footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #FF6B00;
-  height: 160px;
-}
-footer img {
-  justify-content: center;
-  height: 174px;
-}
 
 .nav_start {
   white-space: pre-line;
@@ -328,17 +288,7 @@ footer img {
   color: white;
 }
 
-.media {
-  color: white;
-  margin-right: 40px;
-}
-.media i {
-  margin-right: 20px;
-}
 
-.menu-item {
-  padding: 5px 10px;
-}
 
 .current_menu_item {
   border-bottom: 5px solid #FF6B00;
@@ -402,3 +352,73 @@ footer img {
 }
 
 /* FIN PAGE ARTISTE */
+
+
+/* FOOTER */
+
+footer {
+  display:grid;
+  background-color: #FF6B00;
+  height: 160px;
+}
+
+.grid-footer-container {
+  text-align:center;
+  align-items:center;
+  text-transform:uppercase;
+  color:white;
+  display: grid; 
+  grid-template-columns: 1fr 1.5fr 1fr 0.5fr ;
+  grid-template-areas:
+    "menu_left image menu_right social";
+}
+
+.grid-item-footer-image {
+  grid-area: image;
+  background-image: url(../image/etoile_grise.png);
+  background-repeat: no-repeat;
+
+}
+
+.grid-item-footer li {
+    list-style:none;
+}
+
+.grid-item-footer a{
+  color:white;
+}
+
+.grid-item-footer a:hover{
+  color:black;
+}
+.grid-item-footer a:visited{
+  color:white;
+}
+
+
+.footer_left {
+  grid-area: menu_left;
+  
+}
+.footer_right {
+  grid-area: menu_right;
+
+}
+.media {
+  color: white;
+  margin-right: 40px;
+  grid-area: social ;
+
+}
+.media :hover{
+  color:black;
+}
+
+.media i {
+  margin-right: 20px;
+}
+
+.menu-item {
+  padding: 5px 10px;
+}
+
