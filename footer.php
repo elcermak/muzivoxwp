@@ -12,7 +12,6 @@
       </nav>
     </div>
 
-    <div class="grid-item-footer-image">
 
         </div>
 
