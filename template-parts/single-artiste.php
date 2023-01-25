@@ -118,14 +118,11 @@ while (have_posts()) : the_post(); ?>
 
 				</div>
 			</div>
-			<div class="soundcloud">
-				<iframe width="100%" height="450" scrolling="no" frameborder="no" allow="autoplay" src="<?php the_field('lien_soundcloud'); ?>">
-				</iframe>
-			</div>
 			<div class="description_area">
 				<div class="description">
 					<h2 class="description__title">
-						<?php echo $name_artiste; ?>
+						<div><?php echo $name_artiste; ?></div>
+						<div>pardon ? ou est tu ?</div>
 					</h2>
 					<div class="description__rs">
 						<i class="fa fa-facebook" aria-hidden="true"></i>
@@ -135,17 +132,32 @@ while (have_posts()) : the_post(); ?>
 						<p>
 							<?php the_field('description_courte'); ?>
 						</p>
-						<p id='d1' class='collapsed'>
-							<?php the_field('description_longue'); ?>
-						</p>
+						<div id='d1' class='collapsed'>
+							<div>
+								<?php the_field('description_longue'); ?>
+
+							</div>
+						</div>
 					</div>
 					<div class="description__savoirPlus">
 						<a href="#more" id="expand-collapse-button">En savoir plus</a>
 					</div>
 				</div>
 			</div>
-			<div class="youtube">
-				<iframe width="100%" height="500px" src="<?php the_field('lien_youtube'); ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+			<div class="youtube yt1">
+				<?php
+				echo (get_field('lien_youtube_1'));
+				?>
+			</div>
+			<div class="youtube yt2">
+				<?php
+				echo (get_field('lien_youtube_2'));
+				?>
+			</div>
+			<div class="youtube yt3">
+				<?php
+				echo (get_field('lien_youtube_3'));
+				?>
 			</div>
 		</div>
 	</main>
@@ -157,8 +169,8 @@ while (have_posts()) : the_post(); ?>
 
 
 
-<script src="<?php echo get_template_directory_uri()."/dist/galerieArtiste.js"?>"></script>
-<script src="<?php echo get_template_directory_uri()."/dist/savoirPlus.js"?>"></script>
+	<script src="<?php echo get_template_directory_uri() . "/dist/galerieArtiste.js" ?>"></script>
+	<script src="<?php echo get_template_directory_uri() . "/dist/savoirPlus.js" ?>"></script>
 
 <?php endwhile; // End of the loop.
 get_footer();
