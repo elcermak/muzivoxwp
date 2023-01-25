@@ -42,6 +42,8 @@ while (have_posts()) : the_post(); ?>
 	$next_concert = get_last_concert($concert, $name_artiste);
 	wp_reset_postdata();
 
+
+
 	?>
 
 	<main>
@@ -49,13 +51,13 @@ while (have_posts()) : the_post(); ?>
 			<div class="galerie_area">
 				<div class="carousel-container">
 					<div class="carousel-slide">
-						<img src="asset/photo/LauraCox/lauraCox1.jpg" />
+						<img src="<?php echo get_template_directory_uri() . "/asset/photo/" . get_post_field('post_name', get_post()); ?>/carrousel_1.jpg" />
 					</div>
 					<div class="carousel-slide">
-						<img src="asset/photo/LauraCox/lauraCox2.jpg" />
+						<img src="<?php echo get_template_directory_uri() . "/asset/photo/" . get_post_field('post_name', get_post()); ?>/carrousel_2.jpg" />
 					</div>
 					<div class="carousel-slide">
-						<img src="asset/photo/LauraCox/lauraCox3.jpg" />
+						<img src="<?php echo get_template_directory_uri() . "/asset/photo/" . get_post_field('post_name', get_post()); ?>/carrousel_3.jpg" />
 					</div>
 				</div>
 				<div class="galerie_area-nav">
@@ -155,7 +157,8 @@ while (have_posts()) : the_post(); ?>
 
 
 
+<script src="<?php echo get_template_directory_uri()."/dist/galerieArtiste.js"?>"></script>
+<script src="<?php echo get_template_directory_uri()."/dist/savoirPlus.js"?>"></script>
 
 <?php endwhile; // End of the loop.
-
 get_footer();
