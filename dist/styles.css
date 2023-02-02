@@ -1,21 +1,32 @@
 @import url("https://fonts.googleapis.com/css2?family=Akshar:wght@300;400;700&family=Inter:wght@300;400;700&display=swap");
+
 * {
   margin: 0;
 }
-a {
-  text-decoration:none;
- }
 
- /* HEADER */
+a {
+  text-decoration: none;
+}
+
+/* HEADER */
 
 .header {
   margin-top: 30px;
   margin-bottom: 60px;
   display: flex;
   justify-content: center;
-  
+
 }
 
+.flexbox {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 50px;
+}
+
+td {
+  width:250px;
+}
 /* .nav_start {
   white-space: pre-line;
 }  */
@@ -28,17 +39,18 @@ a {
 }
 /*  */
 
-header .menu { 
+header .menu {
   width: 80%;
 }
 
 header .menu a {
   color: black;
-  text-decoration:none;
+  text-decoration: none;
 
 }
 
-.current-menu, .page_item a :active{
+.current-menu,
+.page_item a :active {
   border-bottom: 5px solid #FF6B00;
   padding: 5px 10px;
 }
@@ -72,7 +84,7 @@ header .menu ul {
 border-bottom: 5px solid #FF6B00;
 } */
 
-.menu-item{
+.menu-item {
   padding: 5px 10px;
 }
 
@@ -101,9 +113,11 @@ border-bottom: 5px solid #FF6B00;
   position: relative;
   border: none;
 }
+
 .btn__arrow:hover {
   background-color: #FF6B00;
 }
+
 .btn__arrow--left {
   position: absolute;
   top: 5px;
@@ -115,6 +129,7 @@ border-bottom: 5px solid #FF6B00;
   border-color: transparent #FFFFFF transparent transparent;
   z-index: 10;
 }
+
 .btn__arrow--right {
   position: absolute;
   top: 5px;
@@ -133,6 +148,7 @@ border-bottom: 5px solid #FF6B00;
   font-family: "Akshar", sans-serif;
   font-size: 1.125rem;
 }
+
 .description__title {
   text-transform: uppercase;
   text-align: center;
@@ -145,6 +161,7 @@ border-bottom: 5px solid #FF6B00;
   margin: 0 50px;
 
 }
+
 .description__rs {
   display: flex;
   gap: 20px;
@@ -152,18 +169,19 @@ border-bottom: 5px solid #FF6B00;
   justify-content: center;
   color: #FF6B00;
 }
+
 .description__text {
   margin: 0px 50px;
   overflow: hidden;
   /* max-height: 240px; */
 }
 
-#d1 {
-}
+#d1 {}
 
 #d1.collapsed {
   display: none;
 }
+
 #d1.expanded {
   display: block;
 }
@@ -171,18 +189,22 @@ border-bottom: 5px solid #FF6B00;
 .description p:first-of-type {
   font-size: 1.5rem;
 }
+
 .description p {
   margin: 20px 0;
 }
+
 .description p:first-of-type::first-letter {
   color: #FF6B00;
   font-size: 2rem;
 }
+
 .description__savoirPlus {
   text-align: center;
   text-transform: uppercase;
   padding-bottom: 20px;
 }
+
 .description__savoirPlus a {
   text-decoration: none;
   color: #FF6B00;
@@ -195,40 +217,47 @@ border-bottom: 5px solid #FF6B00;
   font-size: 1.5rem;
   line-height: 1.625rem;
 }
+
 .agenda a {
   color: #FF6B00;
   text-decoration: none;
 }
+
 .agenda__header {
   margin: 10px;
   font-size: 2rem;
   line-height: 1.5rem;
 }
+
 .agenda__concert {
   margin: 10px;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
+
 .agenda__footer {
   margin: 10px;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
+
 .galerie {
   overflow: hidden;
 }
+
 .galerie img {
   display: none;
   width: 100px;
   height: auto;
 }
+
 .galerie img.active {
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   display: block;
 }
 
@@ -244,6 +273,7 @@ border-bottom: 5px solid #FF6B00;
     height: 400px;
   }
 }
+
 .carousel-slide {
   width: 100%;
   height: 100%;
@@ -256,12 +286,13 @@ border-bottom: 5px solid #FF6B00;
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 
 .galerie_area {
   position: relative;
 }
+
 .galerie_area-nav {
   position: absolute;
   bottom: 10px;
@@ -272,6 +303,7 @@ border-bottom: 5px solid #FF6B00;
 .nav_start {
   white-space: pre-line;
 }
+
 .nav_start li {
   margin-left: 20px;
   gap: 10px;
@@ -280,6 +312,7 @@ border-bottom: 5px solid #FF6B00;
   text-transform: uppercase;
   font-family: "Inter", sans-serif;
 }
+
 .nav_start li a {
   color: white;
   text-decoration: none;
@@ -288,11 +321,13 @@ border-bottom: 5px solid #FF6B00;
 .nav_end {
   white-space: pre-line;
 }
+
 .nav_end li {
   list-style-type: none;
   text-transform: uppercase;
   font-family: "Inter", sans-serif;
 }
+
 .nav_end li a {
   text-decoration: none;
   color: white;
@@ -324,24 +359,24 @@ border-bottom: 5px solid #FF6B00;
 
 .soundcloud {
 
-  position: relative; 
+  position: relative;
   padding-bottom: 56.25%;
   overflow: hidden;
   max-width: 100%;
   height: auto;
 }
 
-.yt1{
+.yt1 {
   grid-column: 1;
   grid-row: 3;
 }
 
-.yt2{
+.yt2 {
   grid-column: 1;
   grid-row: 4;
 }
 
-.yt3{
+.yt3 {
   grid-column: 1;
   grid-row: 5;
 }
@@ -351,12 +386,12 @@ border-bottom: 5px solid #FF6B00;
 .youtube embed,
 .soundcloud iframe,
 .soundcloud object,
-.soundcloud embed { 
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+.soundcloud embed {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 
 .description_area {
@@ -366,7 +401,7 @@ border-bottom: 5px solid #FF6B00;
 
 .youtube {
 
-  position: relative; 
+  position: relative;
   padding-bottom: 56.25%;
   overflow: hidden;
   max-width: 100%;
@@ -380,18 +415,23 @@ border-bottom: 5px solid #FF6B00;
     margin: 50px 20px;
     gap: 10px;
   }
+
   .galerie_area {
     flex: 1;
   }
+
   .agenda {
     flex: 1;
   }
+
   .soundcloud {
     flex: 1;
   }
+
   .description_area {
     flex: 1;
   }
+
   .youtube {
     flex: 1;
   }
@@ -403,18 +443,18 @@ border-bottom: 5px solid #FF6B00;
 /* FOOTER */
 
 footer {
-  display:grid;
+  display: grid;
   background-color: #FF6B00;
   height: 160px;
 }
 
 .grid-footer-container {
-  text-align:center;
-  align-items:center;
-  text-transform:uppercase;
-  color:white;
-  display: grid; 
-  grid-template-columns: 1fr 1.5fr 1fr 0.5fr ;
+  text-align: center;
+  align-items: center;
+  text-transform: uppercase;
+  color: white;
+  display: grid;
+  grid-template-columns: 1fr 1.5fr 1fr 0.5fr;
   grid-template-areas:
     "menu_left image menu_right social";
 }
@@ -427,37 +467,41 @@ footer {
 }
 
 .grid-item-footer li {
-    list-style:none;
+  list-style: none;
 }
 
-.grid-item-footer a{
-  color:white;
+.grid-item-footer a {
+  color: white;
 }
 
-.grid-item-footer a:hover{
-  color:black;
+.grid-item-footer a:hover {
+  color: black;
 }
-.grid-item-footer a:visited{
-  color:white;
+
+.grid-item-footer a:visited {
+  color: white;
 }
 
 
 .footer_left {
   grid-area: menu_left;
-  
+
 }
+
 .footer_right {
   grid-area: menu_right;
 
 }
+
 .media {
   color: white;
   margin-right: 40px;
-  grid-area: social ;
+  grid-area: social;
 
 }
-.media :hover{
-  color:black;
+
+.media :hover {
+  color: black;
 }
 
 .media i {
@@ -467,4 +511,3 @@ footer {
 .menu-item {
   padding: 5px 10px;
 }
-
