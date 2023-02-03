@@ -8,6 +8,10 @@ a {
   text-decoration: none;
 }
 
+body {
+  font-family: "Akshar", sans-serif;
+}
+
 /* HEADER */
 
 .header {
@@ -25,8 +29,9 @@ a {
 }
 
 td {
-  width:250px;
+  width: 250px;
 }
+
 /* .nav_start {
   white-space: pre-line;
 }  */
@@ -159,7 +164,7 @@ border-bottom: 5px solid #FF6B00;
   display: flex;
   justify-content: space-between;
   margin: 0 50px;
-
+  color: white;
 }
 
 .description__rs {
@@ -511,3 +516,127 @@ footer {
 .menu-item {
   padding: 5px 10px;
 }
+
+/* FIN FOOTER */
+
+/* AGENDA */
+.title-filter {
+  display: flex;
+}
+
+#name-filter {
+  font-size: 25px;
+  justify-content: flex-start;
+}
+
+.agenda-table {
+  color: white;
+}
+
+.btns-filters {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+}
+
+.btn-filter {
+  color: white;
+  text-transform: uppercase;
+  padding: 5px 15px;
+  margin: 5px;
+  font-family: "Akshar";
+  font-size: 22px;
+  border: none;
+  background-color: #FF6B00;
+}
+
+/* FIN AGENDA */
+
+
+/* ASSET CONTAINER RECTANGLE */
+
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+  margin-bottom: 100px;
+}
+
+.container-flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container-rectangle {
+  width: 60%;
+  background-color: black;
+  min-height: 450px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-image: url(asset/image/ETOILE_BIG.png);
+  fill: red;
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 10px 20px;
+  margin-bottom: 80px;
+  position: relative;
+  justify-content: flex-start;
+}
+
+.container-rectangle::before {
+  content: "";
+  position: absolute;
+  /*or absolute*/
+  background-image: url("asset/image/egaliseur.svg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  left: -16px;
+  transform: translateX(-50%);
+  width: 100%;
+  height: 100%;
+  z-index: -5; /* Image supperpose les liens, A voir si cette modif pose des soucis */
+}
+
+.container-rectangle::after {
+  content: "";
+  position: absolute;
+  /*or absolute*/
+  background-image: url("asset/image/egaliseur.svg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  right: -4px;
+  transform: translateX(50%);
+  width: 100%;
+  height: 100%;
+  z-index: -5; /* Image supperpose les liens, A voir si cette modif pose des soucis */
+
+}
+
+@media screen and (max-width: 640px) {
+  .container-rectangle {
+    align-items: center;
+    width: 100%;
+  }
+
+  .container-rectangle::before {
+    transform: rotateZ(90deg) translateX(-50%);
+    background-size: 50%;
+    left: inherit;
+    top: 38px;
+    width: 390px;
+    height: 300px;
+  }
+
+  .container-rectangle::after {
+    transform: rotateZ(90deg) translateX(-50%);
+    background-size: 50%;
+    left: inherit;
+    bottom: -346px;
+    width: 390px;
+    height: 300px;
+  }
+}
+
+/* FIN ASSET CONTAINER RECTANGLE */
