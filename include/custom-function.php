@@ -17,14 +17,14 @@ function get_last_concert($concerts, $name_artiste)
 	$next_date = null;
 
 	foreach ($concerts[$name_artiste] as $concert) { // On parcours tous les concerts de l'artiste donné
-		$concert_time = strtotime($concert['date']); 
+		$concert_time = strtotime($concert['date']);
 		if ($current_time < $concert_time) { // Si c'est le premier prochain concert qu'on trouve
 			if ($next_date === null) {
-				$next_date = $concert_time; 
+				$next_date = $concert_time;
 				$next_concert = $concert;
 			} else if ($next_date > $concert_time) { // Sinon si on a déjà trouvé un concert, on compare les deux dates pour savoir lequel est le plus proche
-					$next_date = $concert_time;
-					$next_concert = $concert;
+				$next_date = $concert_time;
+				$next_concert = $concert;
 			}
 		}
 	}
@@ -36,29 +36,30 @@ function get_last_concert($concerts, $name_artiste)
  * @param date $dateRaw  date au le format "YYYY/MM/DD" 
  * @return date $convertDate date au format ('D d M Y')
  */
-function convert_date_format($rawDate) {
+function convert_date_format($rawDate)
+{
 	// définition des traductions anglais/francais des jours et mois dans un tableau associatif
 	$fr_days = array(
-		'Monday' => 'Lundi', 
-		'Tuesday' => 'Mardi', 
-		'Wednesday' => 'Mercredi', 
-		'Thursday' => 'Jeudi', 
-		'Friday' => 'Vendredi', 
-		'Saturday' => 'Samedi', 
+		'Monday' => 'Lundi',
+		'Tuesday' => 'Mardi',
+		'Wednesday' => 'Mercredi',
+		'Thursday' => 'Jeudi',
+		'Friday' => 'Vendredi',
+		'Saturday' => 'Samedi',
 		'Sunday' => 'Dimanche'
-);
+	);
 	$fr_months = array(
-		'January' => 'Janvier', 
-		'February' => 'Février', 
-		'March' => 'Mars', 
-		'April' => 'Avril', 
-		'May' => 'Mai', 
-		'June' => 'Juin', 
-		'July' => 'Juillet', 
-		'August' => 'Août', 
-		'September' => 'Septembre', 
-		'October' => 'Octobre', 
-		'November' => 'Novembre', 
+		'January' => 'Janvier',
+		'February' => 'Février',
+		'March' => 'Mars',
+		'April' => 'Avril',
+		'May' => 'Mai',
+		'June' => 'Juin',
+		'July' => 'Juillet',
+		'August' => 'Août',
+		'September' => 'Septembre',
+		'October' => 'Octobre',
+		'November' => 'Novembre',
 		'December' => 'Décembre'
 	);
 
@@ -69,4 +70,50 @@ function convert_date_format($rawDate) {
 	$year = date_format($date, 'Y'); // récupère l'année de la date
 	$converted_date = $fr_days[$day] . ' ' . $day_number . ' ' . $fr_months[$month] . ' ' . $year; // création de la chaine de caractère de la date en Francais
 	return $converted_date;
+}
+
+
+function dateToString($month)
+{
+	switch ($month) {
+		case '01':
+			echo "Janvier";
+			break;
+		case '02':
+			echo "Février";
+			break;
+		case '03':
+			echo "Mars";
+			break;
+		case '04':
+			echo "Avril";
+			break;
+		case '05':
+			echo "Mai";
+			break;
+		case '06':
+			echo "Juin";
+			break;
+		case '07':
+			echo "Juillet";
+			break;
+		case '08':
+			echo "Août";
+			break;
+		case '09':
+			echo "Septembre";
+			break;
+		case '10':
+			echo "Octobre";
+			break;
+		case '11':
+			echo "Novembre";
+			break;
+		case '12':
+			echo "Décembre";
+			break;
+		default:
+			echo "error";
+			break;
+	}
 }
