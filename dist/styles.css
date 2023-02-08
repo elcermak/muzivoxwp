@@ -426,6 +426,8 @@ footer {
   color: white;
   margin-right: 40px;
 }
+.media i {
+  margin-left: 20px;
 .media :hover{
   color:black;
 }
