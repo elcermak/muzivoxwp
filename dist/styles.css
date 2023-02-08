@@ -204,7 +204,12 @@ border-bottom: 5px solid #FF6B00;
   margin: 10px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  background-color: #FF6B00;
+  background-image: url(../image/etoile_grise.png);
+  background-position-y: -20px;
+  background-position-x: 444px;
+  background-repeat: no-repeat;
+  height: 160px;
 }
 .galerie {
   overflow: hidden;
@@ -418,8 +423,9 @@ footer {
 }
 .media {
   color: white;
-  margin-right: 40px;
 }
+.media i {
+  margin-left: 20px;
 .media :hover{
   color:black;
 }
@@ -432,3 +438,22 @@ footer {
   padding: 5px 10px;
 }
 
+footer .menu ul li {
+  font-size: 16px;
+}
+
+.menu-item-70{
+  margin-left: 430px;
+}
+
+
+/* Ajout du soulignement du lien courant (classe wordpress) */
+/* .current_menu_item > a {
+border-bottom: 5px solid #FF6B00;
+} */
+
+.menu-item{
+  padding: 5px 10px;
+}
+
+/*# sourceMappingURL=styleCompile.css.map */
