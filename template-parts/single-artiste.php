@@ -22,28 +22,22 @@ while (have_posts()) : the_post(); ?>
 		setup_postdata($post);
 
 		$artiste_concert = get_field('artiste_concert')[0];
-		// $name_artiste = $artiste_concert->post_title; //Tout les artistes présent dans la base de donnée
-		$artiste = $name_artiste; //Récupère le nom de l'artiste de la page
 
 		if ($artiste_concert->post_title == $name_artiste) {
 			$region_name = get_term(get_field('region_concert'))->name;
 
-			$concert[$artiste][$i]['id_region'] = $region_name;
-			$concert[$artiste][$i]['ville'] = get_field('ville');
-			$concert[$artiste][$i]['date'] = get_field('date');
-			$concert[$artiste][$i]['lien'] = get_field('lien_reservation');
-			$concert[$artiste][$i]['salle'] = get_field('salle_de_concert');
-			$concert[$artiste][$i]['complet'] = get_field('complet');
-
+			$concert[$name_artiste][$i]['id_region'] = $region_name;
+			$concert[$name_artiste][$i]['ville'] = get_field('ville');
+			$concert[$name_artiste][$i]['date'] = get_field('date');
+			$concert[$name_artiste][$i]['lien'] = get_field('lien_reservation');
+			$concert[$name_artiste][$i]['salle'] = get_field('salle_de_concert');
+			$concert[$name_artiste][$i]['complet'] = get_field('complet');
 			$i++;
 		}
 	endforeach;
 
 	$next_concert = get_last_concert($concert, $name_artiste);
 	wp_reset_postdata();
-
-
-
 	?>
 
 	<main>
@@ -74,7 +68,7 @@ while (have_posts()) : the_post(); ?>
 
 			<div class="agenda">
 				<div class="agenda__header">
-					<strong>Concert</strong> à venir
+					<strong>Prochain concert</strong>
 				</div>
 				<hr>
 				<div class="agenda__concert">
@@ -122,7 +116,7 @@ while (have_posts()) : the_post(); ?>
 				<div class="description">
 					<h2 class="description__title">
 						<div><?php echo $name_artiste; ?></div>
-						<div>pardon ? ou est tu ?</div>
+						<div> <a href="<?php the_field('lien_soundcloud'); ?>" class="btn-filter" target="_blank">Playlist musical</a></div>
 					</h2>
 					<div class="description__rs">
 						<i class="fa fa-facebook" aria-hidden="true"></i>
@@ -161,13 +155,6 @@ while (have_posts()) : the_post(); ?>
 			</div>
 		</div>
 	</main>
-
-
-
-
-
-
-
 
 	<script src="<?php echo get_template_directory_uri() . "/dist/galerieArtiste.js" ?>"></script>
 	<script src="<?php echo get_template_directory_uri() . "/dist/savoirPlus.js" ?>"></script>

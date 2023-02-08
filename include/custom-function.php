@@ -75,45 +75,47 @@ function convert_date_format($rawDate)
 
 function dateToString($month)
 {
+	$monthString="";
 	switch ($month) {
 		case '01':
-			echo "Janvier";
+			$monthString= "Janvier";
 			break;
 		case '02':
-			echo "Février";
+			$monthString= "Février";
 			break;
 		case '03':
-			echo "Mars";
+			$monthString= "Mars";
 			break;
 		case '04':
-			echo "Avril";
+			$monthString= "Avril";
 			break;
 		case '05':
-			echo "Mai";
+			$monthString= "Mai";
 			break;
 		case '06':
-			echo "Juin";
+			$monthString= "Juin";
 			break;
 		case '07':
-			echo "Juillet";
+			$monthString= "Juillet";
 			break;
 		case '08':
-			echo "Août";
+			$monthString= "Août";
 			break;
 		case '09':
-			echo "Septembre";
+			$monthString= "Septembre";
 			break;
 		case '10':
-			echo "Octobre";
+			$monthString= "Octobre";
 			break;
 		case '11':
-			echo "Novembre";
+			$monthString= "Novembre";
 			break;
 		case '12':
 			echo "Décembre";
 			break;
 		default:
-			echo "error";
+		$monthString= "error";
 			break;
 	}
+	return $monthString;
 }
