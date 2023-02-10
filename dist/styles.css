@@ -28,6 +28,10 @@ body {
   gap: 50px;
 }
 
+.justify_center {
+  justify-content: center;
+}
+
 td {
   width: 250px;
 }
@@ -162,7 +166,7 @@ border-bottom: 5px solid #FF6B00;
   text-shadow: 0px 4px 4px #FF6B00;
   font-size: 3rem;
   display: flex;
-  justify-content: space-between;
+  justify-content: ;
   margin: 0 50px;
   color: white;
 }
@@ -347,7 +351,7 @@ border-bottom: 5px solid #FF6B00;
 .wrapper {
   display: grid;
   grid-template-columns: 0.6fr 2% 1fr;
-  grid-template-rows: 150px 250px 350px 350px 350px auto;
+  grid-template-rows: 200px 250px 360px 350px 350px auto;
   margin: 50px 140px;
 }
 
@@ -411,6 +415,7 @@ border-bottom: 5px solid #FF6B00;
   overflow: hidden;
   max-width: 100%;
   max-height: 100px;
+  margin: 5px 0;
 }
 
 @media screen and (max-width: 1400px) {
@@ -527,6 +532,7 @@ footer {
 #name-filter {
   font-size: 25px;
   justify-content: flex-start;
+  margin: 25px 0 20px 0;
 }
 
 .agenda-table {
@@ -548,6 +554,24 @@ footer {
   font-size: 22px;
   border: none;
   background-color: #FF6B00;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+.title_calendar {
+  border-bottom: none;
+}
+
+.agenda-table tr {
+  border-bottom: 1px solid #FF6B00;
+  height: 60px;
+}
+
+.logo_agenda {
+  color: #FF6B00;
+  font-size: 1.5rem;
 }
 
 /* FIN AGENDA */
@@ -596,7 +620,8 @@ footer {
   transform: translateX(-50%);
   width: 100%;
   height: 100%;
-  z-index: -5; /* Image supperpose les liens, A voir si cette modif pose des soucis */
+  z-index: -5;
+  /* Image supperpose les liens, A voir si cette modif pose des soucis */
 }
 
 .container-rectangle::after {
@@ -610,7 +635,8 @@ footer {
   transform: translateX(50%);
   width: 100%;
   height: 100%;
-  z-index: -5; /* Image supperpose les liens, A voir si cette modif pose des soucis */
+  z-index: -5;
+  /* Image supperpose les liens, A voir si cette modif pose des soucis */
 
 }
 
@@ -640,3 +666,268 @@ footer {
 }
 
 /* FIN ASSET CONTAINER RECTANGLE */
+
+/* ========= loader music ========= */
+
+.flexbox_player {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2px;
+}
+
+.muzik {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  min-height: 95px;
+  width: 330px;
+  margin-bottom: 1px;
+}
+
+.loader {
+  background-color: #FF6B00;
+
+}
+
+.loader:nth-child(1) {
+  background-color: #FF6B00;
+  height: 4px;
+}
+
+.loader:nth-child(2) {
+  background-color: #FF6B00;
+  height: 4px;
+}
+
+.loader:nth-child(3) {
+  background-color: #FF6B00;
+  height: 4px;
+}
+
+.loader:nth-child(4) {
+  background-color: #FF6B00;
+  height: 4px;
+}
+
+.loader:nth-child(5) {
+  background-color: #FF6B00;
+  height: 4px;
+}
+
+.loader:nth-child(6) {
+  background-color: #FF6B00;
+  height: 4px;
+}
+
+.loader:nth-child(7) {
+  background-color: #FF6B00;
+  height: 4px;
+}
+
+.loader:nth-child(8) {
+  background-color: #FF6B00;
+  height: 4px;
+}
+
+.loader:nth-child(9) {
+  background-color: #FF6B00;
+  height: 4px;
+}
+
+.loader:nth-child(10) {
+  background-color: #FF6B00;
+  height: 4px;
+}
+
+
+/* ========= Fin loader music ========= */
+.loader {
+  width: 12px;
+  height: 4px;
+  border-radius: 10px;
+  background-color: #fff;
+
+  /* animation: musicloader 1s ease-in-out infinite; */
+
+}
+
+.animation {
+  border: 4px solid #FF6B00;
+  width: auto;
+  height: auto;
+  -webkit-transition: all 0.5s ease;
+
+}
+
+.loader {
+  animation: musicloader 1.2s ease-in-out infinite;
+
+}
+
+@keyframes musicloader {
+
+  0% {
+    height: 4px;
+  }
+
+  50% {
+    height: 90px;
+  }
+
+  100% {
+    height: 4px;
+  }
+
+}
+
+.loader:nth-child(1) {
+  animation-delay: 1s;
+}
+
+.loader:nth-child(2) {
+  animation-delay: 0.8s;
+}
+
+.loader:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+.loader:nth-child(4) {
+  animation-delay: 0.4s;
+}
+
+.loader:nth-child(5) {
+  animation-delay: 0.2s;
+}
+
+.loader:nth-child(6) {
+  animation-delay: 0.4s;
+}
+
+.loader:nth-child(7) {
+  animation-delay: 0.4s;
+}
+
+.loader:nth-child(8) {
+  animation-delay: 0.6s;
+}
+
+.loader:nth-child(9) {
+  animation-delay: 0.8s;
+}
+
+.loader:nth-child(10) {
+  animation-delay: 1s;
+}
+
+/* ========= Fin loader music ========= */
+
+/* ========= bouton play ========= */
+.container_buttonPlay {
+  width: 100%;
+  text-align: center;
+}
+
+.circle {
+  stroke: #FF6B00;
+  stroke-dasharray: 650;
+  stroke-dashoffset: 650;
+  -webkit-transition: all 0.5s ease-in-out;
+  opacity: 0.3;
+}
+
+.playBut {
+  color: #FF6B00;
+  text-transform: uppercase;
+  text-decoration: none;
+  display: inline-block;
+  -webkit-transition: all 0.5s ease;
+}
+
+.playBut .triangle {
+  -webkit-transition: all 0.7s ease-in-out;
+  stroke-dasharray: 240;
+  stroke-dashoffset: 480;
+  stroke: #000;
+  transform: translateY(0);
+}
+
+.playBut:hover .triangle {
+  stroke-dashoffset: 0;
+  opacity: 1;
+  stroke: #FF6B00;
+  animation: nudge 0.7s ease-in-out;
+}
+
+@keyframes nudge {
+  0% {
+    transform: translateX(0);
+  }
+
+  30% {
+    transform: translateX(-5px);
+  }
+
+  50% {
+    transform: translateX(5px);
+  }
+
+  70% {
+    transform: translateX(-2px);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.playBut:hover .circle {
+  stroke-dashoffset: 0;
+  opacity: 1;
+}
+
+/* ========= Fin bouton play ========= */
+
+/* ========= Liste artistes ========= */
+#artist {
+  padding: 0;
+}
+.Artistes_List {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: center;
+}
+
+.artist li {
+  float: left;
+  width: 45%;
+  list-style-type: none;
+margin: 10px;
+text-transform: uppercase;
+font-size: 1.2em;
+}
+
+.artist__search{
+  flex-basis: 100%;
+  text-align: center;
+  justify-content: center;
+  align-self: center;
+  align-items: center;
+}
+
+.artist__link {
+  color: white;
+  text-decoration: none;
+  padding: 5px;
+}
+
+.filtreColor {
+  background-color: rgba(0, 0, 0, 0.7);
+  width: 100%;
+  height: 100%;
+  content: "";
+}
+/* ========= Fin Liste artistes ========= */

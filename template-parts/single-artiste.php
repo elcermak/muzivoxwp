@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Template Name: artiste
+ * Template Name: single_artiste
  */
 
 get_header();
@@ -101,9 +101,6 @@ while (have_posts()) : the_post(); ?>
 					<div class="agenda__footer--txt">
 						Programmer cet artiste ?
 					</div>
-					<div class="agenda__footer--booker">
-						@<?php echo get_field('contact_artiste')[0]->post_title; ?>
-					</div>
 					<div class="agenda__footer--mail">
 						<a href="#">
 							<i class="fa fa-envelope"></i>
@@ -116,7 +113,7 @@ while (have_posts()) : the_post(); ?>
 				<div class="description">
 					<h2 class="description__title">
 						<div><?php echo $name_artiste; ?></div>
-						<div> <a href="<?php the_field('lien_soundcloud'); ?>" class="btn-filter" target="_blank">Playlist musical</a></div>
+						<!-- <div> <a href="<?php the_field('lien_soundcloud'); ?>" class="btn-filter" target="_blank">Playlist musical</a></div> -->
 					</h2>
 					<div class="description__rs">
 						<i class="fa fa-facebook" aria-hidden="true"></i>
@@ -139,9 +136,38 @@ while (have_posts()) : the_post(); ?>
 				</div>
 			</div>
 			<div class="youtube yt1">
-				<?php
-				echo (get_field('lien_youtube_1'));
-				?>
+			<div class="animation flexbox_player ">
+    <a href='<?php the_field('lien_soundcloud'); ?>' class='playBut test'>
+      <div class="flexbox_player">
+        Ecouter cet artiste
+
+        <div class='container_buttonPlay'>
+
+          <!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In  -->
+          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/" x="0px" y="0px" width="213.7px" height="213.7px" viewBox="0 0 213.7 213.7" enable-background="new 0 0 213.7 213.7" xml:space="preserve">
+
+            <polygon class='triangle' id="XMLID_18_" fill="none" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+	73.5,62.5 148.5,105.8 73.5,149.1 " />
+
+            <circle class='circle' id="XMLID_17_" fill="none" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" cx="106.8" cy="106.8" r="103.3" />
+          </svg>
+        </div>
+        <div class="muzik">
+          <div class="loader"></div>
+          <div class="loader"></div>
+          <div class="loader"></div>
+          <div class="loader"></div>
+          <div class="loader"></div>
+          <div class="loader"></div>
+          <div class="loader"></div>
+          <div class="loader"></div>
+          <div class="loader"></div>
+          <div class="loader"></div>
+        </div>
+      </div>
+    </a>
+  </div>
+
 			</div>
 			<div class="youtube yt2">
 				<?php
