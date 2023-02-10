@@ -38,15 +38,20 @@ if (have_posts()) {
   <div class="container container-flex">
     <div class="container-rectangle" id="artist" :style="{'background-image': 'url(' + currentBackground + ')'}">
       <div class="filtreColor">
-        <input class="artist__search" type="text" v-model="searchTerm">
-
+        <div class="flexbox justify_center align_center artist__search">
+          <input class="artist__search--input" type="text" v-model="searchTerm" placeholder="Recherche">
+          <i class="fa fa-magnifying-glass" style="color:#FF6B00;font-size: 1.2em;"></i>
+        </div>
         <div class="Artistes_List">
           <ul class="artist">
             <li v-for="person in filteredPersons">
-              <a class="artist__link" :href="person.link" @mouseover="updateBackground(person.thumbnail)">{{ person.name }}</a>
+              <a class="artist__link" :href="person.link" @mouseover="updateBackground(person.thumbnail)"  @mouseout="updateBackground()">{{ person.name }}</a>
             </li>
           </ul>
+
         </div>
+        <div class="artist__footer"><img src="<?php echo get_template_directory_uri()."/asset/image/arrow_Down.png" ; ?>" alt="flèche descendante"></div>
+
       </div>
     </div>
   </div>

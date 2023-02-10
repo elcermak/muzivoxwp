@@ -19,7 +19,6 @@ body {
   margin-bottom: 60px;
   display: flex;
   justify-content: center;
-
 }
 
 .flexbox {
@@ -30,6 +29,10 @@ body {
 
 .justify_center {
   justify-content: center;
+}
+
+.align_center {
+  align-items: center;
 }
 
 td {
@@ -894,40 +897,79 @@ table {
 /* ========= Liste artistes ========= */
 #artist {
   padding: 0;
-}
-.Artistes_List {
-  display: flex;
+  width: 70%;
+  height: 640px;
   flex-wrap: wrap;
-  flex-direction: center;
+  object-fit: cover;
+}
+
+.Artistes_List {
+  width: 100%;
+  height: 600px;
+  overflow-y: scroll;
 }
 
 .artist li {
   float: left;
   width: 45%;
   list-style-type: none;
-margin: 10px;
-text-transform: uppercase;
-font-size: 1.2em;
+  margin: 10px;
+  text-transform: uppercase;
+  font-size: 1.2em;
 }
 
-.artist__search{
-  flex-basis: 100%;
-  text-align: center;
-  justify-content: center;
-  align-self: center;
-  align-items: center;
+.artist__search--input {
+  width: 200px;
+  margin: 20px 10px;
+  font-size: 1.2em;
+}
+
+.artist__search {
+  gap: 0;
 }
 
 .artist__link {
   color: white;
   text-decoration: none;
-  padding: 5px;
+
 }
 
 .filtreColor {
   background-color: rgba(0, 0, 0, 0.7);
   width: 100%;
   height: 100%;
-  content: "";
+  min-height: 450px;
+  display: flex;
+  /* flex-wrap: wrap; */
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #FF6B00
+  ;
+  outline: #CC5500;
+  border-radius: 50vh;
+  transition: 1s ease-in-out;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #CC5500;
+  border: 1px solid #CC5500
+  ;
 }
 /* ========= Fin Liste artistes ========= */
