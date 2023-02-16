@@ -5,53 +5,85 @@
 get_header();
 
 
-// Vérifier si l'utilisateur est connecté
-if (!is_user_logged_in()) {
-  // Si l'utilisateur n'est pas connecté, rediriger vers la page de connexion
-  wp_redirect(wp_login_url(get_permalink()));
-  exit;
-}
+if (have_posts()) {
+  $i = 0;
+  while (have_posts()) {
+    the_post();
+    query_posts(array(
+      'post_type' => 'espace_pro',
+      'posts_per_page' => -1
+    ));
+    while (have_posts()) {
+      the_post();
+      $artistes[$i]['link'] = get_field('lien_dossier', get_the_ID());
+      $artistes[$i]['name'] = get_the_title();
+      $i++;
+    }
+    wp_reset_query();
+  }
+  echo'<pre>';
+  print_r($artistes);
+  echo'</pre>';
+} else {
+  echo "pas de post";
+  get_template_part('template-parts/content', 'none');
+};
+?>
 
-// Récupérer l'utilisateur connecté
-$current_user = wp_get_current_user();
+<main id='app'>
+  <div class="">
+    <div class="" id="artist">
+      <div class="">
+        <input class="" type="text" v-model="searchTerm">
 
-// Récupérer tous les custom post types "espace_pro" accessibles pour l'utilisateur
-$args = array(
-  'post_type' => 'espace_pro',
-  'author' => $current_user->ID,
-  'posts_per_page' => -1
-);
-$espace_pros = new WP_Query($args);
+        <div class="">
+          <ul class="">
+            <li v-for="person in filteredPersons">
+              <a class="" :href="person.link" >{{ person.name }}</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
 
-// Vérifier si des custom post types "espace_pro" ont été trouvés
-if ($espace_pros->have_posts()) :
-  while ($espace_pros->have_posts()) : $espace_pros->the_post();
+<script>
+  let artistes = <?php echo json_encode(array_map(function ($artist) {
+                    return [
+                      'link' => $artist['link'],
+                      'name' => html_entity_decode($artist['name']),
+                      'thumbnail' => $artist['thumbnail']
+                    ];
+                  }, $artistes)); ?>;
+  console.log(artistes);
+  var app = new Vue({
+    el: '#app',
+    data: {
+      persons: artistes.map(person => {
+        return {
+          name: person.name,
+          link: person.link,
+          thumbnail: person.thumbnail
+        };
+      }),
+      searchTerm: '',
+      currentBackground: ''
+    },
+    computed: {
+      filteredPersons() {
+        return this.persons.filter(person => {
+          return person.name.toLowerCase().includes(this.searchTerm.toLowerCase());
+        });
+      }
+    },
+    methods: {
+      updateBackground(thumbnail) {
+        this.currentBackground = thumbnail;
+      }
+    }
+  })
+</script>
 
-      // Récupérer les artistes associés à chaque custom post type "espace_pro"
-      $artistes = get_field('artistes_associes', get_the_ID());
 
-      // Afficher le titre du custom post type "espace_pro"
-      the_title('<h2>', '</h2>');
-
-      // Afficher la liste des artistes associés à ce custom post type "espace_pro"
-      if ($artistes) :
-          echo '<ul>';
-          foreach ($artistes as $artiste) :
-              echo '<li>' . $artiste->post_title . '</li>';
-          endforeach;
-          echo '</ul>';
-      endif;
-
-  endwhile;
-
-  // Réinitialiser la requête
-  wp_reset_postdata();
-
-else :
-
-  // Aucun custom post type "espace_pro" n'a été trouvé
-  echo '<p>Aucun espace pro n\'est disponible pour cet utilisateur.</p>';
-
-endif;
-
-get_footer(); ?>
+<<?php get_footer(); ?>
