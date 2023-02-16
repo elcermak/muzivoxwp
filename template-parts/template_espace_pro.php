@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Template Name: espace pro
  */
@@ -21,9 +22,6 @@ if (have_posts()) {
     }
     wp_reset_query();
   }
-  echo'<pre>';
-  print_r($artistes);
-  echo'</pre>';
 } else {
   echo "pas de post";
   get_template_part('template-parts/content', 'none');
@@ -31,17 +29,19 @@ if (have_posts()) {
 ?>
 
 <main id='app'>
-  <div class="">
-    <div class="" id="artist">
-      <div class="">
-        <input class="" type="text" v-model="searchTerm">
+  <div class="wrapperEspacePro">
+    <div class="displaySearch">
+      <div class="displaySearch__background">
+        <input class="displaySearch__input" type="text" v-model="searchTerm" placeholder="Rechercher votre artiste">
+        <i class="fa fa-magnifying-glass"></i>
+      </div>
+    </div>
 
-        <div class="">
-          <ul class="">
-            <li v-for="person in filteredPersons">
-              <a class="" :href="person.link" >{{ person.name }}</a>
-            </li>
-          </ul>
+    <div class="EspacePro__artist">
+      <div class="espacePro__artist--background" v-for="person in filteredPersons">
+        <div class="EspacePro__artist--item">
+          <a class="" :href="person.link"><i class="fa fa-file"></i></a>
+          {{ person.name }}
         </div>
       </div>
     </div>
@@ -86,4 +86,4 @@ if (have_posts()) {
 </script>
 
 
-<<?php get_footer(); ?>
+<?php get_footer(); ?>
