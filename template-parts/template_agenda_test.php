@@ -1,7 +1,6 @@
 <?php
-
 /**
- * Template Name: agenda
+ * Template Name: agenda test
  */
 
 function getInfoAgenda($filter)
@@ -42,7 +41,6 @@ function getInfoAgenda($filter)
     $date = get_field('date', $concert->ID);
     // Récupération des données du champ "complet"
     $is_full = get_field('complet', $concert->ID);
-    $reservation_link = get_field('lien_reservation', $concert->ID);
 
     // Récupération des données du champ "salle"
     $salle = get_field('salle_de_concert', $concert->ID);
@@ -52,7 +50,6 @@ function getInfoAgenda($filter)
     $infoConcert[$key]['date'] = $date;
     $infoConcert[$key]['region'] = $region;
     $infoConcert[$key]['salle'] = $salle;
-    $infoConcert[$key]['lien_reservation'] = $reservation_link;
     $infoConcert[$key]['is_full'] = $is_full;
   }
   return $infoConcert;
@@ -126,8 +123,8 @@ if ($_GET['filtre'] == "artistes") {
           // echo '</pre>';
           // echo '<hr>';
           if ($filtreTitle) { ?>
-            <tr class="title_calendar" style=" border-bottom: none;">
-              <td colspan="5">
+            <tr class="title_calendar">
+              <td>
                 <h3 class="description__title" id="name-filter">
                   <?php
                   echo $title;
@@ -139,33 +136,12 @@ if ($_GET['filtre'] == "artistes") {
             $previous_filter = $title;
           } ?>
 
-          <tr class="agenda_tr">
+          <tr>
             <td><?php echo $col1; ?></td>
             <td><?php echo $col2; ?></td>
             <td><?php echo $col3; ?></td>
             <td><?php echo $col4; ?></td>
-            <td><?php
-                if ($concert['is_full'] == 1) { ?>
-                <div class='btn-full'>Complet</div>
-              <?php
-
-                } else { ?>
-                <div class="flexbox justify_center">
-                  <div class="agenda__concert--booked">
-                    <a href="#">
-                      <i class="fa fa-calendar logo_agenda"></i>
-                    </a>
-                  </div>
-                  <div class="agenda__concert--booked">
-                    <a target="_blank" href="<?php echo $concert['lien_reservation']; ?>">
-                      <i class="fa fa-ticket logo_agenda"></i>
-                    </a>
-                  </div>
-
-                </div>
-              <?php
-                } ?>
-            </td> <!-- Si concert complet, alors affiche "Complet" sinon affiche "" -->
+            <td><?php echo ($concert['is_full'] == 1) ? "Complet" : ""; ?></td> <!-- Si concert complet, alors affiche "Complet" sinon affiche "" -->
           </tr>
         <?php
         }
