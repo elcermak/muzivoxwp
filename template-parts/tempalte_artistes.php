@@ -32,8 +32,6 @@ if (have_posts()) {
 ?>
 <?php get_header(); ?>
 
-<?php get_header(); ?>
-
 <main id='app'>
   <div class="container container-flex">
     <div class="container-rectangle" id="artist" :style="{'background-image': 'url(' + currentBackground + ')'}">
