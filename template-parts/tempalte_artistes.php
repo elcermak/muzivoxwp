@@ -12,11 +12,11 @@ if (have_posts()) {
     query_posts(array(
       'post_type' => 'artiste',
       'posts_per_page' => -1
-    ));
-    while (have_posts()) {
-      the_post();
-      $artistes[$i]['link'] = get_permalink();
-      $artistes[$i]['name'] = get_the_title();
+      ));
+      while (have_posts()) {
+        the_post();
+        $artistes[$i]['link'] = get_permalink();
+        $artistes[$i]['name'] = get_the_title();
       $artistes[$i]['thumbnail'] = get_the_post_thumbnail_url();
       $i++;
     }
