@@ -106,7 +106,10 @@ if ($_GET['filtre'] == "artistes") {
           } else {
             $previous_month = '';
             $previous_year = '';
-            $month = date("m", strtotime($concert['date']));
+            setlocale(LC_TIME, 'fr_FR.UTF-8', 'fra');
+            $date = '2022-02-01';
+                     
+            $month = utf8_encode(strftime('%B', strtotime($concert['date'])));
             $year = date("Y", strtotime($concert['date']));
 
             if ($month != $previous_month || $year != $previous_year) {
@@ -118,7 +121,8 @@ if ($_GET['filtre'] == "artistes") {
             $col2 = $concert['salle'];
             $col3 = $concert['ville'];
             $col4 = $concert['region'];
-            $title = dateToString($month);
+            echo $month;
+            $title = $month;
           }
           // echo "<p style='color:white'>$key</p>";
           // echo '<pre style="color:white">';
