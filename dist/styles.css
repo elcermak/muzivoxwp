@@ -610,6 +610,7 @@ table {
   margin-bottom: 80px;
   position: relative;
   justify-content: flex-start;
+  border: 2px solid #FF6B00;
 }
 
 .container-rectangle::before {

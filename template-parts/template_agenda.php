@@ -107,9 +107,9 @@ if ($_GET['filtre'] == "artistes") {
             $previous_month = '';
             $previous_year = '';
 
-						$date_obj = DateTime::createFromFormat('Y/m/d', $concert['date']);
-						setlocale(LC_TIME, 'fr_FR.UTF-8', 'fra');
-						$month =  strftime('%B', $date_obj->getTimestamp());
+            $date_obj = DateTime::createFromFormat('Y/m/d', $concert['date']);
+            setlocale(LC_TIME, 'fr_FR.UTF-8', 'fra');
+            $month =  strftime('%B', $date_obj->getTimestamp());
 
             $year = date("Y", strtotime($concert['date']));
 
