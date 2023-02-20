@@ -79,6 +79,8 @@ if ($_GET['filtre'] == "artistes") {
       <table class="agenda-table">
         <?php
         $previous_filter = '';
+        $total_concerts = count($concerts);
+        $current_concert_index = 1;
         foreach ($concerts as $concert) {
           if ($_GET['filtre'] == "artistes") {
             $col1 = $concert['date'];
@@ -144,7 +146,7 @@ if ($_GET['filtre'] == "artistes") {
             $previous_filter = $title;
           } ?>
 
-          <tr class="agenda_tr">
+          <tr class="agenda_tr" <?php if ($current_concert_index != $total_concerts) { ?>style="border-bottom: 1px solid #FF6B00;" <?php } ?>>
             <td><?php echo $col1; ?></td>
             <td><?php echo $col2; ?></td>
             <td><?php echo $col3; ?></td>
@@ -173,6 +175,7 @@ if ($_GET['filtre'] == "artistes") {
             </td> <!-- Si concert complet, alors affiche "Complet" sinon affiche "" -->
           </tr>
         <?php
+          $current_concert_index++;
         }
         ?>
       </table>
