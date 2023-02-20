@@ -79,6 +79,8 @@ if ($_GET['filtre'] == "artistes") {
       <table class="agenda-table">
         <?php
         $previous_filter = '';
+        $total_concerts = count($concerts);
+        $current_concert_index = 1;
         foreach ($concerts as $concert) {
           if ($_GET['filtre'] == "artistes") {
             $col1 = $concert['date'];
@@ -106,10 +108,11 @@ if ($_GET['filtre'] == "artistes") {
           } else {
             $previous_month = '';
             $previous_year = '';
+
+            $date_obj = DateTime::createFromFormat('Y/m/d', $concert['date']);
             setlocale(LC_TIME, 'fr_FR.UTF-8', 'fra');
-            $date = '2022-02-01';
-                     
-            $month = utf8_encode(strftime('%B', strtotime($concert['date'])));
+            $month =  strftime('%B', $date_obj->getTimestamp());
+
             $year = date("Y", strtotime($concert['date']));
 
             if ($month != $previous_month || $year != $previous_year) {
@@ -143,7 +146,7 @@ if ($_GET['filtre'] == "artistes") {
             $previous_filter = $title;
           } ?>
 
-          <tr class="agenda_tr">
+          <tr class="agenda_tr" <?php if ($current_concert_index != $total_concerts) { ?>style="border-bottom: 1px solid #FF6B00;" <?php } ?>>
             <td><?php echo $col1; ?></td>
             <td><?php echo $col2; ?></td>
             <td><?php echo $col3; ?></td>
@@ -172,6 +175,7 @@ if ($_GET['filtre'] == "artistes") {
             </td> <!-- Si concert complet, alors affiche "Complet" sinon affiche "" -->
           </tr>
         <?php
+          $current_concert_index++;
         }
         ?>
       </table>

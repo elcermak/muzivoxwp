@@ -5,7 +5,7 @@
  */
 get_header();
 
-
+$artistes = array();
 if (have_posts()) {
   $i = 0;
   while (have_posts()) {
@@ -39,15 +39,32 @@ if (have_posts()) {
 
     <div class="EspacePro__artist">
       <div class="espacePro__artist--background" v-for="person in filteredPersons">
-        <div class="EspacePro__artist--item">
-          <a class="" :href="person.link"><i class="fa fa-file"></i></a>
+
+        <div v-if="person.name" class="EspacePro__artist--item">
+          <a class="" :href="person.link"><i class="fa fa-download"></i></a>
           {{ person.name }}
         </div>
       </div>
+
+      <?php if (count($artistes) === 0) {
+      ?>
+        <div class="espacePro__artist--background">
+          <div class="EspacePro__artist--item">
+            Vous n'avez pas d'artistes affectés.
+
+          </div>
+
+        </div>
+      <?php
+      }
+      ?>
     </div>
   </div>
 </main>
 
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.3.slim.min.js" integrity="sha256-ZwqZIVdD3iXNyGHbSYdsmWP//UBokj2FHAxKuSBKDSo=" crossorigin="anonymous"></script>
 <script>
   let artistes = <?php echo json_encode(array_map(function ($artist) {
                     return [
@@ -66,7 +83,7 @@ if (have_posts()) {
           link: person.link,
           thumbnail: person.thumbnail
         };
-      }),
+      }).filter(person => person.name),
       searchTerm: '',
       currentBackground: ''
     },
@@ -84,6 +101,5 @@ if (have_posts()) {
     }
   })
 </script>
-
 
 <?php get_footer(); ?>
