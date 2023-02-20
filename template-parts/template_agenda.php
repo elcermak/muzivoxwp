@@ -106,10 +106,11 @@ if ($_GET['filtre'] == "artistes") {
           } else {
             $previous_month = '';
             $previous_year = '';
-            setlocale(LC_TIME, 'fr_FR.UTF-8', 'fra');
-            $date = '2022-02-01';
-                     
-            $month = utf8_encode(strftime('%B', strtotime($concert['date'])));
+
+						$date_obj = DateTime::createFromFormat('Y/m/d', $concert['date']);
+						setlocale(LC_TIME, 'fr_FR.UTF-8', 'fra');
+						$month =  strftime('%B', $date_obj->getTimestamp());
+
             $year = date("Y", strtotime($concert['date']));
 
             if ($month != $previous_month || $year != $previous_year) {
