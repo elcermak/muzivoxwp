@@ -474,7 +474,7 @@ footer {
 
 .grid-item-footer-image {
   grid-area: image;
-  background-image: url(../image/etoile_grise.png);
+  background-image: url(../asset/image/etoile_grise.png);
   background-repeat: no-repeat;
 
 }
@@ -601,7 +601,7 @@ table {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background-image: url(asset/image/ETOILE_BIG.png);
+  background-image: url(../asset/image/ETOILE_BIG.png);
   fill: red;
   background-repeat: no-repeat;
   background-position: center;
@@ -616,7 +616,7 @@ table {
   content: "";
   position: absolute;
   /*or absolute*/
-  background-image: url("asset/image/egaliseur.svg");
+  background-image: url("../asset/image/egaliseur.svg");
   background-position: center center;
   background-repeat: no-repeat;
   left: -16px;
@@ -631,7 +631,7 @@ table {
   content: "";
   position: absolute;
   /*or absolute*/
-  background-image: url("asset/image/egaliseur.svg");
+  background-image: url("../asset/image/egaliseur.svg");
   background-position: center center;
   background-repeat: no-repeat;
   right: -4px;
