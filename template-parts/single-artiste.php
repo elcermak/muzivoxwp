@@ -73,7 +73,10 @@ while (have_posts()) : the_post(); ?>
 				<hr>
 				<div class="agenda__concert">
 					<div class="agenda__concert--date">
-						<?php echo convert_date_format($next_concert['date']); ?>
+						<?php 
+						  setlocale(LC_TIME, 'fr_FR.UTF-8', 'fra');
+							echo utf8_encode(strftime('%A %d %B %Y', strtotime($next_concert['date'])));
+						?>
 					</div>
 					<div class="agenda__concert--lieu">
 						<?php echo $next_concert['ville']; ?>
