@@ -959,8 +959,7 @@ table {
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #FF6B00
-  ;
+  background: #FF6B00;
   outline: #CC5500;
   border-radius: 50vh;
   transition: 1s ease-in-out;
@@ -969,7 +968,67 @@ table {
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #CC5500;
-  border: 1px solid #CC5500
-  ;
+  border: 1px solid #CC5500;
 }
+
 /* ========= Fin Liste artistes ========= */
+
+
+/* ========= Espace pro ========= */
+
+.wrapperEspacePro {
+  margin: 0 140px 0 0;
+}
+
+.displaySearch {
+  display: flex;
+  justify-content: end;
+}
+
+.displaySearch__input {
+  border: none;
+  border-bottom: 1px solid #FFFFFF;
+  background-color: transparent;
+  color: #FFFFFF;
+  text-align: center;
+}
+
+.fa-magnifying-glass,
+.displaySearch__input::placeholder {
+  color: #FFFFFF;
+}
+
+.displaySearch__background {
+  background-color: #8f8f8f;
+  display: flex;
+  justify-content: center;
+  padding: 10px 20px;
+}
+
+.EspacePro__artist {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: white;
+}
+
+.espacePro__artist--background {
+  background-color: #231F20;
+  margin: 10px 0;
+}
+
+.EspacePro__artist--item {
+  list-style-type: none;
+  margin: 0 10%;
+  text-transform: uppercase;
+  font-size: 1.6rem;
+  padding: 10px 0;
+  display: flex;
+  gap: 50px;
+}
+
+.fa-file {
+  color: #FF6B00;
+}
+
+/* ========= Fin Espace pro ========= */
