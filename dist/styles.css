@@ -75,6 +75,14 @@ header .menu a {
   padding: 5px 10px;
 }
 
+.active{
+  border-bottom: 5px solid #FF6B00;
+}
+
+#menu-menu-principal li:nth-child(3) {
+  border-bottom: none;
+
+  }
 /* .nav_end {
   white-space: pre-line;
 }
