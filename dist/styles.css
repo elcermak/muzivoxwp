@@ -27,7 +27,7 @@ body {
   gap: 50px;
 }
 
-.directionCol{
+.directionCol {
   flex-direction: column;
 }
 
@@ -43,7 +43,7 @@ td {
   width: 250px;
 }
 
-.gap10px{
+.gap10px {
   gap: 10px;
 }
 
@@ -1054,6 +1054,7 @@ table {
 #fromGroup_Title {
   justify-content: center;
   margin-bottom: 100px;
+  font-size: 2rem;
 }
 
 .formGroup label {
@@ -1075,7 +1076,7 @@ table {
   margin-bottom: 0;
 }
 
-.formGroup-input{
+.formGroup-input {
   padding-left: 20px;
 }
 
@@ -1092,24 +1093,32 @@ table {
   margin-right: 12.5%;
   border: none;
   color: #FFFFFF;
+  padding: 0 20px;
+}
+
+#form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #logout {
   justify-content: center;
 }
 
-.btn:hover{
+.btn:hover {
   cursor: pointer;
 }
 
 @media screen and (max-width: 640px) {
   .formGroup {
-    display: contents;
+    flex-direction: column;
   }
 
   .formGroup label {
     font-size: 16px;
     width: 100%;
+    flex-basis: 100%;
   }
 
   .formGroup textarea {
@@ -1128,11 +1137,11 @@ table {
   }
 
   .btn-container {
-    display: contents;
+    justify-content: center;
   }
+
   .btn-container .btn {
     margin-right: 0;
-    width: 40%;
     margin-bottom: 6%;
   }
 }
