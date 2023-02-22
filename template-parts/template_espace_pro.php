@@ -31,21 +31,21 @@ if (have_posts()) {
 <?php
 
 if ((!is_user_logged_in())) { ?>
-  <main>
+  <main class="container" id="form">
     <div class="container container-rectangle">
       <form method="post">
-        <h3 id="fromGroup_Title" class="description__title">ESPACE PRO</h3>
+        <h2 id="fromGroup_Title" class="description__title">ESPACE PRO</h2>
         <div class="formGroup">
-          <label>LOGIN</label>
+          <label>Nom d'utilisateur</label>
           <input class="formGroup-input" id="username" type="text" name="username" placeholder="Username">
         </div>
         <div class="formGroup">
-          <label>PASSWORD</label>
+          <label>Mot de passe</label>
           <input class="formGroup-input" id="password" type="password" name="pass" placeholder="Password">
         </div>
         <div class="btn-container">
           <button class="btn" name="login-submit">
-            Login
+            Connexion
           </button>
         </div>
       </form>
