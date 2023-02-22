@@ -28,40 +28,83 @@ if (have_posts()) {
 };
 ?>
 
-<main id='app'>
-  <div class="wrapperEspacePro">
-    <div class="displaySearch">
-      <div class="displaySearch__background">
-        <input class="displaySearch__input" type="text" v-model="searchTerm" placeholder="Rechercher votre artiste">
-        <i class="fa fa-magnifying-glass"></i>
-      </div>
+<?php
+
+if ((!is_user_logged_in())) { ?>
+  <main>
+    <div class="container container-rectangle">
+      <form method="post">
+        <h3 id="fromGroup_Title" class="description__title">ESPACE PRO</h3>
+        <div class="formGroup">
+          <label>LOGIN</label>
+          <input class="formGroup-input" id="username" type="text" name="username" placeholder="Username">
+        </div>
+        <div class="formGroup">
+          <label>PASSWORD</label>
+          <input class="formGroup-input" id="password" type="password" name="pass" placeholder="Password">
+        </div>
+        <div class="btn-container">
+          <button class="btn" name="login-submit">
+            Login
+          </button>
+        </div>
+      </form>
     </div>
+  </main>
 
-    <div class="EspacePro__artist">
-      <div class="espacePro__artist--background" v-for="person in filteredPersons">
+<?php
+} else {
+?>
 
-        <div v-if="person.name" class="EspacePro__artist--item">
-          <a class="" :href="person.link"><i class="fa fa-download"></i></a>
-          {{ person.name }}
+
+  <main id='app'>
+    <div class="wrapperEspacePro">
+      <div class="flexbox align_center directionCol gap10px">
+        <h2>Bonjour <?php $current_user = wp_get_current_user();
+                    echo $current_user->user_login; ?></h2>
+        <a href="<?php echo wp_logout_url(site_url('/espace-pro/')); ?>">
+          <div class="btn-container" id="logout">
+            <button class="btn" name="login-submit">
+              Déconnexion
+            </button>
+          </div>
+        </a>
+      </div>
+
+      <div class="displaySearch">
+        <div class="displaySearch__background">
+          <input class="displaySearch__input" type="text" v-model="searchTerm" placeholder="Rechercher votre artiste">
+          <i class="fa fa-magnifying-glass"></i>
         </div>
       </div>
 
-      <?php if (count($artistes) === 0) {
-      ?>
-        <div class="espacePro__artist--background">
-          <div class="EspacePro__artist--item">
-            Vous n'avez pas d'artistes affectés.
+      <div class="EspacePro__artist">
+        <div class="espacePro__artist--background" v-for="person in filteredPersons">
+
+          <div v-if="person.name" class="EspacePro__artist--item">
+            <a class="" :href="person.link"><i class="fa fa-download"></i></a>
+            {{ person.name }}
+          </div>
+        </div>
+
+        <?php if (count($artistes) === 0) {
+        ?>
+          <div class="espacePro__artist--background">
+            <div class="EspacePro__artist--item">
+              Vous n'avez pas d'artistes affectés.
+
+            </div>
 
           </div>
-
-        </div>
-      <?php
-      }
-      ?>
+        <?php
+        }
+        ?>
+      </div>
     </div>
-  </div>
-</main>
-
+  </main>
+<?php
+}
+?>
 
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.3.slim.min.js" integrity="sha256-ZwqZIVdD3iXNyGHbSYdsmWP//UBokj2FHAxKuSBKDSo=" crossorigin="anonymous"></script>
