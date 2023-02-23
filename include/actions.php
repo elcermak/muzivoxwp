@@ -11,7 +11,18 @@
   
   add_filter( 'single_template', 'single_template_for_artiste' );
 
+  add_action('pre_get_posts', 'trier_colonnes_agenda');
 
+  add_action('manage_agenda_posts_custom_column', 'remplir_colonnes_agenda', 10, 2);
+  
+  add_action('wp_ajax_mettre_a_jour_acf', 'mettre_a_jour_acf');
+  
+  add_action('admin_footer', 'ajouter_script_javascript');
+  
+  add_action('pre_get_posts', 'trier_colonnes_artiste');
+  
+  add_action('manage_artiste_posts_custom_column', 'remplir_colonnes_artiste', 10, 2);
+  
 if(isset($_POST['login-submit'])) {
   $username = $_POST['username'];
   $password = $_POST['pass'];
