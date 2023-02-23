@@ -7,21 +7,35 @@
 function getInfoAgenda($filter)
 {
   $meta_key = $filter;
-  if ($filter=='region_concert') {
+  if ($filter == 'region_concert') {
     $args = array(
       'post_type' => 'agenda',
       'posts_per_page' => -1,
-      'meta_key' =>   $meta_key,
-      'orderby' => 'slug',
-      'order' => 'ASC'
+      'meta_key' => $meta_key,
+      'orderby' => array(
+        'meta_value' => 'ASC',
+        'slug' => 'ASC'
+      )
     );
-  } else if ($filter=='artiste_concert') {
+  } else if ($filter == 'artiste_concert') {
     $args = array(
       'post_type' => 'agenda',
       'posts_per_page' => -1,
-      'meta_key' =>   $meta_key,
-      'orderby' => 'meta_value',
-      'order' => 'DESC'
+      'meta_query' => array(
+        'relation' => 'OR',
+        array(
+          'key' => 'artiste_concert',
+          'compare' => 'EXISTS',
+        ),
+        array(
+          'key' => 'date',
+          'compare' => 'EXISTS',
+        ),
+      ),
+      'orderby' => array(
+        'meta_value' => 'ASC',
+        'date_concert' => 'ASC',
+      ),
     );
   } else {
     echo "<br><br><br><br>";
@@ -58,6 +72,7 @@ function getInfoAgenda($filter)
 
     // Récupération des données du champ "ville"
     $ville = get_field('ville', $concert->ID);
+    // print_r(get_field('artiste_concert', $concert->ID));
 
     // Récupération des données du champ "date"
     $date = get_field('date', $concert->ID);
@@ -85,7 +100,40 @@ if ($_GET['filtre'] == "artistes") {
 } else {
   $concerts = getInfoAgenda('date');
 }
+
+
+function formatConcerts($concerts, $filtre)
+{
+
+
+  if ($filtre == "artistes") {
+    foreach ($concerts as $concert) {
+      $concert_date = strtotime($concert['date']); // convertir la date en timestamp
+      $now = time(); // timestamp de la date actuelle
+
+      if ($concert_date >= $now) { // ne pas inclure les concerts passés
+        $concertFomated[$concert['artiste_name']][$concert['date']]['ville'] = $concert['ville'];
+        $concertFomated[$concert['artiste_name']][$concert['date']]['salle'] = $concert['salle'];
+        $concertFomated[$concert['artiste_name']][$concert['date']]['region'] = $concert['region'];
+        $concertFomated[$concert['artiste_name']][$concert['date']]['lien_reservation'] = $concert['lien_reservation'];
+        $concertFomated[$concert['artiste_name']][$concert['date']]['is_full'] = $concert['is_full'];
+      }
+    }
+
+
+    foreach ($concertFomated as $artiste => $concertDates) {
+      ksort($concertDates);
+      $concertFomated[$artiste] = $concertDates;
+    }
+  }
+  echo '<pre style="color:green">';
+  print_r($concerts);
+  echo '</pre>';
+  return $concertFomated;
+}
 ?>
+
+
 <?php get_header(); ?>
 
 <main>
@@ -100,11 +148,20 @@ if ($_GET['filtre'] == "artistes") {
       <table class="agenda-table">
         <?php
         $previous_filter = '';
+
         $total_concerts = count($concerts);
         $current_concert_index = 1;
+        $concertFomated = formatConcerts($concerts, "artistes");
+        echo '<pre style="color:white;">';
+        print_r($concertFomated);
+        echo '</pre>';
         foreach ($concerts as $concert) {
           if ($_GET['filtre'] == "artistes") {
-            $col1 = $concert['date'];
+
+            $date_obj = DateTime::createFromFormat('Y/m/d', $concert['date']);
+            setlocale(LC_TIME, 'fr_FR.UTF-8', 'fra');
+            $col1 = strftime('%a %d %b %Y', $date_obj->getTimestamp());
+
             $col2 = $concert['salle'];
             $col3 = $concert['ville'];
             $col4 = $concert['region'];
@@ -117,7 +174,11 @@ if ($_GET['filtre'] == "artistes") {
             }
           } else if ($_GET['filtre'] == "regions") {
             $col1 = $concert['ville'];
-            $col2 = $concert['date'];
+
+            $date_obj = DateTime::createFromFormat('Y/m/d', $concert['date']);
+            setlocale(LC_TIME, 'fr_FR.UTF-8', 'fra');
+            $col2 = strftime('%a %d %b %Y', $date_obj->getTimestamp());
+
             $col3 = $concert['artiste_name'];
             $col4 = $concert['salle'];
             $title = $concert['region'];
@@ -145,7 +206,10 @@ if ($_GET['filtre'] == "artistes") {
             $col2 = $concert['salle'];
             $col3 = $concert['ville'];
             $col4 = $concert['region'];
-            $col5 = $concert['date'];
+
+            $date_obj = DateTime::createFromFormat('Y/m/d', $concert['date']);
+            setlocale(LC_TIME, 'fr_FR.UTF-8', 'fra');
+            $col5 = strftime('%a %d %b %Y', $date_obj->getTimestamp());
 
             echo $month;
             $title = $month;
