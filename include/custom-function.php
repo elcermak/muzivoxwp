@@ -30,3 +30,133 @@ function get_last_concert($concerts, $name_artiste)
 	}
 	return $next_concert;
 }
+
+
+// Ajouter les colonnes "Complet" et "Concert important" à l'interface d'agenda personnalisé
+function ajouter_colonnes_agenda($columns){
+  $columns['complet'] = 'Complet';
+  $columns['concert_important'] = 'Concert important';
+  return $columns;
+}
+add_filter('manage_agenda_posts_columns', 'ajouter_colonnes_agenda');
+
+
+// Ajouter les colonnes "Complet" et "Concert important" au système de triage de l'interface d'agenda personnalisé
+function ajouter_colonnes_au_tri_agenda($columns){
+    $columns['complet'] = 'complet';
+    $columns['concert_important'] = 'concert_important';
+    return $columns;
+}
+add_filter('manage_edit-agenda_sortable_columns', 'ajouter_colonnes_au_tri_agenda');
+
+// Effectuer le tri en fonction des champs ACF "complet" et "concert_important"
+function trier_colonnes_agenda($wp_query){
+    if(!is_admin()){
+        return;
+    }
+
+    $orderby = $wp_query->get('orderby');
+
+    if('complet' == $orderby){
+        $wp_query->set('meta_key', 'complet');
+        $wp_query->set('orderby', 'meta_value');
+    } elseif('concert_important' == $orderby){
+        $wp_query->set('meta_key', 'concert_important');
+        $wp_query->set('orderby', 'meta_value');
+    }
+}
+
+// Remplir les colonnes "Complet" et "Concert important" avec le contenu des champs ACF "complet" et "concert_important" et des cases à cocher
+function remplir_colonnes_agenda($column_name, $post_id){
+  if($column_name == 'complet' || $column_name == 'concert_important'){
+      $valeur = get_field($column_name, $post_id);
+      echo '<input type="checkbox" name="'.$column_name.'" '.($valeur ? 'checked' : '').' onclick="mettre_a_jour_acf(this, \''.$column_name.'\', '.$post_id.')"/>';
+  }
+}
+
+
+
+
+// Mettre à jour la valeur des champs ACF "complet" et "concert_important" en utilisant AJAX
+function mettre_a_jour_acf(){
+  // Vérifier les permissions
+  if(current_user_can('edit_posts')){
+      // Récupérer les paramètres AJAX
+      $post_id = $_POST['post_id'];
+      $field_name = $_POST['field_name'];
+      $value = $_POST['value'];
+      // Mettre à jour le champ ACF correspondant
+      update_field($field_name, $value, $post_id);
+      // Retourner une réponse JSON
+      wp_send_json_success();
+  } else {
+      // Retourner une réponse d'erreur
+      wp_send_json_error('Vous n\'avez pas les autorisations nécessaires pour effectuer cette action.');
+  }
+}
+
+// Ajouter le script JavaScript
+function ajouter_script_javascript(){
+  echo '<script>
+      function mettre_a_jour_acf(case_a_cocher, field_name, post_id){
+          var value = case_a_cocher.checked ? 1 : 0;
+          jQuery.ajax({
+              type: "POST",
+              url: ajaxurl,
+              data: {
+                  action: "mettre_a_jour_acf",
+                  post_id: post_id,
+                  field_name: field_name,
+                  value: value
+              }
+          });
+      }
+  </script>';
+}
+
+
+// Ajouter les colonnes "Complet" et "Concert important" à l'interface d'artiste personnalisé
+function ajouter_colonnes_artiste($columns){
+  $columns['mettre_en_avant'] = 'Mettre en avant';
+  return $columns;
+}
+add_filter('manage_artiste_posts_columns', 'ajouter_colonnes_artiste');
+
+
+// Ajouter les colonnes "Complet" et "Concert important" au système de triage de l'interface d'artiste personnalisé
+function ajouter_colonnes_au_tri_artiste($columns){
+    $columns['mettre_en_avant'] = 'mettre_en_avant';
+    return $columns;
+}
+add_filter('manage_edit-artiste_sortable_columns', 'ajouter_colonnes_au_tri_artiste');
+
+// Effectuer le tri en fonction des champs ACF "complet" et "concert_important"
+function trier_colonnes_artiste($wp_query){
+    if(!is_admin()){
+        return;
+    }
+
+    $orderby = $wp_query->get('orderby');
+
+    if('mettre_en_avant' == $orderby){
+        $wp_query->set('meta_key', 'mettre_en_avant');
+        $wp_query->set('orderby', 'meta_value');
+    } 
+}
+
+// Remplir les colonnes "Complet" et "Concert important" avec le contenu des champs ACF "complet" et "concert_important" et des cases à cocher
+function remplir_colonnes_artiste($column_name, $post_id){
+  if($column_name == 'mettre_en_avant'){
+      $valeur = get_field($column_name, $post_id);
+      echo '<input type="checkbox" name="'.$column_name.'" '.($valeur ? 'checked' : '').' onclick="mettre_a_jour_acf(this, \''.$column_name.'\', '.$post_id.')"/>';
+  }
+}
+
+
+
+
+
+
+
+
+
