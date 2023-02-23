@@ -7,13 +7,34 @@
 function getInfoAgenda($filter)
 {
   $meta_key = $filter;
-  $args = array(
-    'post_type' => 'agenda',
-    'posts_per_page' => -1,
-    'meta_key' =>   $meta_key,
-    'orderby' => 'meta_value',
-    'order' => 'ASC'
-  );
+  if ($filter=='region_concert') {
+    $args = array(
+      'post_type' => 'agenda',
+      'posts_per_page' => -1,
+      'meta_key' =>   $meta_key,
+      'orderby' => 'slug',
+      'order' => 'ASC'
+    );
+  } else if ($filter=='artiste_concert') {
+    $args = array(
+      'post_type' => 'agenda',
+      'posts_per_page' => -1,
+      'meta_key' =>   $meta_key,
+      'orderby' => 'meta_value',
+      'order' => 'DESC'
+    );
+  } else {
+    echo "<br><br><br><br>";
+    echo 'test';
+    $args = array(
+      'post_type' => 'agenda',
+      'posts_per_page' => -1,
+      'meta_key' =>   $meta_key,
+      'orderby' => 'meta_value',
+      'order' => 'ASC'
+    );
+  }
+
   $concerts = get_posts($args);
   foreach ($concerts as $key => $concert) {
 
@@ -124,6 +145,8 @@ if ($_GET['filtre'] == "artistes") {
             $col2 = $concert['salle'];
             $col3 = $concert['ville'];
             $col4 = $concert['region'];
+            $col5 = $concert['date'];
+
             echo $month;
             $title = $month;
           }
@@ -148,6 +171,7 @@ if ($_GET['filtre'] == "artistes") {
 
           <tr class="agenda_tr" <?php if ($current_concert_index != $total_concerts) { ?>style="border-bottom: 1px solid #FF6B00;" <?php } ?>>
             <td><?php echo $col1; ?></td>
+            <td><?php echo $col5; ?></td>
             <td><?php echo $col2; ?></td>
             <td><?php echo $col3; ?></td>
             <td><?php echo $col4; ?></td>
