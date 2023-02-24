@@ -82,7 +82,7 @@ if ((!is_user_logged_in())) { ?>
         <div class="espacePro__artist--background" v-for="person in filteredPersons">
 
           <div v-if="person.name" class="EspacePro__artist--item">
-            <a class="" :href="person.link"><i class="fa fa-download"></i></a>
+            <a class="" :href="person.link" download="" target="_blanck"><i class="fa fa-download"></i></a>
             {{ person.name }}
           </div>
         </div>
