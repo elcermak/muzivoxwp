@@ -21,16 +21,9 @@ function getInfoAgenda($filter)
     $args = array(
       'post_type' => 'agenda',
       'posts_per_page' => -1,
-      'meta_query' => array(
-        'relation' => 'OR',
-        array(
-          'key' => 'artiste_concert',
-          'compare' => 'EXISTS',
-        ),
-      ),
-      'orderby' => array(
-        'meta_value' => 'ASC',
-      ),
+      'meta_key' => 'artiste_concert',
+      'orderby' => 'meta_value',
+      'order' => 'ASC'
     );
   } else {
     $args = array(
@@ -43,6 +36,7 @@ function getInfoAgenda($filter)
   }
 
   $concerts = get_posts($args);
+
   foreach ($concerts as $key => $concert) {
 
     // Récupération des données du champ "régions"
@@ -94,64 +88,92 @@ if ($_GET['filtre'] == "artistes") {
   $concerts = getInfoAgenda('date');
 }
 
-
 function formatConcerts($concerts, $filtre)
 {
+  $concertsSorted = array();
 
+  foreach ($concerts as $concert) {
+    $concert_date = strtotime($concert['date']); // convertir la date en timestamp
+    $now = time(); // timestamp de la date actuelle
+
+    if ($concert_date >= $now) { // ne pas inclure les concerts passés
+      $concertsSorted[] = array(
+        'artiste_name' => $concert['artiste_name'],
+        'date' => $concert_date,
+        'ville' => $concert['ville'],
+        'salle' => $concert['salle'],
+        'region' => $concert['region'],
+        'lien_reservation' => $concert['lien_reservation'],
+        'is_full' => $concert['is_full']
+      );
+    }
+  }
+
+  // trier par ordre alphabétique de l'artiste, puis par date
+  usort($concertsSorted, function ($a, $b) {
+    if ($a['artiste_name'] === $b['artiste_name']) {
+      return $a['date'] - $b['date'];
+    }
+    return strcmp($a['artiste_name'], $b['artiste_name']);
+  });
+
+  $concertFomated = array();
 
   if ($filtre == "artistes") {
-    foreach ($concerts as $concert) {
-      $concert_date = strtotime($concert['date']); // convertir la date en timestamp
-      $now = time(); // timestamp de la date actuelle
+    foreach ($concertsSorted as $concert) {
+      $month = date('F', $concert['date']);
+      $date_formatted = date('Y/m/d', $concert['date']);
 
-      if ($concert_date >= $now) { // ne pas inclure les concerts passés
-        $concertFomated[$concert['artiste_name']][$concert['date']]['col1'] = $concert['salle'];
-        $concertFomated[$concert['artiste_name']][$concert['date']]['col2'] = $concert['ville'];
-        $concertFomated[$concert['artiste_name']][$concert['date']]['col3'] = $concert['region'];
-        $concertFomated[$concert['artiste_name']][$concert['date']]['lien_reservation'] = $concert['lien_reservation'];
-        $concertFomated[$concert['artiste_name']][$concert['date']]['is_full'] = $concert['is_full'];
-      }
+      $date_obj = DateTime::createFromFormat('Y/m/d', $date_formatted);
+      setlocale(LC_TIME, 'fr_FR.UTF-8', 'fra');
+      $concert_date_formatted =  strftime('%a %d %b %Y', $date_obj->getTimestamp());
+
+      $concertFomated[$concert['artiste_name']][$concert_date_formatted]['col1'] = $concert['salle'];
+      $concertFomated[$concert['artiste_name']][$concert_date_formatted]['col2'] = $concert['ville'];
+      $concertFomated[$concert['artiste_name']][$concert_date_formatted]['col3'] = $concert['region'];
+      $concertFomated[$concert['artiste_name']][$concert_date_formatted]['lien_reservation'] = $concert['lien_reservation'];
+      $concertFomated[$concert['artiste_name']][$concert_date_formatted]['is_full'] = $concert['is_full'];
     }
   } else if ($filtre == "regions") {
-    foreach ($concerts as $concert) {
-      $concert_date = strtotime($concert['date']); // convertir la date en timestamp
-      $now = time(); // timestamp de la date actuelle
+    foreach ($concertsSorted as $concert) {
+      $month = date('F', $concert['date']);
+      $date_formatted = date('Y/m/d', $concert['date']);
 
-      if ($concert_date >= $now) { // ne pas inclure les concerts passés
-        $concertFomated[$concert['region']][$concert['date']]['col1'] = $concert['artiste_name'];
-        $concertFomated[$concert['region']][$concert['date']]['col2'] = $concert['ville'];
-        $concertFomated[$concert['region']][$concert['date']]['col3'] = $concert['salle'];
-        $concertFomated[$concert['region']][$concert['date']]['lien_reservation'] = $concert['lien_reservation'];
-        $concertFomated[$concert['region']][$concert['date']]['is_full'] = $concert['is_full'];
-      }
+      $date_obj = DateTime::createFromFormat('Y/m/d', $date_formatted);
+      setlocale(LC_TIME, 'fr_FR.UTF-8', 'fra');
+      $concert_date_formatted =  strftime('%a %d %b %Y', $date_obj->getTimestamp());
+
+      $concertFomated[$concert['region']][$concert_date_formatted]['col1'] = $concert['artiste_name'];
+      $concertFomated[$concert['region']][$concert_date_formatted]['col2'] = $concert['ville'];
+      $concertFomated[$concert['region']][$concert_date_formatted]['col3'] = $concert['salle'];
+      $concertFomated[$concert['region']][$concert_date_formatted]['lien_reservation'] = $concert['lien_reservation'];
+      $concertFomated[$concert['region']][$concert_date_formatted]['is_full'] = $concert['is_full'];
     }
   } else {
-    foreach ($concerts as $concert) {
-      $concert_date = strtotime($concert['date']); // convertir la date en timestamp
-      $now = time(); // timestamp de la date actuelle
+    foreach ($concertsSorted as $concert) {
+      $month = date('F', $concert['date']);
+      $date_formatted = date('Y/m/d', $concert['date']);
 
-      if ($concert_date >= $now) { // ne pas inclure les concerts passés
-        $date_obj = DateTime::createFromFormat('Y/m/d', $concert['date']);
-        setlocale(LC_TIME, 'fr_FR.UTF-8', 'fra');
-        $month =  strftime('%B', $date_obj->getTimestamp());
+      $date_obj = DateTime::createFromFormat('Y/m/d', $date_formatted);
+      setlocale(LC_TIME, 'fr_FR.UTF-8', 'fra');
+      $concert_date_formatted =  strftime('%a %d %b %Y', $date_obj->getTimestamp());
 
-        $concertFomated[$month][$concert['date']]['col1'] = $concert['artiste_name'];
-        $concertFomated[$month][$concert['date']]['col2'] = $concert['ville'];
-        $concertFomated[$month][$concert['date']]['col3'] = $concert['salle'];
-        $concertFomated[$month][$concert['date']]['col3'] = $concert['region'];
-        $concertFomated[$month][$concert['date']]['lien_reservation'] = $concert['lien_reservation'];
-        $concertFomated[$month][$concert['date']]['is_full'] = $concert['is_full'];
-      }
+
+      $concertFomated[$month][$concert_date_formatted]['col1'] = $concert['artiste_name'];
+      $concertFomated[$month][$concert_date_formatted]['col2'] = $concert['ville'];
+      $concertFomated[$month][$concert_date_formatted]['col3'] = $concert['salle'];
+      $concertFomated[$month][$concert_date_formatted]['col3'] = $concert['region'];
+      $concertFomated[$month][$concert_date_formatted]['lien_reservation'] = $concert['lien_reservation'];
+      $concertFomated[$month][$concert_date_formatted]['is_full'] = $concert['is_full'];
     }
   }
 
-  foreach ($concertFomated as $artiste => $concertDates) {
-    ksort($concertDates);
-    $concertFomated[$artiste] = $concertDates;
-  }
-
+  // echo'<pre style="color:white">';
+  // print_r($concertFomated);
+  // echo'</pre>';
   return $concertFomated;
 }
+
 ?>
 
 
@@ -170,10 +192,10 @@ function formatConcerts($concerts, $filtre)
         <?php
         $previous_filter = '';
 
-        $total_concerts = count($concerts);
+
         $current_concert_index = 1;
         $concertFomated = formatConcerts($concerts, $_GET['filtre']);
-
+        $total_concerts = count($concertFomated);
         foreach ($concertFomated as $keyTitle => $concerts) {
           $title = $keyTitle;
 
@@ -197,8 +219,7 @@ function formatConcerts($concerts, $filtre)
             <?php
               $previous_filter = $title;
             } ?>
-
-            <tr class="agenda_tr" <?php if ($current_concert_index != $total_concerts) { ?>style="border-bottom: 1px solid #FF6B00;" <?php } ?>>
+            <tr class="agenda_tr" <?php if ($current_concert_index != $total_concerts) { ?> style="border-bottom: 1px solid #FF6B00;" <?php } ?>>
               <td><?php echo $keyDate; ?></td>
 
               <td><?php echo $infoConcert['col1']; ?></td>
@@ -219,9 +240,11 @@ function formatConcerts($concerts, $filtre)
                   } else { ?>
                   <div class="flexbox justify_center">
                     <div class="agenda__concert--booked">
-                      <a href="#">
+                      <!-- <a href="ajouter_evenement.php?date=2023-02-25">
                         <i class="fa fa-calendar logo_agenda"></i>
-                      </a>
+                      </a> -->
+                        
+                      [add-to-calendar-button name="Title" options="'Apple','Google'" startDate="2023-02-27"]
                     </div>
                     <div class="agenda__concert--booked">
                       <a target="_blank" href="<?php echo $infoConcert['lien_reservation']; ?>">
@@ -232,26 +255,12 @@ function formatConcerts($concerts, $filtre)
                   </div>
                 <?php
                   } ?>
-              </td> <!-- Si concert complet, alors affiche "Complet" sinon affiche "" -->
+              </td>
             </tr>
           <?php
           }
-
-
-          // $date_obj = DateTime::createFromFormat('Y/m/d', $concert['date']);
-          // setlocale(LC_TIME, 'fr_FR.UTF-8', 'fra');
-          // $col1 = strftime('%a %d %b %Y', $date_obj->getTimestamp());
-
-          // $col2 = $concert['salle'];
-          // $col3 = $concert['ville'];
-          // $col4 = $concert['region'];
           $title = $keyTitle;
 
-          // echo "<p style='color:white'>$key</p>";
-          // echo '<pre style="color:white">';
-          // print_r($concert);
-          // echo '</pre>';
-          // echo '<hr>';
           ?>
         <?php
           $current_concert_index++;
