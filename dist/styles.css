@@ -27,6 +27,10 @@ body {
   gap: 50px;
 }
 
+.directionCol {
+  flex-direction: column;
+}
+
 .justify_center {
   justify-content: center;
 }
@@ -37,6 +41,10 @@ body {
 
 td {
   width: 250px;
+}
+
+.gap10px {
+  gap: 10px;
 }
 
 /* .nav_start {
@@ -67,6 +75,14 @@ header .menu a {
   padding: 5px 10px;
 }
 
+.active{
+  border-bottom: 5px solid #FF6B00;
+}
+
+#menu-menu-principal li:nth-child(3) {
+  border-bottom: none;
+
+  }
 /* .nav_end {
   white-space: pre-line;
 }
@@ -474,7 +490,7 @@ footer {
 
 .grid-item-footer-image {
   grid-area: image;
-  background-image: url(../image/etoile_grise.png);
+  background-image: url(../asset/image/etoile_grise.png);
   background-repeat: no-repeat;
 
 }
@@ -568,7 +584,6 @@ table {
 }
 
 .agenda-table tr {
-  border-bottom: 1px solid #FF6B00;
   height: 60px;
 }
 
@@ -602,7 +617,7 @@ table {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background-image: url(asset/image/ETOILE_BIG.png);
+  background-image: url(../asset/image/ETOILE_BIG.png);
   fill: red;
   background-repeat: no-repeat;
   background-position: center;
@@ -610,13 +625,14 @@ table {
   margin-bottom: 80px;
   position: relative;
   justify-content: flex-start;
+  border: 2px solid #FF6B00;
 }
 
 .container-rectangle::before {
   content: "";
   position: absolute;
   /*or absolute*/
-  background-image: url("asset/image/egaliseur.svg");
+  background-image: url("../asset/image/egaliseur.svg");
   background-position: center center;
   background-repeat: no-repeat;
   left: -16px;
@@ -631,7 +647,7 @@ table {
   content: "";
   position: absolute;
   /*or absolute*/
-  background-image: url("asset/image/egaliseur.svg");
+  background-image: url("../asset/image/egaliseur.svg");
   background-position: center center;
   background-repeat: no-repeat;
   right: -4px;
@@ -1027,8 +1043,116 @@ table {
   gap: 50px;
 }
 
-.fa-file {
+.fa-download {
   color: #FF6B00;
 }
 
 /* ========= Fin Espace pro ========= */
+
+/* ========= login espace pro ========= */
+
+.formGroup {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  width: 100%;
+}
+
+#fromGroup_Title {
+  justify-content: center;
+  margin-bottom: 100px;
+  font-size: 2rem;
+}
+
+.formGroup label {
+  text-align: end;
+  color: white;
+  width: 30%;
+  margin-right: 10px;
+}
+
+.formGroup input {
+  width: 80%;
+  border-radius: 10px;
+  height: 34px;
+  margin-right: 12.5%;
+  padding-left: 20px;
+}
+
+.formGroup select {
+  margin-bottom: 0;
+}
+
+.formGroup-input {
+  padding-left: 20px;
+}
+
+.btn-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.btn-container .btn {
+  text-transform: uppercase;
+  border-radius: 8px;
+  background-color: #FF6B00;
+  height: 36px;
+  margin-right: 12.5%;
+  border: none;
+  color: #FFFFFF;
+  padding: 0 20px;
+}
+
+#form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#logout {
+  justify-content: center;
+}
+
+.btn:hover {
+  cursor: pointer;
+}
+
+@media screen and (max-width: 640px) {
+  .formGroup {
+    flex-direction: column;
+  }
+
+  .formGroup label {
+    font-size: 16px;
+    width: 100%;
+    flex-basis: 100%;
+  }
+
+  .formGroup textarea {
+    height: 100px;
+    width: 80%;
+  }
+
+  .formGroup input {
+    margin-right: 0;
+    margin-bottom: 20px;
+    width: 80%;
+  }
+
+  .formGroup label {
+    text-align: center;
+  }
+
+  .btn-container {
+    justify-content: center;
+  }
+
+  .btn-container .btn {
+    margin-right: 0;
+    margin-bottom: 6%;
+  }
+}
+
+
+/* ========= Fin login espace pro ========= */

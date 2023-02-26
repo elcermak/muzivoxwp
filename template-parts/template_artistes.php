@@ -45,7 +45,7 @@ if (have_posts()) {
         <div class="Artistes_List">
           <ul class="artist">
             <li v-for="person in filteredPersons">
-              <a class="artist__link" :href="person.link" @mouseover="updateBackground(person.thumbnail)"  @mouseout="updateBackground()">{{ person.name }}</a>
+              <a class="artist__link" :href="person.link" @mouseover="updateBackground(person.thumbnail)"  @mouseout="updateBackground('<?php echo get_template_directory_uri()."/asset/image/ETOILE_BIG.png" ; ?>')">{{ person.name }}</a>
             </li>
           </ul>
 
@@ -56,6 +56,8 @@ if (have_posts()) {
     </div>
   </div>
 </main>
+
+
 
 <script>
   let artistes = <?php echo json_encode(array_map(function ($artist) {
@@ -77,7 +79,7 @@ if (have_posts()) {
         };
       }),
       searchTerm: '',
-      currentBackground: ''
+      currentBackground: 'url(../asset/image/ETOILE_BIG.png)'
     },
     computed: {
       filteredPersons() {
@@ -88,7 +90,12 @@ if (have_posts()) {
     },
     methods: {
       updateBackground(thumbnail) {
-        this.currentBackground = thumbnail;
+        if (thumbnail) {
+          this.currentBackground = thumbnail;
+  
+        }else {
+          this.currentBackground = "url(../asset/image/ETOILE_BIG.png)";
+        }
       }
     }
   })

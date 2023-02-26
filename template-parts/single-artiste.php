@@ -73,7 +73,15 @@ while (have_posts()) : the_post(); ?>
 				<hr>
 				<div class="agenda__concert">
 					<div class="agenda__concert--date">
-						<?php echo convert_date_format($next_concert['date']); ?>
+						<?php
+
+						$date_obj = DateTime::createFromFormat('Y/m/d', $next_concert['date']);
+						setlocale(LC_TIME, 'fr_FR.UTF-8', 'fra');
+						echo strftime('%A %d %B %Y', $date_obj->getTimestamp());
+
+
+						// echo $date;
+						?>
 					</div>
 					<div class="agenda__concert--lieu">
 						<?php echo $next_concert['ville']; ?>
@@ -136,37 +144,37 @@ while (have_posts()) : the_post(); ?>
 				</div>
 			</div>
 			<div class="youtube yt1">
-			<div class="animation flexbox_player ">
-    <a href='<?php the_field('lien_soundcloud'); ?>' class='playBut test'>
-      <div class="flexbox_player">
-        Ecouter cet artiste
+				<div class="animation flexbox_player ">
+					<a href='<?php the_field('lien_soundcloud'); ?>' class='playBut test'>
+						<div class="flexbox_player">
+							Ecouter cet artiste
 
-        <div class='container_buttonPlay'>
+							<div class='container_buttonPlay'>
 
-          <!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In  -->
-          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/" x="0px" y="0px" width="213.7px" height="213.7px" viewBox="0 0 213.7 213.7" enable-background="new 0 0 213.7 213.7" xml:space="preserve">
+								<!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In  -->
+								<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/" x="0px" y="0px" width="213.7px" height="213.7px" viewBox="0 0 213.7 213.7" enable-background="new 0 0 213.7 213.7" xml:space="preserve">
 
-            <polygon class='triangle' id="XMLID_18_" fill="none" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+									<polygon class='triangle' id="XMLID_18_" fill="none" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
 	73.5,62.5 148.5,105.8 73.5,149.1 " />
 
-            <circle class='circle' id="XMLID_17_" fill="none" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" cx="106.8" cy="106.8" r="103.3" />
-          </svg>
-        </div>
-        <div class="muzik">
-          <div class="loader"></div>
-          <div class="loader"></div>
-          <div class="loader"></div>
-          <div class="loader"></div>
-          <div class="loader"></div>
-          <div class="loader"></div>
-          <div class="loader"></div>
-          <div class="loader"></div>
-          <div class="loader"></div>
-          <div class="loader"></div>
-        </div>
-      </div>
-    </a>
-  </div>
+									<circle class='circle' id="XMLID_17_" fill="none" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" cx="106.8" cy="106.8" r="103.3" />
+								</svg>
+							</div>
+							<div class="muzik">
+								<div class="loader"></div>
+								<div class="loader"></div>
+								<div class="loader"></div>
+								<div class="loader"></div>
+								<div class="loader"></div>
+								<div class="loader"></div>
+								<div class="loader"></div>
+								<div class="loader"></div>
+								<div class="loader"></div>
+								<div class="loader"></div>
+							</div>
+						</div>
+					</a>
+				</div>
 
 			</div>
 			<div class="youtube yt2">
