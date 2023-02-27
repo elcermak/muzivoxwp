@@ -198,7 +198,7 @@ function formatConcerts($concerts, $filtre)
         <a href="?filtre=dates" class="btn-filter" title="Filtrez par dates">Dates</a>
         <a href="?filtre=regions" class="btn-filter" title="Filtrez par régions">Régions</a>
       </div>
-      <table class="agenda-table">
+      <ul class="agenda-table">
         <?php
         $previous_filter = '';
 
@@ -217,20 +217,18 @@ function formatConcerts($concerts, $filtre)
             }
 
             if ($filtreTitle) { ?>
-              <tr class="title_calendar" style=" border-bottom: none;">
-                <td colspan="5">
+              <li class="title_calendar" style=" border-bottom: none;">
                   <h3 class="description__title" id="name-filter">
                     <?php
                     echo $title;
                     ?>
                   </h3>
-                </td>
-              </tr>
+              </li>
             <?php
               $previous_filter = $title;
             } ?>
-            <tr class="agenda_tr" <?php if ($current_concert_index != $total_concerts) { ?> style="border-bottom: 1px solid #FF6B00;" <?php } ?>>
-              <td><?php echo $keyDate; ?></td>
+            <li class="agenda_li" <?php if ($current_concert_index != $total_concerts) { ?> style="border-bottom: 1px solid #FF6B00;" <?php } ?>>
+              <div class="col_agenda"><?php echo $keyDate; ?></div>
 
               <?php
               if ($_GET['filtre'] == 'artistes') {
@@ -249,17 +247,17 @@ function formatConcerts($concerts, $filtre)
               }
               ?>
 
-              <td><?php echo $col1; ?></td>
-              <td><?php echo $col2; ?></td>
-              <td><?php echo $col3; ?></td>
+              <div class="col_agenda"><?php echo $col1; ?></div>
+              <div class="col_agenda"><?php echo $col2; ?></div>
+              <div class="col_agenda"><?php echo $col3; ?></div>
               <?php
               if ($_GET['filtre'] == 'dates' || !empty($_GET)) { ?>
 
-                <td><?php echo $col4; ?></td>
+                <div class="col_agenda"><?php echo $col4; ?></div>
               <?php
               }
               ?>
-              <td><?php
+              <div class="col_agenda"><?php
                   if ($infoConcert['is_full'] == 1) { ?>
                   <div class='btn-full'>Complet</div>
                 <?php
@@ -305,8 +303,8 @@ function formatConcerts($concerts, $filtre)
                   </div>
                 <?php
                   } ?>
-              </td>
-            </tr>
+              </div>
+            </li>
           <?php
           }
           $title = $keyTitle;
@@ -316,7 +314,7 @@ function formatConcerts($concerts, $filtre)
           $current_concert_index++;
         }
         ?>
-      </table>
+      </ul>
     </div>
   </div>
 </main>

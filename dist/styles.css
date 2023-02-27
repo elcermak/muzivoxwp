@@ -544,6 +544,18 @@ footer {
 /* FIN FOOTER */
 
 /* AGENDA */
+
+.agenda_li {
+  display: flex;
+  list-style-type: none;
+  justify-content: space-between;
+  color: white;
+}
+
+.col_agenda{
+  width: calc(100% / 6);
+}
+
 .title-filter {
   display: flex;
 }
@@ -554,7 +566,7 @@ footer {
   margin: 25px 0 20px 0;
 }
 
-.agenda-table {
+.agenda-list {
   color: white;
 }
 
@@ -581,9 +593,10 @@ table {
 
 .title_calendar {
   border-bottom: none;
+  list-style-type: none;
 }
 
-.agenda-table tr {
+.agenda-list li {
   height: 60px;
 }
 
