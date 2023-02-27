@@ -74,10 +74,10 @@ while (have_posts()) : the_post(); ?>
 				<div class="agenda__concert">
 					<div class="agenda__concert--date">
 						<?php
-
-						$date_obj = DateTime::createFromFormat('Y/m/d', $next_concert['date']);
+						$date_obj = DateTime::createFromFormat('Y/m/d H:i', $next_concert['date']);
 						setlocale(LC_TIME, 'fr_FR.UTF-8', 'fra');
-						echo strftime('%A %d %B %Y', $date_obj->getTimestamp());
+						echo strftime('%a %d %b %Y à %HH%M', $date_obj->getTimestamp());
+
 
 
 						// echo $date;
