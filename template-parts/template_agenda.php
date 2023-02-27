@@ -192,7 +192,7 @@ function formatConcerts($concerts, $filtre)
 <main>
 
   <div class="container container-flex">
-    <div class="container-rectangle">
+    <div class="container-rectangle " id="background-none">
       <div class="btns-filters">
         <a href="?filtre=artistes" class="btn-filter" title="Filtrez par artistes">Artistes</a>
         <a href="?filtre=dates" class="btn-filter" title="Filtrez par dates">Dates</a>
