@@ -47,26 +47,25 @@ while (have_posts()) : the_post(); ?>
 			<div class="galerie_area">
 				<div class="carousel-container">
 					<div class="carousel-slide">
-						<img src="<?php the_field('lien_soundcloud'); ?>" />
+						<img src="<?php echo get_field('image_carrousel-1')['url']; ?>" alt="<?php get_field('image_carrousel-1')['alt']; ?>" />
 					</div>
 					<div class="carousel-slide">
-						<img src="<?php the_field('lien_soundcloud'); ?>" />
+						<img src="<?php echo get_field('image_carrousel-2')['url']; ?>" alt="<?php get_field('image_carrousel-2')['alt']; ?>" />
 					</div>
 					<div class="carousel-slide">
-						<img src="<?php the_field('lien_soundcloud'); ?>" />
+						<img src="<?php echo get_field('image_carrousel-3')['url']; ?>" alt="<?php get_field('image_carrousel-3')['alt']; ?>" />
 					</div>
 				</div>
 				<div class="galerie_area-nav">
 
 					<button class="btn__arrow" onclick="prevSlide()">
-						<div class="btn__arrow--left"> </div>
+						<i class="fa fa-duotone fa-square-caret-left arrowSingleArtist"></i>
 					</button>
 					<button class="btn__arrow" onclick="nextSlide()">
-						<div class="btn__arrow--right"> </div>
+						<i class="fa fa-duotone fa-square-caret-right arrowSigleArtist"></i>
 					</button>
 				</div>
 			</div>
-
 
 			<div class="agenda">
 				<div class="agenda__header">
@@ -79,7 +78,7 @@ while (have_posts()) : the_post(); ?>
 						if (!empty($next_concert['date'])) {
 							$date_obj = DateTime::createFromFormat('Y/m/d H:i', $next_concert['date']);
 							setlocale(LC_TIME, 'fr_FR.UTF-8', 'fra');
-							echo strftime('%a %d %b %Y à %HH%M', $date_obj->getTimestamp());	
+							echo strftime('%a %d %b %Y à %HH%M', $date_obj->getTimestamp());
 						} else {
 							echo "Pas de concert prévu pour le moment";
 						}
@@ -196,8 +195,11 @@ while (have_posts()) : the_post(); ?>
 		</div>
 	</main>
 
-	<script src="<?php echo get_template_directory_uri() . "/dist/galerieArtiste.js" ?>"></script>
+	<script src="<?php echo get_template_directory_uri() . "/dist/gallerieArtiste.js" ?>"></script>
 	<script src="<?php echo get_template_directory_uri() . "/dist/savoirPlus.js" ?>"></script>
 
+
 <?php endwhile; // End of the loop.
+?>
+<?php
 get_footer();
