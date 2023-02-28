@@ -36,7 +36,9 @@ while (have_posts()) : the_post(); ?>
 		}
 	endforeach;
 
-	$next_concert = get_last_concert($concert, $name_artiste);
+	if (!empty($concert)) {
+		$next_concert = get_last_concert($concert, $name_artiste);
+	}
 	wp_reset_postdata();
 	?>
 
@@ -45,13 +47,13 @@ while (have_posts()) : the_post(); ?>
 			<div class="galerie_area">
 				<div class="carousel-container">
 					<div class="carousel-slide">
-						<img src="<?php echo get_template_directory_uri() . "/asset/photo/" . get_post_field('post_name', get_post()); ?>/carrousel_1.jpg" />
+						<img src="<?php the_field('lien_soundcloud'); ?>" />
 					</div>
 					<div class="carousel-slide">
-						<img src="<?php echo get_template_directory_uri() . "/asset/photo/" . get_post_field('post_name', get_post()); ?>/carrousel_2.jpg" />
+						<img src="<?php the_field('lien_soundcloud'); ?>" />
 					</div>
 					<div class="carousel-slide">
-						<img src="<?php echo get_template_directory_uri() . "/asset/photo/" . get_post_field('post_name', get_post()); ?>/carrousel_3.jpg" />
+						<img src="<?php the_field('lien_soundcloud'); ?>" />
 					</div>
 				</div>
 				<div class="galerie_area-nav">
@@ -74,17 +76,14 @@ while (have_posts()) : the_post(); ?>
 				<div class="agenda__concert">
 					<div class="agenda__concert--date">
 						<?php
-<<<<<<< HEAD
+						if (!empty($next_concert['date'])) {
+							$date_obj = DateTime::createFromFormat('Y/m/d H:i', $next_concert['date']);
+							setlocale(LC_TIME, 'fr_FR.UTF-8', 'fra');
+							echo strftime('%a %d %b %Y à %HH%M', $date_obj->getTimestamp());	
+						} else {
+							echo "Pas de concert prévu pour le moment";
+						}
 
-						$date_obj = DateTime::createFromFormat('Y/m/d', $next_concert['date']);
-						setlocale(LC_TIME, 'fr_FR.UTF-8', 'fra');
-						echo strftime('%A %d %B %Y', $date_obj->getTimestamp());
-=======
-						$date_obj = DateTime::createFromFormat('Y/m/d H:i', $next_concert['date']);
-						setlocale(LC_TIME, 'fr_FR.UTF-8', 'fra');
-						echo strftime('%a %d %b %Y à %HH%M', $date_obj->getTimestamp());
-
->>>>>>> Ludovic
 
 
 						// echo $date;
