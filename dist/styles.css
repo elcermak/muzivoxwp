@@ -1,19 +1,50 @@
 @import url("https://fonts.googleapis.com/css2?family=Akshar:wght@300;400;700&family=Inter:wght@300;400;700&display=swap");
+
 * {
   margin: 0;
 }
-a {
-  text-decoration:none;
- }
 
- /* HEADER */
+a {
+  text-decoration: none;
+}
+
+body {
+  font-family: "Akshar", sans-serif;
+}
+
+/* HEADER */
 
 .header {
   margin-top: 30px;
   margin-bottom: 60px;
   display: flex;
   justify-content: center;
-  
+}
+
+.flexbox {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 50px;
+}
+
+.directionCol {
+  flex-direction: column;
+}
+
+.justify_center {
+  justify-content: center;
+}
+
+.align_center {
+  align-items: center;
+}
+
+td {
+  width: 250px;
+}
+
+.gap10px {
+  gap: 10px;
 }
 
 /* .nav_start {
@@ -28,21 +59,30 @@ a {
 }
 /*  */
 
-header .menu { 
+header .menu {
   width: 80%;
 }
 
 header .menu a {
   color: black;
-  text-decoration:none;
+  text-decoration: none;
 
 }
 
-.current-menu, .page_item a :active{
+.current-menu,
+.page_item a :active {
   border-bottom: 5px solid #FF6B00;
   padding: 5px 10px;
 }
 
+.active{
+  border-bottom: 5px solid #FF6B00;
+}
+
+#menu-menu-principal li:nth-child(3) {
+  border-bottom: none;
+
+  }
 /* .nav_end {
   white-space: pre-line;
 }
@@ -72,7 +112,7 @@ header .menu ul {
 border-bottom: 5px solid #FF6B00;
 } */
 
-.menu-item{
+.menu-item {
   padding: 5px 10px;
 }
 
@@ -101,9 +141,11 @@ border-bottom: 5px solid #FF6B00;
   position: relative;
   border: none;
 }
+
 .btn__arrow:hover {
   background-color: #FF6B00;
 }
+
 .btn__arrow--left {
   position: absolute;
   top: 5px;
@@ -115,6 +157,7 @@ border-bottom: 5px solid #FF6B00;
   border-color: transparent #FFFFFF transparent transparent;
   z-index: 10;
 }
+
 .btn__arrow--right {
   position: absolute;
   top: 5px;
@@ -133,6 +176,7 @@ border-bottom: 5px solid #FF6B00;
   font-family: "Akshar", sans-serif;
   font-size: 1.125rem;
 }
+
 .description__title {
   text-transform: uppercase;
   text-align: center;
@@ -140,7 +184,12 @@ border-bottom: 5px solid #FF6B00;
   margin-bottom: 5px;
   text-shadow: 0px 4px 4px #FF6B00;
   font-size: 3rem;
+  display: flex;
+  justify-content: ;
+  margin: 0 50px;
+  color: white;
 }
+
 .description__rs {
   display: flex;
   gap: 20px;
@@ -148,31 +197,42 @@ border-bottom: 5px solid #FF6B00;
   justify-content: center;
   color: #FF6B00;
 }
+
 .description__text {
   margin: 0px 50px;
   overflow: hidden;
   /* max-height: 240px; */
 }
 
-#d1 {
+#d1 {}
+
+#d1.collapsed {
   display: none;
-  transition: all 0.5s ease-out;
 }
+
+#d1.expanded {
+  display: block;
+}
+
 .description p:first-of-type {
   font-size: 1.5rem;
 }
+
 .description p {
   margin: 20px 0;
 }
+
 .description p:first-of-type::first-letter {
   color: #FF6B00;
   font-size: 2rem;
 }
+
 .description__savoirPlus {
   text-align: center;
   text-transform: uppercase;
   padding-bottom: 20px;
 }
+
 .description__savoirPlus a {
   text-decoration: none;
   color: #FF6B00;
@@ -185,40 +245,47 @@ border-bottom: 5px solid #FF6B00;
   font-size: 1.5rem;
   line-height: 1.625rem;
 }
+
 .agenda a {
   color: #FF6B00;
   text-decoration: none;
 }
+
 .agenda__header {
   margin: 10px;
   font-size: 2rem;
   line-height: 1.5rem;
 }
+
 .agenda__concert {
   margin: 10px;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
+
 .agenda__footer {
   margin: 10px;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
+
 .galerie {
   overflow: hidden;
 }
+
 .galerie img {
   display: none;
   width: 100px;
   height: auto;
 }
+
 .galerie img.active {
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   display: block;
 }
 
@@ -234,6 +301,7 @@ border-bottom: 5px solid #FF6B00;
     height: 400px;
   }
 }
+
 .carousel-slide {
   width: 100%;
   height: 100%;
@@ -246,12 +314,13 @@ border-bottom: 5px solid #FF6B00;
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 
 .galerie_area {
   position: relative;
 }
+
 .galerie_area-nav {
   position: absolute;
   bottom: 10px;
@@ -262,6 +331,7 @@ border-bottom: 5px solid #FF6B00;
 .nav_start {
   white-space: pre-line;
 }
+
 .nav_start li {
   margin-left: 20px;
   gap: 10px;
@@ -270,6 +340,7 @@ border-bottom: 5px solid #FF6B00;
   text-transform: uppercase;
   font-family: "Inter", sans-serif;
 }
+
 .nav_start li a {
   color: white;
   text-decoration: none;
@@ -278,11 +349,13 @@ border-bottom: 5px solid #FF6B00;
 .nav_end {
   white-space: pre-line;
 }
+
 .nav_end li {
   list-style-type: none;
   text-transform: uppercase;
   font-family: "Inter", sans-serif;
 }
+
 .nav_end li a {
   text-decoration: none;
   color: white;
@@ -297,7 +370,7 @@ border-bottom: 5px solid #FF6B00;
 .wrapper {
   display: grid;
   grid-template-columns: 0.6fr 2% 1fr;
-  grid-template-rows: 150px 250px 400px 50px auto;
+  grid-template-rows: 200px 250px 360px 350px 350px auto;
   margin: 50px 140px;
 }
 
@@ -313,18 +386,55 @@ border-bottom: 5px solid #FF6B00;
 }
 
 .soundcloud {
+
+  position: relative;
+  padding-bottom: 56.25%;
+  overflow: hidden;
+  max-width: 100%;
+  height: auto;
+}
+
+.yt1 {
   grid-column: 1;
-  grid-row: 3/5;
+  grid-row: 3;
+}
+
+.yt2 {
+  grid-column: 1;
+  grid-row: 4;
+}
+
+.yt3 {
+  grid-column: 1;
+  grid-row: 5;
+}
+
+.youtube iframe,
+.youtube object,
+.youtube embed,
+.soundcloud iframe,
+.soundcloud object,
+.soundcloud embed {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 
 .description_area {
   grid-column: 2/4;
-  grid-row: 2/6;
+  grid-row: 2/7;
 }
 
 .youtube {
-  grid-column: 1;
-  grid-row: 5;
+
+  position: relative;
+  padding-bottom: 56.25%;
+  overflow: hidden;
+  max-width: 100%;
+  max-height: 100px;
+  margin: 5px 0;
 }
 
 @media screen and (max-width: 1400px) {
@@ -334,18 +444,23 @@ border-bottom: 5px solid #FF6B00;
     margin: 50px 20px;
     gap: 10px;
   }
+
   .galerie_area {
     flex: 1;
   }
+
   .agenda {
     flex: 1;
   }
+
   .soundcloud {
     flex: 1;
   }
+
   .description_area {
     flex: 1;
   }
+
   .youtube {
     flex: 1;
   }
@@ -357,61 +472,65 @@ border-bottom: 5px solid #FF6B00;
 /* FOOTER */
 
 footer {
-  display:grid;
+  display: grid;
   background-color: #FF6B00;
   height: 160px;
 }
 
 .grid-footer-container {
-  text-align:center;
-  align-items:center;
-  text-transform:uppercase;
-  color:white;
-  display: grid; 
-  grid-template-columns: 1fr 1.5fr 1fr 0.5fr ;
+  text-align: center;
+  align-items: center;
+  text-transform: uppercase;
+  color: white;
+  display: grid;
+  grid-template-columns: 1fr 1.5fr 1fr 0.5fr;
   grid-template-areas:
     "menu_left image menu_right social";
 }
 
 .grid-item-footer-image {
   grid-area: image;
-  background-image: url(../image/etoile_grise.png);
+  background-image: url(../asset/image/etoile_grise.png);
   background-repeat: no-repeat;
 
 }
 
 .grid-item-footer li {
-    list-style:none;
+  list-style: none;
 }
 
-.grid-item-footer a{
-  color:white;
+.grid-item-footer a {
+  color: white;
 }
 
-.grid-item-footer a:hover{
-  color:black;
+.grid-item-footer a:hover {
+  color: black;
 }
-.grid-item-footer a:visited{
-  color:white;
+
+.grid-item-footer a:visited {
+  color: white;
 }
 
 
 .footer_left {
   grid-area: menu_left;
-  
+
 }
+
 .footer_right {
   grid-area: menu_right;
 
 }
+
 .media {
   color: white;
   margin-right: 40px;
-  grid-area: social ;
+  grid-area: social;
 
 }
-.media :hover{
-  color:black;
+
+.media :hover {
+  color: black;
 }
 
 .media i {
@@ -422,8 +541,6 @@ footer {
   padding: 5px 10px;
 }
 
-<<<<<<< Updated upstream
-=======
 /* FIN FOOTER */
 
 /* AGENDA */
@@ -467,7 +584,6 @@ table {
 }
 
 .agenda-table tr {
-  border-bottom: 1px solid #FF6B00;
   height: 60px;
 }
 
@@ -496,12 +612,16 @@ table {
 
 .container-rectangle {
   width: 60%;
+
   background-color: #1A1A1A;
+
   min-height: 450px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background-image: url(asset/image/ETOILE_BIG.png);
+
+  background-image: url(../asset/image/ETOILE_BIG.png);
+
   fill: red;
   background-repeat: no-repeat;
   background-position: center;
@@ -509,13 +629,17 @@ table {
   margin-bottom: 80px;
   position: relative;
   justify-content: flex-start;
+  border: 2px solid #FF6B00;
+
 }
 
 .container-rectangle::before {
   content: "";
   position: absolute;
   /*or absolute*/
-  background-image: url("asset/image/egaliseur.svg");
+
+  background-image: url("../asset/image/egaliseur.svg");
+
   background-position: center center;
   background-repeat: no-repeat;
   left: -16px;
@@ -530,7 +654,9 @@ table {
   content: "";
   position: absolute;
   /*or absolute*/
-  background-image: url("asset/image/egaliseur.svg");
+
+  background-image: url("../asset/image/egaliseur.svg");
+
   background-position: center center;
   background-repeat: no-repeat;
   right: -4px;
@@ -796,34 +922,44 @@ table {
 /* ========= Liste artistes ========= */
 #artist {
   padding: 0;
-}
-.Artistes_List {
-  display: flex;
+
+  width: 70%;
+  height: 640px;
   flex-wrap: wrap;
-  flex-direction: center;
+  object-fit: cover;
+}
+
+.Artistes_List {
+  width: 100%;
+  height: 600px;
+  overflow-y: scroll;
+
 }
 
 .artist li {
   float: left;
   width: 45%;
   list-style-type: none;
-margin: 10px;
-text-transform: uppercase;
-font-size: 1.2em;
+
+  margin: 10px;
+  text-transform: uppercase;
+  font-size: 1.2em;
 }
 
-.artist__search{
-  flex-basis: 100%;
-  text-align: center;
-  justify-content: center;
-  align-self: center;
-  align-items: center;
+.artist__search--input {
+  width: 200px;
+  margin: 20px 10px;
+  font-size: 1.2em;
+}
+
+.artist__search {
+  gap: 0;
+
 }
 
 .artist__link {
   color: white;
   text-decoration: none;
-  padding: 5px;
 }
 
 .filtreColor {
@@ -1311,4 +1447,206 @@ input:checked + .slider:before {
     font-size: 16px;
   }
 }
->>>>>>> Stashed changes
+
+  min-height: 450px;
+  display: flex;
+  /* flex-wrap: wrap; */
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #FF6B00;
+  outline: #CC5500;
+  border-radius: 50vh;
+  transition: 1s ease-in-out;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #CC5500;
+  border: 1px solid #CC5500;
+}
+
+/* ========= Fin Liste artistes ========= */
+
+
+/* ========= Espace pro ========= */
+
+.wrapperEspacePro {
+  margin: 0 140px 0 0;
+}
+
+.displaySearch {
+  display: flex;
+  justify-content: end;
+}
+
+.displaySearch__input {
+  border: none;
+  border-bottom: 1px solid #FFFFFF;
+  background-color: transparent;
+  color: #FFFFFF;
+  text-align: center;
+}
+
+.fa-magnifying-glass,
+.displaySearch__input::placeholder {
+  color: #FFFFFF;
+}
+
+.displaySearch__background {
+  background-color: #8f8f8f;
+  display: flex;
+  justify-content: center;
+  padding: 10px 20px;
+}
+
+.EspacePro__artist {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: white;
+}
+
+.espacePro__artist--background {
+  background-color: #231F20;
+  margin: 10px 0;
+}
+
+.EspacePro__artist--item {
+  list-style-type: none;
+  margin: 0 10%;
+  text-transform: uppercase;
+  font-size: 1.6rem;
+  padding: 10px 0;
+  display: flex;
+  gap: 50px;
+}
+
+.fa-download {
+  color: #FF6B00;
+}
+
+/* ========= Fin Espace pro ========= */
+
+/* ========= login espace pro ========= */
+
+.formGroup {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  width: 100%;
+}
+
+#fromGroup_Title {
+  justify-content: center;
+  margin-bottom: 100px;
+  font-size: 2rem;
+}
+
+.formGroup label {
+  text-align: end;
+  color: white;
+  width: 30%;
+  margin-right: 10px;
+}
+
+.formGroup input {
+  width: 80%;
+  border-radius: 10px;
+  height: 34px;
+  margin-right: 12.5%;
+  padding-left: 20px;
+}
+
+.formGroup select {
+  margin-bottom: 0;
+}
+
+.formGroup-input {
+  padding-left: 20px;
+}
+
+.btn-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.btn-container .btn {
+  text-transform: uppercase;
+  border-radius: 8px;
+  background-color: #FF6B00;
+  height: 36px;
+  margin-right: 12.5%;
+  border: none;
+  color: #FFFFFF;
+  padding: 0 20px;
+}
+
+#form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#logout {
+  justify-content: center;
+}
+
+.btn:hover {
+  cursor: pointer;
+}
+
+@media screen and (max-width: 640px) {
+  .formGroup {
+    flex-direction: column;
+  }
+
+  .formGroup label {
+    font-size: 16px;
+    width: 100%;
+    flex-basis: 100%;
+  }
+
+  .formGroup textarea {
+    height: 100px;
+    width: 80%;
+  }
+
+  .formGroup input {
+    margin-right: 0;
+    margin-bottom: 20px;
+    width: 80%;
+  }
+
+  .formGroup label {
+    text-align: center;
+  }
+
+  .btn-container {
+    justify-content: center;
+  }
+
+  .btn-container .btn {
+    margin-right: 0;
+    margin-bottom: 6%;
+  }
+}
+
+
+/* ========= Fin login espace pro ========= */
