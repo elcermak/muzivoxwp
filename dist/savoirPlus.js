@@ -15,14 +15,24 @@
 //     }
 //     isExpanded = !isExpanded;
 // });
+window.onload = function () {
+var expandCollapseButton = document.getElementById("expand-collapse-button");
+var d1 = document.getElementById("d1");
 
-let togg1 = document.getElementById("expand-collapse-button");
-let d1 = document.getElementById("d1");
-togg1.addEventListener("click", () => {
-  if(getComputedStyle(d1).display != "none"){
-    d1.style.display = "none";
-    
+expandCollapseButton.addEventListener("click", function() {
+  if (d1.classList.contains("collapsed")) {
+    d1.classList.remove("collapsed");
+    d1.classList.add("expanded");
+
+    expandCollapseButton.innerHTML = "Réduire";
   } else {
-    d1.style.display = "block";
+    d1.classList.remove("expanded");
+    d1.classList.add("collapsed");
+    expandCollapseButton.innerHTML = "En savoir plus";
   }
-})
+});
+
+}
+
+
+
