@@ -612,12 +612,16 @@ table {
 
 .container-rectangle {
   width: 60%;
-  background-color: black;
+
+  background-color: #1A1A1A;
+
   min-height: 450px;
   display: flex;
   flex-direction: column;
   justify-content: center;
+
   background-image: url(../asset/image/ETOILE_BIG.png);
+
   fill: red;
   background-repeat: no-repeat;
   background-position: center;
@@ -626,13 +630,16 @@ table {
   position: relative;
   justify-content: flex-start;
   border: 2px solid #FF6B00;
+
 }
 
 .container-rectangle::before {
   content: "";
   position: absolute;
   /*or absolute*/
+
   background-image: url("../asset/image/egaliseur.svg");
+
   background-position: center center;
   background-repeat: no-repeat;
   left: -16px;
@@ -647,7 +654,9 @@ table {
   content: "";
   position: absolute;
   /*or absolute*/
+
   background-image: url("../asset/image/egaliseur.svg");
+
   background-position: center center;
   background-repeat: no-repeat;
   right: -4px;
@@ -913,6 +922,7 @@ table {
 /* ========= Liste artistes ========= */
 #artist {
   padding: 0;
+
   width: 70%;
   height: 640px;
   flex-wrap: wrap;
@@ -923,12 +933,14 @@ table {
   width: 100%;
   height: 600px;
   overflow-y: scroll;
+
 }
 
 .artist li {
   float: left;
   width: 45%;
   list-style-type: none;
+
   margin: 10px;
   text-transform: uppercase;
   font-size: 1.2em;
@@ -942,18 +954,500 @@ table {
 
 .artist__search {
   gap: 0;
+
 }
 
 .artist__link {
   color: white;
   text-decoration: none;
-
 }
 
 .filtreColor {
   background-color: rgba(0, 0, 0, 0.7);
   width: 100%;
   height: 100%;
+  content: "";
+}
+/* ========= Fin Liste artistes ========= */
+
+/* PAGE CONTACT */
+
+.contact{
+  height: 100%;
+}
+.container-rectangle { 
+  padding:2%;
+}
+#container-formulaire {
+display:flex;
+align-items:center;
+justify-content:center;
+}
+
+label {
+  color: white;
+  text-transform: uppercase;
+}
+
+#acf-field_63f7607ddfe6a {
+  color: #FF6B00;
+  border: 1px solid #FF6B00;
+  width: 60%;
+  border-radius: 10px;
+  height: 34px;
+  margin-right: 12.5%;
+  display: flex;
+  align-self: flex-end;
+  padding: 2px;
+  background-color:transparent;
+}
+
+.acf-form {
+  width:65%;
+  
+ 
+}
+
+.acf-form-submit {
+  display: flex;
+  justify-content: flex-end;
+
+}
+
+.acf-form-submit .acf-button{
+  text-transform: uppercase;
+  border-radius: 12px;
+  background-color: #FF6B00;
+  color: white;
+  font-weight:bold;
+  border-style:none;
+  height: 36px;
+  margin: 5%;
+  padding:10px;
+  align-items:flex-end;
+}
+
+
+.acf-input {
+  width:100%;
+}
+
+
+.filter select {
+  display:none;
+}
+.acf-fields > .acf-field {
+  border-top-style: none!important;
+}
+
+.acf-bl li:hover {
+  background-color: #FF6B00;
+}
+
+/*FIN PAGE CONTACT*/
+
+/* page accueil*/
+
+/*Début du carrousel */
+
+.first-carrousel {
+  display:flex;
+  justify-content: center;
+  position:relative;
+  /* margin-bottom: 120px; */
+  width:100%;
+  height:85vh;
+  
+  
+}
+
+.orange-egalizers {
+width:30%;
+position:absolute;
+z-index:50;
+font-family:'Akshar';
+right:0;
+top:25%;
+
+
+}
+.single-egalizer {
+  background-color: #FF6B00;
+  color: white;
+  padding: 20px;
+  margin: 25px 0;
+  
+}
+
+.single-egalizer a{
+  width: 100%;
+  height: 100%;
+  display: ;
+  
+}
+
+.images-carrousel {
+  width: 100%;
+  position:relative;
+  height: 100%;
+
+}
+.first-image {
+  width:70%;
+  height: 85%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin:auto;
+
+}
+.card_next_concert {
+  width: 30%;
+  z-index:9999;
+  position: absolute;
+  bottom: 0;
+  left: 10%;
+  height:50%
+
+}
+.image_next_concert {
+  width:100%;
+  height:80%;
+
+}
+
+.carrousel-cover {
+  width: 100%;
+  height:100%;
+  object-fit:cover;
+}
+
+#next_nameArtist {
+  color:#FF6B00;
+  font-family:'Akshar';
+  font-size: 32px;
+}
+
+#next_date {
+  font-family:'Akshar';
+  font-size:24px;
+
+}
+
+/* Progress bar */
+
+#loader{
+  width: 100%;
+}
+.progress-bar{
+   background: #E6EEFF;
+   width:100%;
+   height: 10px;
+   margin: auto;
+   overflow: hidden;
+}
+.progress-bar .progress{
+      background-color: #FF6B00;
+      width: 3px;
+      height: 10px;
+ 
+}
+
+/*Fin du progress Bar*/
+
+/*Fin du premier carrousel*/
+
+.container_aPropos {
+  background-color: black;
+  width: 70%;
+  height: 240px;
+  margin: 80px 0;
+}
+.container_aPropos .title_aPropos {
+  color: white;
+  text-align: start;
+}
+.container_aPropos p {
+  color: white;
+  padding: 0 40px;
+}
+.container_aPropos h3 {
+  padding: 40px;
+  margin: 0;
+}
+
+.container_carrousel {
+  background-color: #1A1A1A;
+  height: 150px;
+  margin-bottom: 130px;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+}
+
+.carousel {
+  margin: 0 50px;
+}
+
+.carousel-cell {
+  width: 28%;
+  height: 300px;
+  margin-left: 70px;
+  margin-right: 10px;
+  border-radius: 5px;
+  background-size: cover;
+  display: flex;
+  align-items: self-end;
+  justify-content: center;
+}
+
+.flickity-viewport {
+  display: flex;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: #FF6B00;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: #1A1A1A;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #1A1A1A;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+
+/* Carrousel Mise en avant artiste */
+
+.carrousel_hightlight {
+  height: 350px;
+  width: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+}
+
+.carrousel_background{
+  height: 150px;
+  width: 100%;
+  background-color: #1A1A1A;
+}
+
+.container_hightlight {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  position: absolute;
+  top: 15%;
+}
+
+.hightlight-cell {
+  width: 20%;
+  height: 250px;
+}
+.hightlight-arrow {
+  height: 250px;
+  width: auto;
+  color: #fff;
+  text-align: center;
+  display: flex;
+  align-items: center;
+}
+
+.hightlight-arrow i{
+}
+.hightlight_artist {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.title_hightlight-artist {
+  text-transform:uppercase;
+  color:#FF6B00;
+  font-weight:bold;
+  font-size: 26px;
+}
+
+.title_home {
+  font-size: 40px;
+  padding-left: 6%;
+}
+.btn-artiste {
+  display: flex;
+  justify-content: flex-end;
+  background-color:#D9D9D9;
+  font-size:26px;
+  text-transform: uppercase;
+  font-weight:bold;
+  width: 30%;
+}
+
+/* fin Carrousel Mise en avant artiste */
+
+@media screen and (max-width: 640px) {
+  .title_aPropos {
+    font-size: 16px;
+  }
+
+  .container_aPropos {
+    height: 140px;
+    margin-bottom: 40px;
+  }
+  .container_aPropos h3 {
+    padding: 20px;
+  }
+  .container_aPropos p {
+    font-size: 8px;
+    padding: 0 20px;
+  }
+
+  .title_home {
+    font-size: 16px;
+    margin: 0 0 40px 20px;
+  }
+
+  .carousel-cell {
+    width: 100%;
+    object-fit: cover;
+    margin: 0 10px 0 30px;
+  }
+
+  /* Carrousel */
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: "Akshar", sans-serif;
+  }
+
+  .carousel {
+    margin: 20px;
+  }
+
+  .container_carrousel {
+    height: 50px;
+    margin-bottom: 80px;
+  }
+
+  .carousel-cell {
+    width: 40%;
+    height: 100px;
+    border-radius: 5px;
+    background-size: cover;
+  }
+
+  .flickity-prev-next-button.previous {
+    left: -10px;
+  }
+
+  .flickity-prev-next-button.next {
+    right: -10px;
+  }
+
+  .flickity-prev-next-button {
+    width: 22px;
+    height: 22px;
+  }
+
+  .carousel-cell:before {
+    display: block;
+  }
+
+  .flickity-viewport {
+    height: 100px;
+  }
+
+  .btn-artiste button {
+    font-size: 10px;
+    height: 30%;
+    width: 30%;
+  }
+}
+@media screen and (min-width: 640px) and (max-width: 1223px) {
+  .title_aPropos {
+    font-size: 24px;
+  }
+
+  .container_aPropos {
+    height: 190px;
+    padding: 30px 0;
+    margin-bottom: 40px;
+  }
+  .container_aPropos h3 {
+    padding: 20px;
+  }
+  .container_aPropos p {
+    font-size: 16px;
+    padding: 0 20px;
+  }
+
+  .container_carrousel {
+    height: 100px;
+    margin-bottom: 130px;
+  }
+
+  .carousel {
+    display: flex;
+    justify-content: center;
+  }
+
+  .carousel-cell {
+    width: 60%;
+    object-fit: cover;
+    margin: 0 10px 0 30px;
+  }
+
+  .flickity-viewport {
+    height: 200px;
+    width: 100%;
+  }
+
+  .btn-artiste button {
+    height: 45%;
+    width: 35%;
+    font-size: 16px;
+  }
+}
+
   min-height: 450px;
   display: flex;
   /* flex-wrap: wrap; */
