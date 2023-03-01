@@ -19,7 +19,6 @@ body {
   margin-bottom: 60px;
   display: flex;
   justify-content: center;
-
 }
 
 .flexbox {
@@ -28,8 +27,24 @@ body {
   gap: 50px;
 }
 
+.directionCol {
+  flex-direction: column;
+}
+
+.justify_center {
+  justify-content: center;
+}
+
+.align_center {
+  align-items: center;
+}
+
 td {
   width: 250px;
+}
+
+.gap10px {
+  gap: 10px;
 }
 
 /* .nav_start {
@@ -60,6 +75,14 @@ header .menu a {
   padding: 5px 10px;
 }
 
+.active{
+  border-bottom: 5px solid #FF6B00;
+}
+
+#menu-menu-principal li:nth-child(3) {
+  border-bottom: none;
+
+  }
 /* .nav_end {
   white-space: pre-line;
 }
@@ -162,7 +185,7 @@ border-bottom: 5px solid #FF6B00;
   text-shadow: 0px 4px 4px #FF6B00;
   font-size: 3rem;
   display: flex;
-  justify-content: space-between;
+  justify-content: ;
   margin: 0 50px;
   color: white;
 }
@@ -347,7 +370,7 @@ border-bottom: 5px solid #FF6B00;
 .wrapper {
   display: grid;
   grid-template-columns: 0.6fr 2% 1fr;
-  grid-template-rows: 150px 250px 350px 350px 350px auto;
+  grid-template-rows: 200px 250px 360px 350px 350px auto;
   margin: 50px 140px;
 }
 
@@ -411,6 +434,7 @@ border-bottom: 5px solid #FF6B00;
   overflow: hidden;
   max-width: 100%;
   max-height: 100px;
+  margin: 5px 0;
 }
 
 @media screen and (max-width: 1400px) {
@@ -466,7 +490,7 @@ footer {
 
 .grid-item-footer-image {
   grid-area: image;
-  background-image: url(../image/etoile_grise.png);
+  background-image: url(../asset/image/etoile_grise.png);
   background-repeat: no-repeat;
 
 }
@@ -527,6 +551,7 @@ footer {
 #name-filter {
   font-size: 25px;
   justify-content: flex-start;
+  margin: 25px 0 20px 0;
 }
 
 .agenda-table {
@@ -548,6 +573,23 @@ footer {
   font-size: 22px;
   border: none;
   background-color: #FF6B00;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+.title_calendar {
+  border-bottom: none;
+}
+
+.agenda-table tr {
+  height: 60px;
+}
+
+.logo_agenda {
+  color: #FF6B00;
+  font-size: 1.5rem;
 }
 
 /* FIN AGENDA */
@@ -575,7 +617,7 @@ footer {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background-image: url(asset/image/ETOILE_BIG.png);
+  background-image: url(../asset/image/ETOILE_BIG.png);
   fill: red;
   background-repeat: no-repeat;
   background-position: center;
@@ -583,34 +625,37 @@ footer {
   margin-bottom: 80px;
   position: relative;
   justify-content: flex-start;
+  border: 2px solid #FF6B00;
 }
 
 .container-rectangle::before {
   content: "";
   position: absolute;
   /*or absolute*/
-  background-image: url("asset/image/egaliseur.svg");
+  background-image: url("../asset/image/egaliseur.svg");
   background-position: center center;
   background-repeat: no-repeat;
   left: -16px;
   transform: translateX(-50%);
   width: 100%;
   height: 100%;
-  z-index: -5; /* Image supperpose les liens, A voir si cette modif pose des soucis */
+  z-index: -5;
+  /* Image supperpose les liens, A voir si cette modif pose des soucis */
 }
 
 .container-rectangle::after {
   content: "";
   position: absolute;
   /*or absolute*/
-  background-image: url("asset/image/egaliseur.svg");
+  background-image: url("../asset/image/egaliseur.svg");
   background-position: center center;
   background-repeat: no-repeat;
   right: -4px;
   transform: translateX(50%);
   width: 100%;
   height: 100%;
-  z-index: -5; /* Image supperpose les liens, A voir si cette modif pose des soucis */
+  z-index: -5;
+  /* Image supperpose les liens, A voir si cette modif pose des soucis */
 
 }
 
@@ -640,3 +685,474 @@ footer {
 }
 
 /* FIN ASSET CONTAINER RECTANGLE */
+
+/* ========= loader music ========= */
+
+.flexbox_player {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2px;
+}
+
+.muzik {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  min-height: 95px;
+  width: 330px;
+  margin-bottom: 1px;
+}
+
+.loader {
+  background-color: #FF6B00;
+
+}
+
+.loader:nth-child(1) {
+  background-color: #FF6B00;
+  height: 4px;
+}
+
+.loader:nth-child(2) {
+  background-color: #FF6B00;
+  height: 4px;
+}
+
+.loader:nth-child(3) {
+  background-color: #FF6B00;
+  height: 4px;
+}
+
+.loader:nth-child(4) {
+  background-color: #FF6B00;
+  height: 4px;
+}
+
+.loader:nth-child(5) {
+  background-color: #FF6B00;
+  height: 4px;
+}
+
+.loader:nth-child(6) {
+  background-color: #FF6B00;
+  height: 4px;
+}
+
+.loader:nth-child(7) {
+  background-color: #FF6B00;
+  height: 4px;
+}
+
+.loader:nth-child(8) {
+  background-color: #FF6B00;
+  height: 4px;
+}
+
+.loader:nth-child(9) {
+  background-color: #FF6B00;
+  height: 4px;
+}
+
+.loader:nth-child(10) {
+  background-color: #FF6B00;
+  height: 4px;
+}
+
+
+/* ========= Fin loader music ========= */
+.loader {
+  width: 12px;
+  height: 4px;
+  border-radius: 10px;
+  background-color: #fff;
+
+  /* animation: musicloader 1s ease-in-out infinite; */
+
+}
+
+.animation {
+  border: 4px solid #FF6B00;
+  width: auto;
+  height: auto;
+  -webkit-transition: all 0.5s ease;
+
+}
+
+.loader {
+  animation: musicloader 1.2s ease-in-out infinite;
+
+}
+
+@keyframes musicloader {
+
+  0% {
+    height: 4px;
+  }
+
+  50% {
+    height: 90px;
+  }
+
+  100% {
+    height: 4px;
+  }
+
+}
+
+.loader:nth-child(1) {
+  animation-delay: 1s;
+}
+
+.loader:nth-child(2) {
+  animation-delay: 0.8s;
+}
+
+.loader:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+.loader:nth-child(4) {
+  animation-delay: 0.4s;
+}
+
+.loader:nth-child(5) {
+  animation-delay: 0.2s;
+}
+
+.loader:nth-child(6) {
+  animation-delay: 0.4s;
+}
+
+.loader:nth-child(7) {
+  animation-delay: 0.4s;
+}
+
+.loader:nth-child(8) {
+  animation-delay: 0.6s;
+}
+
+.loader:nth-child(9) {
+  animation-delay: 0.8s;
+}
+
+.loader:nth-child(10) {
+  animation-delay: 1s;
+}
+
+/* ========= Fin loader music ========= */
+
+/* ========= bouton play ========= */
+.container_buttonPlay {
+  width: 100%;
+  text-align: center;
+}
+
+.circle {
+  stroke: #FF6B00;
+  stroke-dasharray: 650;
+  stroke-dashoffset: 650;
+  -webkit-transition: all 0.5s ease-in-out;
+  opacity: 0.3;
+}
+
+.playBut {
+  color: #FF6B00;
+  text-transform: uppercase;
+  text-decoration: none;
+  display: inline-block;
+  -webkit-transition: all 0.5s ease;
+}
+
+.playBut .triangle {
+  -webkit-transition: all 0.7s ease-in-out;
+  stroke-dasharray: 240;
+  stroke-dashoffset: 480;
+  stroke: #000;
+  transform: translateY(0);
+}
+
+.playBut:hover .triangle {
+  stroke-dashoffset: 0;
+  opacity: 1;
+  stroke: #FF6B00;
+  animation: nudge 0.7s ease-in-out;
+}
+
+@keyframes nudge {
+  0% {
+    transform: translateX(0);
+  }
+
+  30% {
+    transform: translateX(-5px);
+  }
+
+  50% {
+    transform: translateX(5px);
+  }
+
+  70% {
+    transform: translateX(-2px);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.playBut:hover .circle {
+  stroke-dashoffset: 0;
+  opacity: 1;
+}
+
+/* ========= Fin bouton play ========= */
+
+/* ========= Liste artistes ========= */
+#artist {
+  padding: 0;
+  width: 70%;
+  height: 640px;
+  flex-wrap: wrap;
+  object-fit: cover;
+}
+
+.Artistes_List {
+  width: 100%;
+  height: 600px;
+  overflow-y: scroll;
+}
+
+.artist li {
+  float: left;
+  width: 45%;
+  list-style-type: none;
+  margin: 10px;
+  text-transform: uppercase;
+  font-size: 1.2em;
+}
+
+.artist__search--input {
+  width: 200px;
+  margin: 20px 10px;
+  font-size: 1.2em;
+}
+
+.artist__search {
+  gap: 0;
+}
+
+.artist__link {
+  color: white;
+  text-decoration: none;
+
+}
+
+.filtreColor {
+  background-color: rgba(0, 0, 0, 0.7);
+  width: 100%;
+  height: 100%;
+  min-height: 450px;
+  display: flex;
+  /* flex-wrap: wrap; */
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #FF6B00;
+  outline: #CC5500;
+  border-radius: 50vh;
+  transition: 1s ease-in-out;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #CC5500;
+  border: 1px solid #CC5500;
+}
+
+/* ========= Fin Liste artistes ========= */
+
+
+/* ========= Espace pro ========= */
+
+.wrapperEspacePro {
+  margin: 0 140px 0 0;
+}
+
+.displaySearch {
+  display: flex;
+  justify-content: end;
+}
+
+.displaySearch__input {
+  border: none;
+  border-bottom: 1px solid #FFFFFF;
+  background-color: transparent;
+  color: #FFFFFF;
+  text-align: center;
+}
+
+.fa-magnifying-glass,
+.displaySearch__input::placeholder {
+  color: #FFFFFF;
+}
+
+.displaySearch__background {
+  background-color: #8f8f8f;
+  display: flex;
+  justify-content: center;
+  padding: 10px 20px;
+}
+
+.EspacePro__artist {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: white;
+}
+
+.espacePro__artist--background {
+  background-color: #231F20;
+  margin: 10px 0;
+}
+
+.EspacePro__artist--item {
+  list-style-type: none;
+  margin: 0 10%;
+  text-transform: uppercase;
+  font-size: 1.6rem;
+  padding: 10px 0;
+  display: flex;
+  gap: 50px;
+}
+
+.fa-download {
+  color: #FF6B00;
+}
+
+/* ========= Fin Espace pro ========= */
+
+/* ========= login espace pro ========= */
+
+.formGroup {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  width: 100%;
+}
+
+#fromGroup_Title {
+  justify-content: center;
+  margin-bottom: 100px;
+  font-size: 2rem;
+}
+
+.formGroup label {
+  text-align: end;
+  color: white;
+  width: 30%;
+  margin-right: 10px;
+}
+
+.formGroup input {
+  width: 80%;
+  border-radius: 10px;
+  height: 34px;
+  margin-right: 12.5%;
+  padding-left: 20px;
+}
+
+.formGroup select {
+  margin-bottom: 0;
+}
+
+.formGroup-input {
+  padding-left: 20px;
+}
+
+.btn-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.btn-container .btn {
+  text-transform: uppercase;
+  border-radius: 8px;
+  background-color: #FF6B00;
+  height: 36px;
+  margin-right: 12.5%;
+  border: none;
+  color: #FFFFFF;
+  padding: 0 20px;
+}
+
+#form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#logout {
+  justify-content: center;
+}
+
+.btn:hover {
+  cursor: pointer;
+}
+
+@media screen and (max-width: 640px) {
+  .formGroup {
+    flex-direction: column;
+  }
+
+  .formGroup label {
+    font-size: 16px;
+    width: 100%;
+    flex-basis: 100%;
+  }
+
+  .formGroup textarea {
+    height: 100px;
+    width: 80%;
+  }
+
+  .formGroup input {
+    margin-right: 0;
+    margin-bottom: 20px;
+    width: 80%;
+  }
+
+  .formGroup label {
+    text-align: center;
+  }
+
+  .btn-container {
+    justify-content: center;
+  }
+
+  .btn-container .btn {
+    margin-right: 0;
+    margin-bottom: 6%;
+  }
+}
+
+
+/* ========= Fin login espace pro ========= */
