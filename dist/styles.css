@@ -6,14 +6,56 @@ a {
   text-decoration:none;
  }
 
+<<<<<<< Updated upstream
  /* HEADER */
+=======
+header{
+  margin-bottom: 80px;
+}
+
+footer{
+  margin-top: 80px;
+}
+
+/* HEADER */
+>>>>>>> Stashed changes
 
 .header {
-  margin-top: 30px;
+  /* margin-top: 30px; */
   margin-bottom: 60px;
   display: flex;
   justify-content: center;
+<<<<<<< Updated upstream
   
+=======
+  position: absolute;
+}
+
+.flexbox {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 50px;
+}
+
+.directionCol {
+  flex-direction: column;
+}
+
+.justify_center {
+  justify-content: center;
+}
+
+.align_center {
+  align-items: center;
+}
+
+td {
+  width: 250px;
+}
+
+.gap10px {
+  gap: 10px;
+>>>>>>> Stashed changes
 }
 
 /* .nav_start {
@@ -75,6 +117,154 @@ border-bottom: 5px solid #FF6B00;
 .menu-item{
   padding: 5px 10px;
 }
+
+.logo-bg{
+  display: none;
+}
+
+
+@media screen and (max-width: 640px) {
+  header{
+    margin-bottom: 120px;
+  }
+
+  .logo-bg{
+    display: block;
+  }
+
+  #menu {
+    display: inline-block;
+    z-index: 2;
+  
+  }
+  
+  #menu-bar {
+    width: 45px;
+    /* height: 40px; */
+    margin: 30px 0 20px 20px;
+    cursor: pointer;
+  }
+  
+  .header{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    gap: 15%;
+    margin-bottom: 0;
+  }
+  
+  .header img{
+    height: 30px;
+    margin: 20px 30px 0;
+  }
+  
+  .bar {
+    height: 5px;
+    width: 100%;
+    background-color: #FF6B00;
+    display: block;
+    border-radius: 5px;
+    transition: 0.3s ease;
+  }
+  
+  #bar1 {
+    transform: translateY(-4px);
+  }
+  
+  #bar3 {
+    transform: translateY(4px);
+  }
+  
+  .header__menu{
+    transition: 0.3s ease;
+    display: none;
+    margin: 0;
+  }
+  
+  .header__menu .menu__list {
+    display: block;
+  }
+  
+  .header__menu .menu__item   {
+    list-style: none;
+    color: white;
+    padding: 6px 20px;
+  }
+  
+  .header__menu .menu__list  img{
+    display: none;
+  }
+  
+  .header__menu .menu__list .menu__link {
+    color: white;
+    font-size: 20px;
+    text-decoration: none;
+  }
+
+  
+  .menu-bg, #menu {
+    top: 0;
+    left: 0;
+    position: absolute;
+    width: 100%;
+  }
+  
+  .menu-bg {
+    z-index: 1;
+    width: 0;
+    height: 0;
+    margin: 30px 0 20px 20px;
+    background: radial-gradient(circle, #FF6B00,#FF6B00);
+    border-radius: 50%;
+    transition: 0.3s ease;
+  }
+  
+  .menu__list{
+    margin-top: 100px;
+  }
+
+  .change {
+    display: block;
+  }
+  
+  .change .bar {
+    background-color: white;
+  }
+  
+  .change #bar1 {
+    transform: translateY(4px) rotateZ(-45deg);
+  }
+  
+  .change #bar2 {
+    opacity: 0;
+  }
+  
+  .change #bar3 {
+    transform: translateY(-6px) rotateZ(45deg);
+  }
+  
+  .change-bg {
+    width: 520px;
+    height: 460px;
+    transform: translate(-65%,-25%);
+  }
+  
+  .header .change-accueil{
+    margin: 20px 0 0 110px;
+  }
+
+  .menu__item:nth-child(3) a:before {
+    content: "Accueil";
+    display: inline-block;
+    font-weight: bold;
+  }
+  
+  .active{
+    border-bottom: none;
+  }
+  
+  }
+
 
 /*# sourceMappingURL=styleCompile.css.map */
 
@@ -369,6 +559,21 @@ header .menu-item a {
   }
 }
 
+
+@media screen and (min-width: 640px) and (max-width: 1223px) {
+  .artist{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media screen and (max-width: 640px) {
+
+
+
+}
+
 /* FIN PAGE ARTISTE */
 
 
@@ -464,13 +669,247 @@ footer .menu ul li {
 }
 
 
+<<<<<<< Updated upstream
 /* Ajout du soulignement du lien courant (classe wordpress) */
 /* .current_menu_item > a {
 border-bottom: 5px solid #FF6B00;
 } */
+=======
+.artist__search {
+  gap: 0;
+}
+
+.artist__link {
+  color: white;
+  text-decoration: none;
+
+}
+
+.filtreColor {
+  background-color: rgba(0, 0, 0, 0.7);
+  width: 100%;
+  height: 100%;
+  min-height: 450px;
+  display: flex;
+  /* flex-wrap: wrap; */
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #FF6B00;
+  outline: #CC5500;
+  border-radius: 50vh;
+  transition: 1s ease-in-out;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #CC5500;
+  border: 1px solid #CC5500;
+}
+
+/* ========= Fin Liste artistes ========= */
+
+
+/* ========= Espace pro ========= */
+
+.wrapperEspacePro {
+  /* margin: 80px 0; */
+}
+
+.displaySearch {
+  display: flex;
+  justify-content: end;
+}
+
+.displaySearch__input {
+  border: none;
+  border-bottom: 1px solid #FFFFFF;
+  background-color: transparent;
+  color: #FFFFFF;
+  text-align: center;
+  width: 100%;
+  text-align: start;
+}
+
+.fa-magnifying-glass,
+.displaySearch__input::placeholder {
+  color: #FFFFFF;
+}
+
+.displaySearch__background {
+  background-color: #8f8f8f;
+  display: flex;
+  /* justify-content: space-around; */
+  padding: 10px 20px;
+  margin: 30px 6%;
+  width: 30%;
+}
+
+.EspacePro__artist {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: white;
+  width: 80%;
+}
+
+.espacePro__artist--background {
+  background-color: #231F20;
+  margin: 10px 0;
+}
+
+.EspacePro__artist--item {
+  list-style-type: none;
+  margin: 0 10%;
+  text-transform: uppercase;
+  font-size: 1.6rem;
+  padding: 10px 0;
+  display: flex;
+  gap: 50px;
+
+}
+
+.fa-download {
+  color: #FF6B00;
+}
+
+
+@media screen and (max-width: 640px) {
+.displaySearch{
+  justify-content: center;
+}
+
+.displaySearch__background{
+  width: 70%;
+}
+}
+
+
+/* ========= Fin Espace pro ========= */
+
+/* ========= login espace pro ========= */
+
+.formGroup {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  width: 100%;
+}
+
+#fromGroup_Title {
+  justify-content: center;
+  margin-bottom: 100px;
+  font-size: 2rem;
+}
+
+.formGroup label {
+  text-align: end;
+  color: white;
+  width: 30%;
+  margin-right: 10px;
+}
+
+.formGroup input {
+  width: 80%;
+  border-radius: 10px;
+  height: 34px;
+  margin-right: 12.5%;
+  padding-left: 20px;
+}
+
+.formGroup select {
+  margin-bottom: 0;
+}
+
+.formGroup-input {
+  padding-left: 20px;
+}
+
+.btn-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.btn-container .btn {
+  text-transform: uppercase;
+  border-radius: 8px;
+  background-color: #FF6B00;
+  height: 36px;
+  margin-right: 12.5%;
+  border: none;
+  color: #FFFFFF;
+  padding: 0 20px;
+}
+
+#form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#logout {
+  justify-content: center;
+}
+
+.btn:hover {
+  cursor: pointer;
+}
+
+@media screen and (max-width: 640px) {
+  .formGroup {
+    flex-direction: column;
+  }
+
+  .formGroup label {
+    font-size: 16px;
+    width: 100%;
+    flex-basis: 100%;
+  }
+
+  .formGroup textarea {
+    height: 100px;
+    width: 80%;
+  }
+
+  .formGroup input {
+    margin-right: 0;
+    margin-bottom: 20px;
+    width: 80%;
+  }
+
+  .formGroup label {
+    text-align: center;
+  }
+
+  .btn-container {
+    justify-content: center;
+  }
+>>>>>>> Stashed changes
 
 .menu-item{
   padding: 5px 10px;
 }
 
+<<<<<<< Updated upstream
 /*# sourceMappingURL=styleCompile.css.map */
+=======
+
+
+/* ========= Fin login espace pro ========= */
+>>>>>>> Stashed changes

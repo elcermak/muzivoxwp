@@ -77,7 +77,19 @@ while (have_posts()) : the_post(); ?>
 				<hr>
 				<div class="agenda__concert">
 					<div class="agenda__concert--date">
+<<<<<<< Updated upstream
 						<?php echo convert_date_format($next_concert['date']); ?>
+=======
+						<?php
+						$date_obj = DateTime::createFromFormat('Y/m/d H:i', $next_concert['date']);
+						setlocale(LC_TIME, 'fr_FR.UTF-8', 'fra');
+						echo strftime('%a %d %b %Y à %HH%M', $date_obj->getTimestamp());
+
+
+
+						// echo $date;
+						?>
+>>>>>>> Stashed changes
 					</div>
 					<div class="agenda__concert--lieu">
 						<?php echo $next_concert['ville']; ?>
