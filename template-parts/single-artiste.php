@@ -40,6 +40,7 @@ while (have_posts()) : the_post(); ?>
 		$next_concert = get_last_concert($concert, $name_artiste);
 	}
 	wp_reset_postdata();
+
 	?>
 
 	<main>
@@ -47,13 +48,13 @@ while (have_posts()) : the_post(); ?>
 			<div class="galerie_area">
 				<div class="carousel-container">
 					<div class="carousel-slide">
-						<img src="<?php echo get_field('image_carrousel-1')['url']; ?>" alt="<?php get_field('image_carrousel-1')['alt']; ?>" />
+						<img src="<?php echo get_field('image_carrousel_1')['url']; ?>" alt="<?php get_field('image_carrousel_1')['alt']; ?>" />
 					</div>
 					<div class="carousel-slide">
-						<img src="<?php echo get_field('image_carrousel-2')['url']; ?>" alt="<?php get_field('image_carrousel-2')['alt']; ?>" />
+						<img src="<?php echo get_field('image_carrousel_2')['url']; ?>" alt="<?php get_field('image_carrousel_2')['alt']; ?>" />
 					</div>
 					<div class="carousel-slide">
-						<img src="<?php echo get_field('image_carrousel-3')['url']; ?>" alt="<?php get_field('image_carrousel-3')['alt']; ?>" />
+						<img src="<?php echo get_field('image_carrousel_3')['url']; ?>" alt="<?php get_field('image_carrousel_3')['alt']; ?>" />
 					</div>
 				</div>
 				<div class="galerie_area-nav">
