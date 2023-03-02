@@ -45,7 +45,6 @@ if ($my_query->have_posts()) : while ($my_query->have_posts()) : $my_query->the_
       $date_obj = DateTime::createFromFormat('Y/m/d H:i', $date_formatted);
       setlocale(LC_TIME, 'fr_FR.UTF-8', 'fra');
       $concert_date_formatted = strftime('%a %d %b %Y à %HH%M', $date_obj->getTimestamp());
-
       $arrayConcerts[$i]['date'] = $concert_date_formatted;
       $artistObjet = get_field('artiste_concert');
       $arrayConcerts[$i]['nameArtist'] = $artistObjet[0]->post_title;
@@ -75,7 +74,7 @@ endif;
       <p class="lieu_egalizer" id="lieu_egalizer"><?php echo $arrayConcerts[0]['townConcert'] . ', ' . $arrayConcerts[0]['roomConcert'] ?></p>
     </div>
     <div class="single-egalizer">
-      <a href="https://netflix.com/fr">Voir toutes les dates</a>
+      <a href="<?php echo get_permalink(get_page_by_title( 'agenda' )) ?>">Voir toutes les dates</a>
     </div>
   </div>
   <div class="images-carrousel">
@@ -200,7 +199,7 @@ endif;
 
 </div>
 <div class="btn-artiste">
-  <a href="https://netflix.com/fr">Voir tous nos artistes</a>
+  <a href="<?php echo get_permalink(get_page_by_title( 'artistes' )) ?>">Voir tous nos artistes</a>
 </div>
 </div>
 <!-- <pre>
