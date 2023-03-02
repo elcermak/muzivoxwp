@@ -38,9 +38,21 @@
             'walker' => new MyCustom_Walker_Nav_Menu(),
           ) );
         ; ?>
+
         
       <!-- fin du menu -->
       
+      </nav>
+
+      <nav class="header__menuLangue">
+      <?php 
+          wp_nav_menu( array(
+            'theme_location' => 'language',
+            'container' => false,
+            'menu_class' => 'menu__list',
+            'walker' => new MyCustom_Walker_Nav_Menu(),
+          ) );
+        ; ?>
       </nav>
     
     </div>

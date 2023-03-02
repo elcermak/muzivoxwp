@@ -130,7 +130,7 @@ function formatConcerts($concerts, $filtre)
       $date_obj = DateTime::createFromFormat('Y/m/d H:i', $date_formatted);
       $concert_date_formatted = $date_obj->format('%a %d %b %Y');
       setlocale(LC_TIME, 'fr_FR.UTF-8', 'fra');
-      $concert_date_formatted = strftime('%a %d %b %Y à %HH%M', $date_obj->getTimestamp());
+      $concert_date_formatted = strftime('%a %d %b %Y<br>à %HH%M', $date_obj->getTimestamp());
 
       $concertFomated[$concert['artiste_name']][$concert_date_formatted]['salle'] = $concert['salle'];
       $concertFomated[$concert['artiste_name']][$concert_date_formatted]['date_unformated'] = $date_unformatted;
@@ -148,7 +148,7 @@ function formatConcerts($concerts, $filtre)
       $date_obj = DateTime::createFromFormat('Y/m/d H:i', $date_formatted);
       $concert_date_formatted = $date_obj->format('%a %d %b %Y');
       setlocale(LC_TIME, 'fr_FR.UTF-8', 'fra');
-      $concert_date_formatted = strftime('%a %d %b %Y à %HH%M', $date_obj->getTimestamp());
+      $concert_date_formatted = strftime('%a %d %b %Y<br>à %HH%M', $date_obj->getTimestamp());
 
       $concertFomated[$concert['region']][$concert_date_formatted]['artiste_name'] = $concert['artiste_name'];
       $concertFomated[$concert['region']][$concert_date_formatted]['date_unformated'] = $date_unformatted;
@@ -167,7 +167,7 @@ function formatConcerts($concerts, $filtre)
       $date_formatted = date('Y/m/d H:i', $concert['date']);
       $date_obj = DateTime::createFromFormat('Y/m/d H:i', $date_formatted);
       $concert_date_formatted = $date_obj->format('%a %d %b %Y');
-      $concert_date_formatted = strftime('%a %d %b %Y à %HH%M', $date_obj->getTimestamp());
+      $concert_date_formatted = strftime('%a %d %b %Y<br>à <span class="test">%HH%M</span>', $date_obj->getTimestamp());
 
 
       $concertFomated[$month][$concert_date_formatted]['artiste_name'] = $concert['artiste_name'];

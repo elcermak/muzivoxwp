@@ -75,7 +75,7 @@ td {
 /*  */
 
 header .menu {
-  width: 80%;
+  width: 100%;
 }
 
 header .menu a {
@@ -116,11 +116,48 @@ header .menu ul {
   list-style: none;
   align-items: center;
   padding: 0;
-  justify-content: space-around;
+  justify-content: space-between;
+  margin: 0 15%;
+  width: 100%;
 }
 
+.header__menuLangue{
+  position: absolute;
+  top: 65px;
+  right: 85px;
+}
 
+ul#menu-menu-langue,
+ul#menu-menu-language {
+  width: 150px;
+  padding: 0;
+  text-align: end;
+}
 
+ul.submenu__list {
+  padding: 0;
+  width: 100%;
+}
+
+#menu-menu-langue, 
+#menu-menu-langue li,
+#menu-menu-language, 
+#menu-menu-language li{
+  list-style-type: none;
+}
+
+.-hasDropdown{
+  color: black;
+}
+
+.-hasDropdown:hover ul.submenu__list{
+  display: block;
+
+}
+
+ul.submenu__list {
+  display: none;
+}
 
 /* Ajout du soulignement du lien courant (classe wordpress) */
 /* .current_menu_item > a {
@@ -196,6 +233,7 @@ border-bottom: 5px solid #FF6B00;
   
   .header__menu .menu__list {
     display: block;
+    position: relative;
   }
   
   .header__menu .menu__item   {
@@ -642,9 +680,10 @@ footer {
 
 .grid-item-footer-image {
   grid-area: image;
-  background-image: url(../asset/image/etoile_grise.png);
+  background-image: url(../asset/image/logo_footer.png);
   background-repeat: no-repeat;
-
+  height: 100%;
+  background-position: center;
 }
 
 .grid-item-footer li {
@@ -704,9 +743,9 @@ footer {
 
 
 .menu {
-  display: flex;
-  margin: 0 140px;
-}
+  display: flex; /* CODE IMPORTANT HEADER*/
+  /* margin: 0 140px; */ /* A VOIR SI IMPACT QUELQUE CHOSE */
+} 
 .menu ul {
   display: flex;
   font-family: "Akshar", sans-serif;
@@ -743,11 +782,17 @@ border-bottom: 5px solid #FF6B00;
   display: flex;
   list-style-type: none;
   justify-content: space-between;
+  align-items: center;
   color: white;
+  padding: 5px 0;
 }
 
 .col_agenda {
   width: calc(100% / 6);
+}
+
+.test{
+  color: #FF6B00;
 }
 
 .title-filter {

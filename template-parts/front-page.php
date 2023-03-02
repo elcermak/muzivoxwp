@@ -202,9 +202,6 @@ endif;
   <a href="<?php echo get_permalink(get_page_by_title( 'artistes' )) ?>">Voir tous nos artistes</a>
 </div>
 </div>
-<!-- <pre>
-  <?php print_r($arrayArtists); ?>
-</pre> -->
 
 <?php
 $arrayConcerts_json = json_encode($arrayConcerts);
