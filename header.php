@@ -40,25 +40,7 @@
         ; ?>
         
       <!-- fin du menu -->
-        
-
-        <?php
-        wp_nav_menu(array(
-          'theme_location' => 'header',
-          'container' => false,
-          'menu_class' => 'menu__list',
-          'walker' => new MyCustom_Walker_Nav_Menu(),
-
-        )); ?>
-
-        <!-- fin du menu -->
-
-
-        ));; ?>
-
-        <!-- fin du menu -->
-
-
+      
       </nav>
     
     </div>

@@ -348,7 +348,7 @@ border-bottom: 5px solid #FF6B00;
   text-shadow: 0px 4px 4px #FF6B00;
   font-size: 3rem;
   display: flex;
-  justify-content: ;
+  /* justify-content: ; */
   margin: 0 50px;
   color: white;
 }
@@ -510,10 +510,10 @@ border-bottom: 5px solid #FF6B00;
 }
 
 footer .menu-item a {
-
+}
 
 .nav_start li a {
-*
+
   color: white;
 }
 
@@ -729,6 +729,7 @@ footer {
 }
 .media i {
   margin-left: 20px;
+}
 .media :hover{
   color:black;
 
@@ -781,10 +782,22 @@ border-bottom: 5px solid #FF6B00;
 
 .artist__search {
   gap: 0;
-
+}
 /* FIN FOOTER */
 
 /* AGENDA */
+
+.agenda_li {
+  display: flex;
+  list-style-type: none;
+  justify-content: space-between;
+  color: white;
+}
+
+.col_agenda {
+  width: calc(100% / 6);
+}
+
 .title-filter {
   display: flex;
 }
@@ -795,7 +808,7 @@ border-bottom: 5px solid #FF6B00;
   margin: 25px 0 20px 0;
 }
 
-.agenda-table {
+.agenda-list {
   color: white;
 }
 
@@ -822,15 +835,20 @@ table {
 
 .title_calendar {
   border-bottom: none;
+  list-style-type: none;
 }
 
-.agenda-table tr {
+.agenda-list li {
   height: 60px;
 }
 
 .logo_agenda {
   color: #FF6B00;
   font-size: 1.5rem;
+}
+
+#background-none {
+  background-image: none;
 }
 
 /* FIN AGENDA */
@@ -1232,7 +1250,7 @@ label {
   text-transform: uppercase;
 }
 
-#acf-field_63f7607ddfe6a {
+#acf-field_63ff609612bde {
   color: #FF6B00;
   border: 1px solid #FF6B00;
   width: 60%;
@@ -1247,8 +1265,6 @@ label {
 
 .acf-form {
   width:65%;
-  
- 
 }
 
 .acf-form-submit {
@@ -1325,7 +1341,7 @@ top:25%;
 .single-egalizer a{
   width: 100%;
   height: 100%;
-  display: ;
+  /* display: ; */
   
 }
 
@@ -1691,7 +1707,10 @@ input:checked + .slider:before {
   }
 }
 
-
+.filtreColor {
+  background-color: rgba(0, 0, 0, 0.7);
+  width: 100%;
+  height: 100%;
   min-height: 450px;
   display: flex;
   /* flex-wrap: wrap; */
@@ -1699,6 +1718,7 @@ input:checked + .slider:before {
   text-align: center;
   align-items: center;
 }
+
 
 /* width */
 ::-webkit-scrollbar {

@@ -39,8 +39,7 @@ $i = 0;
 //génération du tableau concert
 // On lance la boucle 
 if ($my_query->have_posts()) : while ($my_query->have_posts()) : $my_query->the_post();
-
-    if (get_field('concert_prioritaire') == true && get_field('date') > $dateDuJour) {
+    if (get_field('concert_important') == true && get_field('date') > $dateDuJour) {
       $arrayConcerts[$i]['date'] = get_field('date');
       $artistObjet = get_field('artiste_concert');
       $arrayConcerts[$i]['nameArtist'] = $artistObjet[0]->post_title;
@@ -55,7 +54,6 @@ if ($my_query->have_posts()) : while ($my_query->have_posts()) : $my_query->the_
   endwhile;
 // usort($arrayConcerts, "cmp");
 endif;
-
 
 ?>
 
@@ -126,15 +124,17 @@ $artistes = get_posts($mesArtistes);
 
 // Exécuter la wp query
 $my_queryArtist = new WP_Query($mesArtistes);
-
+echo'<pre style="color:black">';
+print_r($my_queryArtist);
+echo'</pre>';
 //initialisé de l'indice du tableau artiste*
 $i = 0;
 
 //génération du tableau concert
 // On lance la boucle 
 if ($my_queryArtist->have_posts()) : while ($my_queryArtist->have_posts()) : $my_queryArtist->the_post();
-
-    if (get_field('mise_en_avant') == true) {
+echo get_field('nom_artistegroupe');
+    if (get_field('mettre_en_avant') == true) {
       $arrayArtists[$i]['nameArtist'] = get_field('nom_artistegroupe');
       $arrayArtists[$i]['imageArtist']['url'] = get_field('image_carrousel_1')['url'];
       $arrayArtists[$i]['imageArtist']['alt'] = get_field('image_carrousel_1')['alt'];
