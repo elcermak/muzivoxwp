@@ -113,27 +113,23 @@ endif;
 
 $mesArtistes = array(
   'post_type' => 'artiste',
-  'post_per_page' => -1,
+  'nopaging' => true,
   'meta_key' => 'nom_artistegroupe',
-  'order_by' => 'meta_value',
+  'orderby' => 'meta_value',
   'order' => 'ASC',
-
 );
 
 $artistes = get_posts($mesArtistes);
 
 // Exécuter la wp query
 $my_queryArtist = new WP_Query($mesArtistes);
-echo'<pre style="color:black">';
-print_r($my_queryArtist);
-echo'</pre>';
+
 //initialisé de l'indice du tableau artiste*
 $i = 0;
 
 //génération du tableau concert
 // On lance la boucle 
 if ($my_queryArtist->have_posts()) : while ($my_queryArtist->have_posts()) : $my_queryArtist->the_post();
-echo get_field('nom_artistegroupe');
     if (get_field('mettre_en_avant') == true) {
       $arrayArtists[$i]['nameArtist'] = get_field('nom_artistegroupe');
       $arrayArtists[$i]['imageArtist']['url'] = get_field('image_carrousel_1')['url'];
