@@ -40,7 +40,13 @@ $i = 0;
 // On lance la boucle 
 if ($my_query->have_posts()) : while ($my_query->have_posts()) : $my_query->the_post();
     if (get_field('concert_important') == true && get_field('date') > $dateDuJour) {
-      $arrayConcerts[$i]['date'] = get_field('date');
+
+      $date_formatted = get_field('date');
+      $date_obj = DateTime::createFromFormat('Y/m/d H:i', $date_formatted);
+      setlocale(LC_TIME, 'fr_FR.UTF-8', 'fra');
+      $concert_date_formatted = strftime('%a %d %b %Y à %HH%M', $date_obj->getTimestamp());
+
+      $arrayConcerts[$i]['date'] = $concert_date_formatted;
       $artistObjet = get_field('artiste_concert');
       $arrayConcerts[$i]['nameArtist'] = $artistObjet[0]->post_title;
       $arrayConcerts[$i]['imageConcert']['url'] = get_field('image_concert')['url'];
