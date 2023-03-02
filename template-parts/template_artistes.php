@@ -50,7 +50,7 @@ if (have_posts()) {
           </ul>
 
         </div>
-        <div class="artist__footer"><img src="<?php echo get_template_directory_uri()."/asset/image/arrow_Down.png" ; ?>" alt="flèche descendante"></div>
+        <div class="artist__footer"></div>
 
       </div>
     </div>

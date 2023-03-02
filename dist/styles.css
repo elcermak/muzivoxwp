@@ -1174,6 +1174,10 @@ table {
   text-decoration: none;
 }
 
+.artist__footer {
+  height: 50px;
+}
+
 .filtreColor {
   background-color: rgba(0, 0, 0, 0.7);
   width: 100%;
