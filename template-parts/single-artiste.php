@@ -36,8 +36,11 @@ while (have_posts()) : the_post(); ?>
 		}
 	endforeach;
 
-	$next_concert = get_last_concert($concert, $name_artiste);
+	if (!empty($concert)) {
+		$next_concert = get_last_concert($concert, $name_artiste);
+	}
 	wp_reset_postdata();
+
 	?>
 
 	<main>
@@ -45,26 +48,25 @@ while (have_posts()) : the_post(); ?>
 			<div class="galerie_area">
 				<div class="carousel-container">
 					<div class="carousel-slide">
-						<img src="<?php echo get_template_directory_uri() . "/asset/photo/" . get_post_field('post_name', get_post()); ?>/carrousel_1.jpg" />
+						<img src="<?php echo get_field('image_carrousel_1')['url']; ?>" alt="<?php get_field('image_carrousel_1')['alt']; ?>" />
 					</div>
 					<div class="carousel-slide">
-						<img src="<?php echo get_template_directory_uri() . "/asset/photo/" . get_post_field('post_name', get_post()); ?>/carrousel_2.jpg" />
+						<img src="<?php echo get_field('image_carrousel_2')['url']; ?>" alt="<?php get_field('image_carrousel_2')['alt']; ?>" />
 					</div>
 					<div class="carousel-slide">
-						<img src="<?php echo get_template_directory_uri() . "/asset/photo/" . get_post_field('post_name', get_post()); ?>/carrousel_3.jpg" />
+						<img src="<?php echo get_field('image_carrousel_3')['url']; ?>" alt="<?php get_field('image_carrousel_3')['alt']; ?>" />
 					</div>
 				</div>
 				<div class="galerie_area-nav">
 
 					<button class="btn__arrow" onclick="prevSlide()">
-						<div class="btn__arrow--left"> </div>
+						<i class="fa fa-duotone fa-square-caret-left arrowSingleArtist"></i>
 					</button>
 					<button class="btn__arrow" onclick="nextSlide()">
-						<div class="btn__arrow--right"> </div>
+						<i class="fa fa-duotone fa-square-caret-right arrowSigleArtist"></i>
 					</button>
 				</div>
 			</div>
-
 
 			<div class="agenda">
 				<div class="agenda__header">
@@ -73,18 +75,19 @@ while (have_posts()) : the_post(); ?>
 				<hr>
 				<div class="agenda__concert">
 					<div class="agenda__concert--date">
-
-						<?php echo convert_date_format($next_concert['date']); ?>
-
 						<?php
-						$date_obj = DateTime::createFromFormat('Y/m/d H:i', $next_concert['date']);
-						setlocale(LC_TIME, 'fr_FR.UTF-8', 'fra');
-						echo strftime('%a %d %b %Y à %HH%M', $date_obj->getTimestamp());
+						if (!empty($next_concert['date'])) {
+							$date_obj = DateTime::createFromFormat('Y/m/d H:i', $next_concert['date']);
+							setlocale(LC_TIME, 'fr_FR.UTF-8', 'fra');
+							echo strftime('%a %d %b %Y à %HH%M', $date_obj->getTimestamp());
+						} else {
+							echo "Pas de concert prévu pour le moment";
+						}
+
 
 
 						// echo $date;
 						?>
-
 					</div>
 					<div class="agenda__concert--lieu">
 						<?php echo $next_concert['ville']; ?>
@@ -131,7 +134,7 @@ while (have_posts()) : the_post(); ?>
 						<i class="fa fa-twitter" aria-hidden="true"></i>
 					</div>
 					<div class="description__text">
-						<p>
+						<p class="description__short">
 							<?php the_field('description_courte'); ?>
 						</p>
 						<div id='d1' class='collapsed'>
@@ -193,8 +196,11 @@ while (have_posts()) : the_post(); ?>
 		</div>
 	</main>
 
-	<script src="<?php echo get_template_directory_uri() . "/dist/galerieArtiste.js" ?>"></script>
+	<script src="<?php echo get_template_directory_uri() . "/dist/gallerieArtiste.js" ?>"></script>
 	<script src="<?php echo get_template_directory_uri() . "/dist/savoirPlus.js" ?>"></script>
 
+
 <?php endwhile; // End of the loop.
+?>
+<?php
 get_footer();
