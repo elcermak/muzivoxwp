@@ -1183,6 +1183,14 @@ table {
   height: 640px;
   flex-wrap: wrap;
   object-fit: cover;
+  object-position: top;
+  background-size: cover;
+  background-position: center;
+}
+
+.artist_li a:hover{
+  background-color: #CC5500;
+  padding: 10px;
 }
 
 .Artistes_List {
@@ -1379,6 +1387,7 @@ top:25%;
   width: 100%;
   height:100%;
   object-fit:cover;
+  object-position: top;
 }
 
 #next_nameArtist {
