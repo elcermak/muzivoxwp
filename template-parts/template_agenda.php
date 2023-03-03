@@ -93,8 +93,6 @@ function formatConcerts($concerts, $filtre)
 {
   $concertsSorted = array();
 
-
-
   foreach ($concerts as $concert) {
     $concert_date = strtotime($concert['date']); // convertir la date en timestamp
     $now = time(); // timestamp de la date actuelle
@@ -113,12 +111,22 @@ function formatConcerts($concerts, $filtre)
   }
 
   // trier par ordre alphabétique de l'artiste, puis par date
-  usort($concertsSorted, function ($a, $b) {
-    if ($a['artiste_name'] === $b['artiste_name']) {
-      return $a['date'] - $b['date'];
-    }
-    return strcmp($a['artiste_name'], $b['artiste_name']);
-  });
+  if ($filtre == "artistes") {
+    usort($concertsSorted, function ($a, $b) {
+      if ($a['artiste_name'] === $b['artiste_name']) {
+        return $a['date'] - $b['date'];
+      }
+      return strcmp($a['artiste_name'], $b['artiste_name']);
+    });
+  } else if ($filtre == "regions") {
+    usort($concertsSorted, function ($a, $b) {
+      if ($a['region'] === $b['region']) {
+        return $a['date'] - $b['date'];
+      }
+      return strcmp($a['region'], $b['region']);
+    });
+  }
+
 
   $concertFomated = array();
 
