@@ -1200,6 +1200,26 @@ table {
 
 }
 
+.full {
+  position: absolute;
+  top: 46px;
+  left: -54px;
+  text-align: center;
+  height: 0;
+  width: 150px;
+  border-bottom: 50px solid rgba(255, 13, 13, 0.85);
+  color: white;
+  text-transform: uppercase;
+  border-left: 50px solid transparent;
+  border-right: 50px solid transparent;
+  transform: rotate(-45deg);
+  font-size: 1.5rem;
+}
+
+.textFull{
+  margin-top: 9px;
+}
+
 .artist li {
   float: left;
   width: 45%;
@@ -1366,7 +1386,7 @@ top:25%;
   justify-content: center;
   align-items: center;
   margin:auto;
-
+  position: relative;
 }
 .card_next_concert {
   width: 30%;

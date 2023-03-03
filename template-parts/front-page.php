@@ -63,6 +63,7 @@ endif;
 ?>
 
 <div class="first-carrousel">
+
   <div class="orange-egalizers">
     <div class="single-egalizer">
       <p class="nom_egalizer" id="nom_egalizer"> <?php echo $arrayConcerts[0]['nameArtist']; ?></p>
@@ -74,11 +75,14 @@ endif;
       <p class="lieu_egalizer" id="lieu_egalizer"><?php echo $arrayConcerts[0]['townConcert'] . ', ' . $arrayConcerts[0]['roomConcert'] ?></p>
     </div>
     <div class="single-egalizer">
-      <a href="<?php echo get_permalink(get_page_by_title( 'agenda' )) ?>">Voir toutes les dates</a>
+      <a href="<?php echo get_permalink(get_page_by_title('agenda')) ?>">Voir toutes les dates</a>
     </div>
   </div>
   <div class="images-carrousel">
+
     <div class="first-image">
+      <div id="headband_full">
+      </div>
       <img class="carrousel-cover" src="<?php echo $arrayConcerts[0]['imageConcert']['url'] ?>" alt="<?php echo $arrayConcerts[0]['imageConcert']['alt'] ?>" id="image_principale">
     </div>
     <div class="card_next_concert">
@@ -199,7 +203,7 @@ endif;
 
 </div>
 <div class="btn-artiste">
-  <a href="<?php echo get_permalink(get_page_by_title( 'artistes' )) ?>">Voir tous nos artistes</a>
+  <a href="<?php echo get_permalink(get_page_by_title('artistes')) ?>">Voir tous nos artistes</a>
 </div>
 </div>
 
@@ -215,7 +219,6 @@ echo "
   ";
 ?>
 <script>
- 
   setInterval(() => {
     avant();
   }, 5000);
@@ -232,6 +235,9 @@ echo "
 
   let nextDate = document.getElementById("next_date");
 
+  let headbandFull = document.getElementById("headband_full");
+
+
   // definition des égalizers
   let nameEgalizer = document.getElementById("nom_egalizer");
   let dateEgalizer = document.getElementById("date_egalize");
@@ -240,6 +246,14 @@ echo "
   // incrementer i++ fleche avant et i-- pour la fleche arriere 
   imagePrincipale.innerHTML = contenu;
   imageNext.innerHTML = contenu;
+
+
+  if (arrayConcerts[index].isFull) {
+    headbandFull.innerHTML = "<div class='full'><p class='textFull'>Complet</p></div>";
+  } else {
+    headbandFull.innerHTML = "";
+
+  }
 
 
   function avant() {
@@ -270,7 +284,7 @@ echo "
     }
     clearInterval(id);
     display();
-    
+
 
   };
 
@@ -284,20 +298,29 @@ echo "
     nextNameArtist.innerHTML = arrayConcerts[indexNext].nameArtist;
     nextDate.innerHTML = arrayConcerts[indexNext].date;
     nameEgalizer.innerHTML = arrayConcerts[index].nameArtist;
+    console.log('isFull?', arrayConcerts[index].isFull);
     dateEgalizer.innerHTML = arrayConcerts[index].date;
     placeEgalizer.innerHTML = arrayConcerts[index].townConcert + ", " + arrayConcerts[index].roomConcert;
-    console.log(index, indexNext);
+    console.log("test");
+    console.log("div", headbandFull);
+
+    if (arrayConcerts[index].isFull) {
+      headbandFull.innerHTML = "<div class='full'><p class='textFull'>Complet</p></div>";
+    } else {
+      headbandFull.innerHTML = "";
+    }
+
     progress();
   }
-  let id=0;
+  let id = 0;
   progress();
-  
+
   /*Fonction barre de progression */
   function progress() {
     let progr = document.getElementById('progress');
     let progress = 1;
     id = setInterval(frame, 50);
- 
+
 
 
     function frame() {
