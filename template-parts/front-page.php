@@ -202,9 +202,11 @@ endif;
 
 
 </div>
-<div class="btn-artiste">
-  <a href="<?php echo get_permalink(get_page_by_title('artistes')) ?>">Voir tous nos artistes</a>
-</div>
+
+<div class="section-btn">
+  <div class="btn-artiste">
+    <a href="<?php echo get_permalink(get_page_by_title('artistes')) ?>">Voir tous nos artistes</a>
+  </div>
 </div>
 
 <?php

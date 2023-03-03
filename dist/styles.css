@@ -16,7 +16,7 @@ header{
 }
 
 footer{
-  margin-top: 80px;
+  /* margin-top: 80px; */
 }
 
 /* HEADER */
@@ -94,7 +94,7 @@ header .menu a {
   border-bottom: 5px solid #FF6B00;
 }
 
-#menu-menu-principal li:nth-child(3) {
+ul#menu-menu-principale li:nth-child(3) {
   border-bottom: none;
 
   }
@@ -1610,18 +1610,34 @@ input:checked + .slider:before {
   font-size: 40px;
   padding-left: 6%;
 }
+
+.section-btn {
+  display:flex;
+  justify-content: flex-end;
+  padding: 5% 0;
+  background-image: url("../asset/image/egaliseur.svg");
+  background-position: 112% 2%;
+  background-repeat: no-repeat;
+  
+  
+}
 .btn-artiste {
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-start;
   background-color:#D9D9D9;
   font-size:26px;
   text-transform: uppercase;
   font-weight:bold;
-  width: 30%;
+  width: 25%;
+  padding:1%;
+  color:#000
 }
 
-.btn-artiste a {
-  color: black;
+.btn-artiste a:hover {
+  color:#000;
+}
+.btn-artiste a:visited {
+  color:#000;
 }
 
 /* fin Carrousel Mise en avant artiste */
