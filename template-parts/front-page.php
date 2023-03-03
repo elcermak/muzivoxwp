@@ -110,8 +110,10 @@ endif;
 
 
 <div class="container_aPropos">
-  <h3 class="title_aPropos">A PROPOS DE MUZIVOX</h3>
-  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+  <?php while (have_posts()) :
+    the_post();
+    the_content();
+  endwhile; ?>
 </div>
 
 </main>
