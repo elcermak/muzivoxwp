@@ -1,5 +1,5 @@
 var slideIndex = 0;
-var slides = document.getElementsByClassName("carousel-slide");
+var slides = document.getElementsByClassName("carrousel-slide");
 
 function showSlides() {
   for (var i = 0; i < slides.length; i++) {
