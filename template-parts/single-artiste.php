@@ -11,18 +11,41 @@ while (have_posts()) : the_post(); ?>
 	?>
 
 	<?php
+	$url = get_permalink();
+
+	$path = parse_url($url, PHP_URL_PATH);  // Récupère le chemin de l'URL
+	$segments = explode('/', $path);  // Divise le chemin en segments
+
+	if ($segments[1] === 'fr') {
+		$language = 'fr';
+	} else {
+		$language = 'en';
+	}
+
+	?>
+
+	<?php
 	$args = array(
 		'post_type' => 'agenda',
 		'posts_per_page' => -1
 	);
 	$artiste_posts = get_posts($args);
+
 	$i = 0;
 	foreach ($artiste_posts as $post) :
 
 		setup_postdata($post);
 
 		$artiste_concert = get_field('artiste_concert')[0];
+		// $post_id = $post->ID;
 
+		// // Récupère tous les champs ACF pour l'ID de post donné
+		// $fields = get_fields($post_id);
+
+		// // Affiche les clés et les valeurs des champs ACF
+		// foreach ($fields as $key => $value) {
+		// 		echo $key . ': ' . $value . '<br>';
+		// }
 		if ($artiste_concert->post_title == $name_artiste) {
 			$region_name = get_term(get_field('region_concert'))->name;
 
@@ -41,6 +64,21 @@ while (have_posts()) : the_post(); ?>
 	}
 	wp_reset_postdata();
 
+
+	$arrayCarrousel[0]['url'] = get_field('image_carrousel_1')['url'];
+	$arrayCarrousel[0]['alt'] = get_field('image_carrousel_1')['alt'];
+	$arrayCarrousel[1]['url'] = get_field('image_carrousel_2')['url'];
+	$arrayCarrousel[1]['alt'] = get_field('image_carrousel_2')['alt'];
+	$arrayCarrousel[2]['url'] = get_field('image_carrousel_3')['url'];
+	$arrayCarrousel[2]['alt'] = get_field('image_carrousel_3')['alt'];
+
+	$arrayCarrouselJson = json_encode($arrayCarrousel);
+	echo "
+  <script>
+    let arrayCarrousel = $arrayCarrouselJson;
+  </script>
+  ";
+
 	?>
 
 	<main>
@@ -48,13 +86,7 @@ while (have_posts()) : the_post(); ?>
 			<div class="galerie_area">
 				<div class="carousel-container">
 					<div class="carousel-slide">
-						<img src="<?php echo get_field('image_carrousel_1')['url']; ?>" alt="<?php get_field('image_carrousel_1')['alt']; ?>" />
-					</div>
-					<div class="carousel-slide">
-						<img src="<?php echo get_field('image_carrousel_2')['url']; ?>" alt="<?php get_field('image_carrousel_2')['alt']; ?>" />
-					</div>
-					<div class="carousel-slide">
-						<img src="<?php echo get_field('image_carrousel_3')['url']; ?>" alt="<?php get_field('image_carrousel_3')['alt']; ?>" />
+						<img id="carousel-slide" src="<?php echo $arrayCarrousel[0]['url']; ?>" alt="<?php echo $arrayCarrousel[0]['alt']; ?>" />
 					</div>
 				</div>
 				<div class="galerie_area-nav">
@@ -70,7 +102,15 @@ while (have_posts()) : the_post(); ?>
 
 			<div class="agenda">
 				<div class="agenda__header">
-					<strong>Prochain concert</strong>
+					<strong>
+						<?
+						if ($language == "fr") {
+							echo "Prochain concert";
+						} else {
+							echo "Next concert";
+						}
+						?>
+					</strong>
 				</div>
 				<hr>
 				<div class="agenda__concert">
@@ -78,10 +118,20 @@ while (have_posts()) : the_post(); ?>
 						<?php
 						if (!empty($next_concert['date'])) {
 							$date_obj = DateTime::createFromFormat('Y/m/d H:i', $next_concert['date']);
-							setlocale(LC_TIME, 'fr_FR.UTF-8', 'fra');
-							echo strftime('%a %d %b %Y à %HH%M', $date_obj->getTimestamp());
+
+							if ($language == "fr") {
+								setlocale(LC_TIME, 'fr_FR.UTF-8', 'fra');
+								echo strftime('%a %d %b %Y à %HH%M', $date_obj->getTimestamp());
+							} else {
+								setlocale(LC_TIME, 'en_EN.UTF-8', 'en');
+								echo strftime('%a %d %b %Y at %HH%M', $date_obj->getTimestamp());
+							}
 						} else {
-							echo "Pas de concert prévu pour le moment";
+							if ($language == "fr") {
+								echo "Pas de concert prévu pour le moment";
+							} else {
+								echo "No concerts are scheduled.";
+							}
 						}
 
 
@@ -95,8 +145,13 @@ while (have_posts()) : the_post(); ?>
 					<?php
 					if ($next_concert['complet'] == 1) { ?>
 						<div class="btn-full">
-							Complet
-						</div>
+							<?
+							if ($language == "fr") {
+								echo "Complet";
+							} else {
+								echo "Solde out";
+							}
+							?> </div>
 					<?php
 					} else { ?>
 						<div></div>
@@ -105,7 +160,7 @@ while (have_posts()) : the_post(); ?>
 					?>
 
 					<div class="agenda__concert--booked">
-						<a href="#">
+						<a href="<?php echo get_permalink(get_page_by_title('agenda')->ID); ?>">
 							<i class="fa fa-calendar"></i>
 						</a>
 					</div>
@@ -113,10 +168,17 @@ while (have_posts()) : the_post(); ?>
 				<hr>
 				<div class="agenda__footer">
 					<div class="agenda__footer--txt">
-						Programmer cet artiste ?
+						<?
+						if ($language == "fr") {
+							echo "Programmer cet artiste ?";
+						} else {
+							echo "Schedule this artist?";
+						}
+						?>
+
 					</div>
 					<div class="agenda__footer--mail">
-						<a href="#">
+						<a href="<?php echo get_permalink(get_page_by_title('contact')->ID); ?>">
 							<i class="fa fa-envelope"></i>
 						</a>
 					</div>
@@ -145,7 +207,16 @@ while (have_posts()) : the_post(); ?>
 						</div>
 					</div>
 					<div class="description__savoirPlus">
-						<a href="#more" id="expand-collapse-button">En savoir plus</a>
+						<a href="#more" id="expand-collapse-button">
+							<?
+							if ($language == "fr") {
+								echo "En savoir plus";
+							} else {
+								echo "Learn more";
+							}
+							?>
+
+						</a>
 					</div>
 				</div>
 			</div>
@@ -153,7 +224,13 @@ while (have_posts()) : the_post(); ?>
 				<div class="animation flexbox_player ">
 					<a href='<?php the_field('lien_soundcloud'); ?>' class='playBut test'>
 						<div class="flexbox_player">
-							Ecouter cet artiste
+							<?
+							if ($language == "fr") {
+								echo "Ecouter cet artiste.";
+							} else {
+								echo "Listen to this artist.";
+							}
+							?>
 
 							<div class='container_buttonPlay'>
 
@@ -195,6 +272,10 @@ while (have_posts()) : the_post(); ?>
 			</div>
 		</div>
 	</main>
+
+	<?php
+
+	?>
 
 	<script src="<?php echo get_template_directory_uri() . "/dist/gallerieArtiste.js" ?>"></script>
 	<script src="<?php echo get_template_directory_uri() . "/dist/savoirPlus.js" ?>"></script>
