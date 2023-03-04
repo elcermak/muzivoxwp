@@ -44,13 +44,13 @@ if (have_posts()) {
         </div>
         <div class="Artistes_List">
           <ul class="artist">
-            <li class="artist_li" v-for="person in filteredPersons">
+            <li v-for="person in filteredPersons">
               <a class="artist__link" :href="person.link" @mouseover="updateBackground(person.thumbnail)"  @mouseout="updateBackground('<?php echo get_template_directory_uri()."/asset/image/ETOILE_BIG.png" ; ?>')">{{ person.name }}</a>
             </li>
           </ul>
 
         </div>
-        <div class="artist__footer"><img src="<?php echo get_template_directory_uri()."/asset/image/arrow_Down.png" ; ?>" alt="flèche descendante"></div>
+        <div class="artist__footer"></div>
 
       </div>
     </div>
