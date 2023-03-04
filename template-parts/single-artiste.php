@@ -36,8 +36,11 @@ while (have_posts()) : the_post(); ?>
 		}
 	endforeach;
 
-	$next_concert = get_last_concert($concert, $name_artiste);
+	if (!empty($concert)) {
+		$next_concert = get_last_concert($concert, $name_artiste);
+	}
 	wp_reset_postdata();
+
 	?>
 
 	<main>
@@ -45,26 +48,25 @@ while (have_posts()) : the_post(); ?>
 			<div class="galerie_area">
 				<div class="carousel-container">
 					<div class="carousel-slide">
-						<img src="<?php echo get_template_directory_uri() . "/asset/photo/" . get_post_field('post_name', get_post()); ?>/carrousel_1.jpg" />
+						<img src="<?php echo get_field('image_carrousel_1')['url']; ?>" alt="<?php get_field('image_carrousel_1')['alt']; ?>" />
 					</div>
 					<div class="carousel-slide">
-						<img src="<?php echo get_template_directory_uri() . "/asset/photo/" . get_post_field('post_name', get_post()); ?>/carrousel_2.jpg" />
+						<img src="<?php echo get_field('image_carrousel_2')['url']; ?>" alt="<?php get_field('image_carrousel_2')['alt']; ?>" />
 					</div>
 					<div class="carousel-slide">
-						<img src="<?php echo get_template_directory_uri() . "/asset/photo/" . get_post_field('post_name', get_post()); ?>/carrousel_3.jpg" />
+						<img src="<?php echo get_field('image_carrousel_3')['url']; ?>" alt="<?php get_field('image_carrousel_3')['alt']; ?>" />
 					</div>
 				</div>
 				<div class="galerie_area-nav">
 
 					<button class="btn__arrow" onclick="prevSlide()">
-						<div class="btn__arrow--left"> </div>
+						<i class="fa fa-duotone fa-square-caret-left arrowSingleArtist"></i>
 					</button>
 					<button class="btn__arrow" onclick="nextSlide()">
-						<div class="btn__arrow--right"> </div>
+						<i class="fa fa-duotone fa-square-caret-right arrowSigleArtist"></i>
 					</button>
 				</div>
 			</div>
-
 
 			<div class="agenda">
 				<div class="agenda__header">
@@ -73,7 +75,19 @@ while (have_posts()) : the_post(); ?>
 				<hr>
 				<div class="agenda__concert">
 					<div class="agenda__concert--date">
-						<?php echo convert_date_format($next_concert['date']); ?>
+						<?php
+						if (!empty($next_concert['date'])) {
+							$date_obj = DateTime::createFromFormat('Y/m/d H:i', $next_concert['date']);
+							setlocale(LC_TIME, 'fr_FR.UTF-8', 'fra');
+							echo strftime('%a %d %b %Y à %HH%M', $date_obj->getTimestamp());
+						} else {
+							echo "Pas de concert prévu pour le moment";
+						}
+
+
+
+						// echo $date;
+						?>
 					</div>
 					<div class="agenda__concert--lieu">
 						<?php echo $next_concert['ville']; ?>
@@ -120,7 +134,7 @@ while (have_posts()) : the_post(); ?>
 						<i class="fa fa-twitter" aria-hidden="true"></i>
 					</div>
 					<div class="description__text">
-						<p>
+						<p class="description__short">
 							<?php the_field('description_courte'); ?>
 						</p>
 						<div id='d1' class='collapsed'>
@@ -136,37 +150,37 @@ while (have_posts()) : the_post(); ?>
 				</div>
 			</div>
 			<div class="youtube yt1">
-			<div class="animation flexbox_player ">
-    <a href='<?php the_field('lien_soundcloud'); ?>' class='playBut test'>
-      <div class="flexbox_player">
-        Ecouter cet artiste
+				<div class="animation flexbox_player ">
+					<a href='<?php the_field('lien_soundcloud'); ?>' class='playBut test'>
+						<div class="flexbox_player">
+							Ecouter cet artiste
 
-        <div class='container_buttonPlay'>
+							<div class='container_buttonPlay'>
 
-          <!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In  -->
-          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/" x="0px" y="0px" width="213.7px" height="213.7px" viewBox="0 0 213.7 213.7" enable-background="new 0 0 213.7 213.7" xml:space="preserve">
+								<!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In  -->
+								<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/" x="0px" y="0px" width="213.7px" height="213.7px" viewBox="0 0 213.7 213.7" enable-background="new 0 0 213.7 213.7" xml:space="preserve">
 
-            <polygon class='triangle' id="XMLID_18_" fill="none" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+									<polygon class='triangle' id="XMLID_18_" fill="none" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
 	73.5,62.5 148.5,105.8 73.5,149.1 " />
 
-            <circle class='circle' id="XMLID_17_" fill="none" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" cx="106.8" cy="106.8" r="103.3" />
-          </svg>
-        </div>
-        <div class="muzik">
-          <div class="loader"></div>
-          <div class="loader"></div>
-          <div class="loader"></div>
-          <div class="loader"></div>
-          <div class="loader"></div>
-          <div class="loader"></div>
-          <div class="loader"></div>
-          <div class="loader"></div>
-          <div class="loader"></div>
-          <div class="loader"></div>
-        </div>
-      </div>
-    </a>
-  </div>
+									<circle class='circle' id="XMLID_17_" fill="none" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" cx="106.8" cy="106.8" r="103.3" />
+								</svg>
+							</div>
+							<div class="muzik">
+								<div class="loader"></div>
+								<div class="loader"></div>
+								<div class="loader"></div>
+								<div class="loader"></div>
+								<div class="loader"></div>
+								<div class="loader"></div>
+								<div class="loader"></div>
+								<div class="loader"></div>
+								<div class="loader"></div>
+								<div class="loader"></div>
+							</div>
+						</div>
+					</a>
+				</div>
 
 			</div>
 			<div class="youtube yt2">
@@ -182,8 +196,11 @@ while (have_posts()) : the_post(); ?>
 		</div>
 	</main>
 
-	<script src="<?php echo get_template_directory_uri() . "/dist/galerieArtiste.js" ?>"></script>
+	<script src="<?php echo get_template_directory_uri() . "/dist/gallerieArtiste.js" ?>"></script>
 	<script src="<?php echo get_template_directory_uri() . "/dist/savoirPlus.js" ?>"></script>
 
+
 <?php endwhile; // End of the loop.
+?>
+<?php
 get_footer();

@@ -2,23 +2,34 @@
 
 * {
   margin: 0;
+  font-family: "Akshar", sans-serif;
+
 }
 
 a {
   text-decoration: none;
 }
 
-body {
-  font-family: "Akshar", sans-serif;
+
+ /* HEADER */
+
+header{
+  margin-bottom: 80px;
+}
+
+footer{
+  /* margin-top: 80px; */
 }
 
 /* HEADER */
 
+
 .header {
-  margin-top: 30px;
+  /* margin-top: 30px; */
   margin-bottom: 60px;
   display: flex;
   justify-content: center;
+  position: absolute;
 
 }
 
@@ -28,12 +39,24 @@ body {
   gap: 50px;
 }
 
+.directionCol {
+  flex-direction: column;
+}
+
 .justify_center {
   justify-content: center;
 }
 
+.align_center {
+  align-items: center;
+}
+
 td {
   width: 250px;
+}
+
+.gap10px {
+  gap: 10px;
 }
 
 /* .nav_start {
@@ -49,7 +72,7 @@ td {
 /*  */
 
 header .menu {
-  width: 80%;
+  width: 100%;
 }
 
 header .menu a {
@@ -64,6 +87,14 @@ header .menu a {
   padding: 5px 10px;
 }
 
+.active{
+  border-bottom: 5px solid #FF6B00;
+}
+
+ul#menu-menu-principale li:nth-child(3) {
+  border-bottom: none;
+
+  }
 /* .nav_end {
   white-space: pre-line;
 }
@@ -82,11 +113,48 @@ header .menu ul {
   list-style: none;
   align-items: center;
   padding: 0;
-  justify-content: space-around;
+  justify-content: space-between;
+  margin: 0 15%;
+  width: 100%;
 }
 
+.header__menuLangue{
+  position: absolute;
+  top: 65px;
+  right: 85px;
+}
 
+ul#menu-menu-langue,
+ul#menu-menu-language {
+  width: 150px;
+  padding: 0;
+  text-align: end;
+}
 
+ul.submenu__list {
+  padding: 0;
+  width: 100%;
+}
+
+#menu-menu-langue, 
+#menu-menu-langue li,
+#menu-menu-language, 
+#menu-menu-language li{
+  list-style-type: none;
+}
+
+.-hasDropdown{
+  color: black;
+}
+
+.-hasDropdown:hover ul.submenu__list{
+  display: block;
+
+}
+
+ul.submenu__list {
+  display: none;
+}
 
 /* Ajout du soulignement du lien courant (classe wordpress) */
 /* .current_menu_item > a {
@@ -97,10 +165,161 @@ border-bottom: 5px solid #FF6B00;
   padding: 5px 10px;
 }
 
+.logo-bg{
+  display: none;
+}
+
+
+@media screen and (max-width: 640px) {
+  header{
+    margin-bottom: 120px;
+  }
+
+  .logo-bg{
+    display: block;
+  }
+
+  #menu {
+    display: inline-block;
+    z-index: 2;
+  
+  }
+  
+  #menu-bar {
+    width: 45px;
+    /* height: 40px; */
+    margin: 30px 0 20px 20px;
+    cursor: pointer;
+  }
+  
+  .header{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    gap: 15%;
+    margin-bottom: 0;
+  }
+  
+  .header img{
+    height: 30px;
+    margin: 20px 30px 0;
+  }
+  
+  .bar {
+    height: 5px;
+    width: 100%;
+    background-color: #FF6B00;
+    display: block;
+    border-radius: 5px;
+    transition: 0.3s ease;
+  }
+  
+  #bar1 {
+    transform: translateY(-4px);
+  }
+  
+  #bar3 {
+    transform: translateY(4px);
+  }
+  
+  .header__menu{
+    transition: 0.3s ease;
+    display: none;
+    margin: 0;
+  }
+  
+  .header__menu .menu__list {
+    display: block;
+    position: relative;
+  }
+  
+  .header__menu .menu__item   {
+    list-style: none;
+    color: white;
+    padding: 6px 20px;
+  }
+  
+  .header__menu .menu__list  img{
+    display: none;
+  }
+  
+  .header__menu .menu__list .menu__link {
+    color: white;
+    font-size: 20px;
+    text-decoration: none;
+  }
+
+  
+  .menu-bg, #menu {
+    top: 0;
+    left: 0;
+    position: absolute;
+    width: 100%;
+  }
+  
+  .menu-bg {
+    z-index: 1;
+    width: 0;
+    height: 0;
+    margin: 30px 0 20px 20px;
+    background: radial-gradient(circle, #FF6B00,#FF6B00);
+    border-radius: 50%;
+    transition: 0.3s ease;
+  }
+  
+  .menu__list{
+    margin-top: 100px;
+  }
+
+  .change {
+    display: block;
+  }
+  
+  .change .bar {
+    background-color: white;
+  }
+  
+  .change #bar1 {
+    transform: translateY(4px) rotateZ(-45deg);
+  }
+  
+  .change #bar2 {
+    opacity: 0;
+  }
+  
+  .change #bar3 {
+    transform: translateY(-6px) rotateZ(45deg);
+  }
+  
+  .change-bg {
+    width: 520px;
+    height: 460px;
+    transform: translate(-65%,-25%);
+  }
+  
+  .header .change-accueil{
+    margin: 20px 0 0 110px;
+  }
+
+  .menu__item:nth-child(3) a:before {
+    content: "Accueil";
+    display: inline-block;
+    font-weight: bold;
+  }
+  
+  .active{
+    border-bottom: none;
+  }
+  
+  }
+
+
 /*# sourceMappingURL=styleCompile.css.map */
 
 
 /* PAGE ARTISTE */
+
+
 
 .btn-full {
   display: flex;
@@ -118,38 +337,25 @@ border-bottom: 5px solid #FF6B00;
 .btn__arrow {
   width: 50px;
   height: 50px;
-  background-color: #808080;
   position: relative;
   border: none;
+  background: none;
 }
 
-.btn__arrow:hover {
-  background-color: #FF6B00;
+
+.fa-square-caret-left,
+.fa-square-caret-right {
+  font-size: 40px;
+  color: #FF6B00;
 }
 
-.btn__arrow--left {
-  position: absolute;
-  top: 5px;
-  left: -7px;
-  width: 0px;
-  height: 0px;
-  border-style: solid;
-  border-width: 20px;
-  border-color: transparent #FFFFFF transparent transparent;
-  z-index: 10;
+.btn__arrow:hover .fa-square-caret-left,
+.btn__arrow:hover .fa-square-caret-right
+{
+  cursor: pointer;
+  color: white;
 }
 
-.btn__arrow--right {
-  position: absolute;
-  top: 5px;
-  left: 14px;
-  width: 0px;
-  height: 0px;
-  border-style: solid;
-  border-width: 20px;
-  border-color: transparent transparent transparent #FFFFFF;
-  z-index: 10;
-}
 
 .description {
   color: #FFFFFF;
@@ -166,7 +372,7 @@ border-bottom: 5px solid #FF6B00;
   text-shadow: 0px 4px 4px #FF6B00;
   font-size: 3rem;
   display: flex;
-  justify-content: ;
+  /* justify-content: ; */
   margin: 0 50px;
   color: white;
 }
@@ -471,9 +677,10 @@ footer {
 
 .grid-item-footer-image {
   grid-area: image;
-  background-image: url(../image/etoile_grise.png);
+  background-image: url(../asset/image/logo_footer.png);
   background-repeat: no-repeat;
-
+  height: 100%;
+  background-position: center;
 }
 
 .grid-item-footer li {
@@ -506,25 +713,85 @@ footer {
 .media {
   color: white;
   margin-right: 40px;
+
+}
+.media i {
+  margin-left: 20px;
+}
+.media :hover{
+  color:black;
+
   grid-area: social;
 
 }
 
 .media :hover {
   color: black;
+
 }
 
 .media i {
-  margin-right: 20px;
+  margin-left: 20px;
 }
 
 .menu-item {
   padding: 5px 10px;
 }
 
+
+.menu {
+  display: flex; /* CODE IMPORTANT HEADER*/
+  /* margin: 0 140px; */ /* A VOIR SI IMPACT QUELQUE CHOSE */
+} 
+.menu ul {
+  display: flex;
+  font-family: "Akshar", sans-serif;
+  font-size: 20px;
+  list-style: none;
+  width: 1090px;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0;
+}
+
+footer .menu ul li {
+  font-size: 16px;
+}
+
+.menu-item-70{
+  margin-left: 430px;
+}
+
+
+/* Ajout du soulignement du lien courant (classe wordpress) */
+/* .current_menu_item > a {
+border-bottom: 5px solid #FF6B00;
+} */
+
+.artist__search {
+  gap: 0;
+}
 /* FIN FOOTER */
 
 /* AGENDA */
+
+.agenda_li {
+  display: flex;
+  list-style-type: none;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  padding: 5px 0;
+}
+
+.col_agenda {
+  width: calc(100% / 6);
+}
+
+.test{
+  color: #FF6B00;
+}
+
 .title-filter {
   display: flex;
 }
@@ -535,7 +802,7 @@ footer {
   margin: 25px 0 20px 0;
 }
 
-.agenda-table {
+.agenda-list {
   color: white;
 }
 
@@ -562,16 +829,20 @@ table {
 
 .title_calendar {
   border-bottom: none;
+  list-style-type: none;
 }
 
-.agenda-table tr {
-  border-bottom: 1px solid #FF6B00;
+.agenda-list li {
   height: 60px;
 }
 
 .logo_agenda {
   color: #FF6B00;
   font-size: 1.5rem;
+}
+
+#background-none {
+  background-image: none;
 }
 
 /* FIN AGENDA */
@@ -594,12 +865,16 @@ table {
 
 .container-rectangle {
   width: 60%;
-  background-color: black;
+
+  background-color: #1A1A1A;
+
   min-height: 450px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background-image: url(asset/image/ETOILE_BIG.png);
+
+  background-image: url(../asset/image/ETOILE_BIG.png);
+
   fill: red;
   background-repeat: no-repeat;
   background-position: center;
@@ -607,13 +882,17 @@ table {
   margin-bottom: 80px;
   position: relative;
   justify-content: flex-start;
+  border: 2px solid #FF6B00;
+
 }
 
 .container-rectangle::before {
   content: "";
   position: absolute;
   /*or absolute*/
-  background-image: url("asset/image/egaliseur.svg");
+
+  background-image: url("../asset/image/egaliseur.svg");
+
   background-position: center center;
   background-repeat: no-repeat;
   left: -16px;
@@ -628,7 +907,9 @@ table {
   content: "";
   position: absolute;
   /*or absolute*/
-  background-image: url("asset/image/egaliseur.svg");
+
+  background-image: url("../asset/image/egaliseur.svg");
+
   background-position: center center;
   background-repeat: no-repeat;
   right: -4px;
@@ -894,40 +1175,835 @@ table {
 /* ========= Liste artistes ========= */
 #artist {
   padding: 0;
-}
-.Artistes_List {
-  display: flex;
+
+  width: 70%;
+  height: 640px;
   flex-wrap: wrap;
-  flex-direction: center;
+  object-fit: cover;
+  object-position: top;
+  background-size: cover;
+  background-position: center;
+}
+
+.artist_li a:hover{
+  background-color: #CC5500;
+  padding: 10px;
+}
+
+.Artistes_List {
+  width: 100%;
+  height: 600px;
+  overflow-y: scroll;
+
+}
+
+.full {
+  position: absolute;
+  top: 46px;
+  left: -54px;
+  text-align: center;
+  height: 0;
+  width: 150px;
+  border-bottom: 50px solid rgba(255, 13, 13, 0.85);
+  color: white;
+  text-transform: uppercase;
+  border-left: 50px solid transparent;
+  border-right: 50px solid transparent;
+  transform: rotate(-45deg);
+  font-size: 1.5rem;
+}
+
+.textFull{
+  margin-top: 9px;
 }
 
 .artist li {
   float: left;
   width: 45%;
   list-style-type: none;
-margin: 10px;
-text-transform: uppercase;
-font-size: 1.2em;
+
+  margin: 10px;
+  text-transform: uppercase;
+  font-size: 1.2em;
 }
 
-.artist__search{
-  flex-basis: 100%;
-  text-align: center;
-  justify-content: center;
-  align-self: center;
-  align-items: center;
+.artist__search--input {
+  width: 200px;
+  margin: 20px 10px;
+  font-size: 1.2em;
+}
+
+.artist__search {
+  gap: 0;
+
+
 }
 
 .artist__link {
   color: white;
   text-decoration: none;
-  padding: 5px;
+}
+
+.artist__footer {
+  height: 50px;
 }
 
 .filtreColor {
   background-color: rgba(0, 0, 0, 0.7);
   width: 100%;
   height: 100%;
+
   content: "";
 }
 /* ========= Fin Liste artistes ========= */
+
+/* PAGE CONTACT */
+
+.contact{
+  height: 100%;
+}
+.container-rectangle { 
+  padding:2%;
+}
+#container-formulaire {
+display:flex;
+align-items:center;
+justify-content:center;
+}
+
+label {
+  color: white;
+  text-transform: uppercase;
+}
+
+#acf-field_63ff609612bde {
+  color: #FF6B00;
+  border: 1px solid #FF6B00;
+  width: 60%;
+  border-radius: 10px;
+  height: 34px;
+  margin-right: 12.5%;
+  display: flex;
+  align-self: flex-end;
+  padding: 2px;
+  background-color:transparent;
+}
+
+.acf-form {
+  width:65%;
+}
+
+.acf-form-submit {
+  display: flex;
+  justify-content: flex-end;
+
+}
+
+.acf-form-submit .acf-button{
+  text-transform: uppercase;
+  border-radius: 12px;
+  background-color: #FF6B00;
+  color: white;
+  font-weight:bold;
+  border-style:none;
+  height: 36px;
+  margin: 5%;
+  padding:10px;
+  align-items:flex-end;
+}
+
+
+.acf-input {
+  width:100%;
+}
+
+
+.filter select {
+  display:none;
+}
+.acf-fields > .acf-field {
+  border-top-style: none!important;
+}
+
+.acf-bl li:hover {
+  background-color: #FF6B00;
+}
+
+/*FIN PAGE CONTACT*/
+
+/* page accueil*/
+
+/*Début du carrousel */
+
+.first-carrousel {
+  display:flex;
+  justify-content: center;
+  position:relative;
+  /* margin-bottom: 120px; */
+  width:100%;
+  height:85vh;
+  background-image: url(../asset/image/egaliseur.svg);
+  background-position: -200px;
+  background-repeat:no-repeat;
+  background-attachment:initial;
+}
+
+.orange-egalizers {
+width:30%;
+position:absolute;
+z-index:50;
+font-family:'Akshar';
+right:0;
+top:25%;
+
+
+}
+.single-egalizer {
+  background-color: #FF6B00;
+  color: white;
+  padding: 20px;
+  margin: 25px 0;
+  
+}
+
+.single-egalizer a{
+  width: 100%;
+  height: 100%;
+  color: white; 
+}
+
+.images-carrousel {
+  width: 100%;
+  position:relative;
+  height: 100%;
+
+}
+.first-image {
+  width:70%;
+  height: 85%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin:auto;
+  position: relative;
+}
+.card_next_concert {
+  width: 30%;
+  z-index:9999;
+  position: absolute;
+  bottom: 0;
+  left: 10%;
+  height:50%
+
+}
+.image_next_concert {
+  width:100%;
+  height:80%;
+
+}
+
+.carrousel-cover {
+  width: 100%;
+  height:100%;
+  object-fit:cover;
+  object-position: top;
+}
+
+#next_nameArtist {
+  color:#FF6B00;
+  font-family:'Akshar';
+  font-size: 32px;
+}
+
+#next_date {
+  font-family:'Akshar';
+  font-size:24px;
+
+}
+
+.card_next_buttons i:hover{
+  cursor: pointer;
+}
+
+.card_footer{
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Progress bar */
+
+#loader{
+  width: 100%;
+}
+.progress-bar{
+   background: #E6EEFF;
+   width:100%;
+   height: 10px;
+   margin: auto;
+   overflow: hidden;
+}
+.progress-bar .progress{
+      background-color: #FF6B00;
+      width: 3px;
+      height: 10px;
+ 
+}
+
+/*Fin du progress Bar*/
+
+/*Fin du premier carrousel*/
+
+.container_aPropos {
+  background-color: black;
+  color:white;
+  width: 70%;
+  height: 240px;
+  margin: 80px 0;
+}
+.container_aPropos .title_aPropos {
+  text-align: start;
+}
+.container_aPropos p {
+  padding: 0 40px;
+}
+.container_aPropos h3 {
+  padding: 40px;
+  margin: 0;
+}
+
+.container_carrousel {
+  background-color: #1A1A1A;
+  height: 150px;
+  margin-bottom: 130px;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+}
+
+.carousel {
+  margin: 0 50px;
+}
+
+.carousel-cell {
+  width: 28%;
+  height: 300px;
+  margin-left: 70px;
+  margin-right: 10px;
+  border-radius: 5px;
+  background-size: cover;
+  display: flex;
+  align-items: self-end;
+  justify-content: center;
+}
+
+.flickity-viewport {
+  display: flex;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: #FF6B00;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: #1A1A1A;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #1A1A1A;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+/* Carrousel Mise en avant artiste */
+
+.carrousel_hightlight {
+  height: 350px;
+  width: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 50px;
+}
+
+.hightlight-arrow:hover {
+  cursor: pointer;
+}
+
+.carrousel_background{
+  height: 150px;
+  width: 100%;
+  background-color: #1A1A1A;
+}
+
+.container_hightlight {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  position: absolute;
+  top: 15%;
+}
+
+.hightlight-cell {
+  width: 20%;
+  height: 250px;
+}
+.hightlight-arrow {
+  height: 250px;
+  width: auto;
+  color: #fff;
+  text-align: center;
+  display: flex;
+  align-items: center;
+}
+
+.hightlight-arrow i{
+}
+.hightlight_artist {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.title_hightlight-artist {
+  text-transform:uppercase;
+  color:#FF6B00;
+  font-weight:bold;
+  font-size: 26px;
+}
+
+.title_home {
+  font-size: 40px;
+  padding-left: 6%;
+}
+
+.section-btn {
+  display:flex;
+  justify-content: flex-end;
+  padding: 5% 0;
+  background-image: url("../asset/image/egaliseur.svg");
+  background-position: 112% 2%;
+  background-repeat: no-repeat;
+  
+  
+}
+.btn-artiste {
+  display: flex;
+  justify-content: flex-start;
+  background-color:#D9D9D9;
+  font-size:26px;
+  text-transform: uppercase;
+  font-weight:bold;
+  width: 25%;
+  padding:1%;
+  color:#000
+}
+
+.btn-artiste a:hover {
+  color:#000;
+}
+.btn-artiste a:visited {
+  color:#000;
+}
+
+/* fin Carrousel Mise en avant artiste */
+
+@media screen and (max-width: 640px) {
+  .title_aPropos {
+    font-size: 16px;
+  }
+
+  .container_aPropos {
+    height: 140px;
+    margin-bottom: 40px;
+  }
+  .container_aPropos h3 {
+    padding: 20px;
+  }
+  .container_aPropos p {
+    font-size: 8px;
+    padding: 0 20px;
+  }
+
+  .title_home {
+    font-size: 16px;
+    margin: 0 0 40px 20px;
+  }
+
+  .carousel-cell {
+    width: 100%;
+    object-fit: cover;
+    margin: 0 10px 0 30px;
+  }
+
+  /* Carrousel */
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: "Akshar", sans-serif;
+  }
+
+  .carousel {
+    margin: 20px;
+  }
+
+  .container_carrousel {
+    height: 50px;
+    margin-bottom: 80px;
+  }
+
+  .carousel-cell {
+    width: 40%;
+    height: 100px;
+    border-radius: 5px;
+    background-size: cover;
+  }
+
+  .flickity-prev-next-button.previous {
+    left: -10px;
+  }
+
+  .flickity-prev-next-button.next {
+    right: -10px;
+  }
+
+  .flickity-prev-next-button {
+    width: 22px;
+    height: 22px;
+  }
+
+  .carousel-cell:before {
+    display: block;
+  }
+
+  .flickity-viewport {
+    height: 100px;
+  }
+
+  .btn-artiste button {
+    font-size: 10px;
+    height: 30%;
+    width: 30%;
+  }
+}
+@media screen and (min-width: 640px) and (max-width: 1223px) {
+  .title_aPropos {
+    font-size: 24px;
+  }
+
+  .container_aPropos {
+    height: 190px;
+    padding: 30px 0;
+    margin-bottom: 40px;
+  }
+  .container_aPropos h3 {
+    padding: 20px;
+  }
+  .container_aPropos p {
+    font-size: 16px;
+    padding: 0 20px;
+  }
+
+  .container_carrousel {
+    height: 100px;
+    margin-bottom: 130px;
+  }
+
+  .carousel {
+    display: flex;
+    justify-content: center;
+  }
+
+  .carousel-cell {
+    width: 60%;
+    object-fit: cover;
+    margin: 0 10px 0 30px;
+  }
+
+  .flickity-viewport {
+    height: 200px;
+    width: 100%;
+  }
+
+  .btn-artiste button {
+    height: 45%;
+    width: 35%;
+    font-size: 16px;
+  }
+}
+
+.filtreColor {
+  background-color: rgba(0, 0, 0, 0.7);
+  width: 100%;
+  height: 100%;
+  min-height: 450px;
+  display: flex;
+  /* flex-wrap: wrap; */
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+}
+
+
+/* width */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #FF6B00;
+  outline: #CC5500;
+  border-radius: 50vh;
+  transition: 1s ease-in-out;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #CC5500;
+  border: 1px solid #CC5500;
+}
+
+/* ========= Fin Liste artistes ========= */
+
+
+/* ========= Espace pro ========= */
+
+.wrapperEspacePro {
+
+  /* margin: 80px 0; */
+
+}
+
+.displaySearch {
+  display: flex;
+  justify-content: end;
+}
+
+.displaySearch__input {
+  border: none;
+  border-bottom: 1px solid #FFFFFF;
+  background-color: transparent;
+  color: #FFFFFF;
+  text-align: center;
+
+  width: 100%;
+  text-align: start;
+
+}
+
+.fa-magnifying-glass,
+.displaySearch__input::placeholder {
+  color: #FFFFFF;
+}
+
+.displaySearch__background {
+  background-color: #8f8f8f;
+  display: flex;
+
+  /* justify-content: space-around; */
+  padding: 10px 20px;
+  margin: 30px 6%;
+  width: 30%;
+
+}
+
+.EspacePro__artist {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: white;
+  width: 80%;
+
+}
+
+.espacePro__artist--background {
+  background-color: #231F20;
+  margin: 10px 0;
+}
+
+.EspacePro__artist--item {
+  list-style-type: none;
+  margin: 0 10%;
+  text-transform: uppercase;
+  font-size: 1.6rem;
+  padding: 10px 0;
+  display: flex;
+  gap: 50px;
+}
+
+.fa-download {
+  color: #FF6B00;
+}
+
+
+
+@media screen and (max-width: 640px) {
+.displaySearch{
+  justify-content: center;
+}
+
+.displaySearch__background{
+  width: 70%;
+}
+}
+
+/* ========= Fin Espace pro ========= */
+
+/* ========= login espace pro ========= */
+
+.formGroup {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  width: 100%;
+}
+
+#fromGroup_Title {
+  justify-content: center;
+  margin-bottom: 100px;
+  font-size: 2rem;
+}
+
+.formGroup label {
+  text-align: end;
+  color: white;
+  width: 30%;
+  margin-right: 10px;
+}
+
+.formGroup input {
+  width: 80%;
+  border-radius: 10px;
+  height: 34px;
+  margin-right: 12.5%;
+  padding-left: 20px;
+}
+
+.formGroup select {
+  margin-bottom: 0;
+}
+
+.formGroup-input {
+  padding-left: 20px;
+}
+
+.btn-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.btn-container .btn {
+  text-transform: uppercase;
+  border-radius: 8px;
+  background-color: #FF6B00;
+  height: 36px;
+  margin-right: 12.5%;
+  border: none;
+  color: #FFFFFF;
+  padding: 0 20px;
+}
+
+#form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#logout {
+  justify-content: center;
+}
+
+.btn:hover {
+  cursor: pointer;
+}
+
+@media screen and (max-width: 640px) {
+  .formGroup {
+    flex-direction: column;
+  }
+
+  .formGroup label {
+    font-size: 16px;
+    width: 100%;
+    flex-basis: 100%;
+  }
+
+  .formGroup textarea {
+    height: 100px;
+    width: 80%;
+  }
+
+  .formGroup input {
+    margin-right: 0;
+    margin-bottom: 20px;
+    width: 80%;
+  }
+
+  .formGroup label {
+    text-align: center;
+  }
+
+  .btn-container {
+    justify-content: center;
+  }
+
+
+.menu-item{
+  padding: 5px 10px;
+}
+
+
+/* ========= Fin login espace pro ========= */
+
+
+  .btn-container .btn {
+    margin-right: 0;
+    margin-bottom: 6%;
+  }
+}
+
+
+/* ========= Fin login espace pro ========= */
+

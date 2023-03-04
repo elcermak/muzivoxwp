@@ -67,6 +67,7 @@
   function muzivox_register_menus() {
     register_nav_menus( array(
       'header' => 'Menu principal',
+      'language' => 'Menu langue',
       'footer_left' => 'Menu secondaire gauche',
       'footer_right' => 'Menu secondaire droit',
     ) );
