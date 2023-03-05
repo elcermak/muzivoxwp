@@ -68,13 +68,13 @@ endif;
     <div class="single-egalizer">
       <p class="nom_egalizer" id="nom_egalizer"> <?php echo $arrayConcerts[0]['nameArtist']; ?></p>
     </div>
-    <div class="single-egalizer">
+    <div class="single-egalizer long">
       <p class="date_egalizer" id="date_egalize"><?php echo $arrayConcerts[0]['date']; ?></p>
     </div>
     <div class="single-egalizer">
       <p class="lieu_egalizer" id="lieu_egalizer"><?php echo $arrayConcerts[0]['townConcert'] . ', ' . $arrayConcerts[0]['roomConcert'] ?></p>
     </div>
-    <div class="single-egalizer">
+    <div class="single-egalizer long">
       <a href="<?php echo get_permalink(get_page_by_title('agenda')) ?>">Voir toutes les dates</a>
     </div>
   </div>
@@ -82,7 +82,7 @@ endif;
 
     <div class="first-image">
       <div id="headband_full">
-      </div>
+      </div>    
       <img class="carrousel-cover" src="<?php echo $arrayConcerts[0]['imageConcert']['url'] ?>" alt="<?php echo $arrayConcerts[0]['imageConcert']['alt'] ?>" id="image_principale">
     </div>
     <div class="card_next_concert">
