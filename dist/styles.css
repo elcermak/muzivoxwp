@@ -1748,37 +1748,36 @@ input:checked+.slider:before {
 
 @media screen and (max-width: 768px) {
 
-  .first-carrousel {
+  .first-carrousel{
     background-image: none;
   }
 
-  .first-image {
+  .first-image{
     display: none;
   }
 
-  .card_next_concert {
+  .card_next_concert{
     width: 80%;
     height: 100%;
   }
 
-  .progress,
-  .progress-bar {
+  .progress , .progress-bar{
     display: none;
   }
 
-  .orange-egalizers {
+  .orange-egalizers{
     display: none;
   }
 
-  .container_hightlight:nth-child(3+4+5) {
+  .container_hightlight:nth-child(3+4+5){
     display: none;
   }
 
-  .btn-artiste {
+  .btn-artiste{
     font-size: 16px;
     width: 50%;
   }
-
+  
   .title_aPropos {
     font-size: 16px;
   }
@@ -1788,12 +1787,10 @@ input:checked+.slider:before {
     height: 100%;
     margin-bottom: 60px;
   }
-
   .container_aPropos h3 {
     padding: 20px;
     font-size: 30px;
   }
-
   .container_aPropos p {
     font-size: 16px;
     padding: 0 20px 20px;
@@ -1804,7 +1801,7 @@ input:checked+.slider:before {
     padding-left: 12%;
   }
 
-  .carrousel_hightlight {
+  .carrousel_hightlight{
     margin-bottom: 0;
   }
 
@@ -1814,18 +1811,16 @@ input:checked+.slider:before {
     margin: 0 10px 0 30px;
   }
 
-  .img1 {
+  .img1{
     width: 75%;
   }
 
-  .img2,
-  .img3,
-  .img4 {
+  .img2, .img3, .img4{
     display: none;
   }
 
-  .section-btn {
-    background-image: none;
+  .section-btn{
+    background-image:none;
     padding-bottom: 10%;
 
   }

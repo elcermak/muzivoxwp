@@ -166,13 +166,13 @@ endif;
     <div class="hightlight-arrow" onclick="avantHightlight()">
       <i class="fa fa-solid fa-less-than"></i>
     </div>
-    <div class="hightlight-cell">
+    <div class="hightlight-cell img1">
       <a href="<?php echo $arrayArtists[0]['permalink']; ?>">
         <img src="<?php echo $arrayArtists[0]['imageArtist']['url']; ?>" alt="<?php echo $arrayArtists[0]['imageArtist']['alt']; ?>" class="hightlight_artist" id="artist_image_1">
         <p class="title_hightlight-artist" id="artist_name_hightlight_1"><?php echo $arrayArtists[0]['nameArtist']; ?></p>
       </a>
     </div>
-    <div class="hightlight-cell">
+    <div class="hightlight-cell img2">
       <a href="<?php echo $arrayArtists[1]['permalink']; ?>">
 
         <img src="<?php echo $arrayArtists[1]['imageArtist']['url']; ?>" alt="<?php echo $arrayArtists[1]['imageArtist']['alt']; ?>" class="hightlight_artist" id="artist_image_2">
@@ -180,7 +180,7 @@ endif;
         </p>
       </a>
     </div>
-    <div class="hightlight-cell">
+    <div class="hightlight-cell img3">
       <a href="<?php echo $arrayArtists[2]['permalink']; ?>">
 
         <img src="<?php echo $arrayArtists[2]['imageArtist']['url']; ?>" alt="<?php echo $arrayArtists[2]['imageArtist']['alt']; ?>" class="hightlight_artist" id="artist_image_3">
@@ -188,7 +188,7 @@ endif;
         </p>
       </a>
     </div>
-    <div class="hightlight-cell">
+    <div class="hightlight-cell img4">
       <a href="<?php echo $arrayArtists[3]['permalink']; ?>">
 
         <img src="<?php echo $arrayArtists[3]['imageArtist']['url']; ?>" alt="<?php echo $arrayArtists[3]['imageArtist']['alt']; ?>" class="hightlight_artist" id="artist_image_4">
@@ -201,7 +201,6 @@ endif;
     </div>
 
   </div>
-
 
 </div>
 
