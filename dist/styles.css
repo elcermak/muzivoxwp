@@ -201,6 +201,10 @@ border-bottom: 5px solid #FF6B00;
     margin-bottom: 0;
   }
 
+  .header__menu .menu{
+    display: none;
+  }
+
   .header img {
     height: 30px;
     margin: 20px 30px 0;
@@ -383,6 +387,10 @@ border-bottom: 5px solid #FF6B00;
   gap: 20px;
   align-items: center;
   justify-content: center;
+  color: #FF6B00;
+}
+
+.description__rs a {
   color: #FF6B00;
 }
 
@@ -659,6 +667,7 @@ border-bottom: 5px solid #FF6B00;
   .container.container-flex {
     width: 100%;
   }
+
   .container-rectangle {
     align-items: center;
     width: 100%;
@@ -700,9 +709,16 @@ footer {
   text-transform: uppercase;
   color: white;
   display: grid;
-  grid-template-columns: 1fr 1.5fr 1fr 0.5fr;
+  grid-template-columns: 1fr 2fr 1fr;
   grid-template-areas:
     "menu_left image menu_right social";
+  position: relative;
+
+}
+
+.footer-media {
+  position: absolute;
+  right: 0px;
 }
 
 .grid-item-footer-image {
@@ -1410,6 +1426,7 @@ label {
   background-position: -200px;
   background-repeat: no-repeat;
   background-attachment: initial;
+  z-index: -1;
 }
 
 
@@ -1558,7 +1575,7 @@ label {
   color: white;
   width: 70%;
   height: 240px;
-  /* margin: 80px 0; */
+  margin: 80px 0;
 }
 
 .container_aPropos .title_aPropos {
@@ -1748,36 +1765,37 @@ input:checked+.slider:before {
 
 @media screen and (max-width: 768px) {
 
-  .first-carrousel{
+  .first-carrousel {
     background-image: none;
   }
 
-  .first-image{
+  .first-image {
     display: none;
   }
 
-  .card_next_concert{
+  .card_next_concert {
     width: 80%;
     height: 100%;
   }
 
-  .progress , .progress-bar{
+  .progress,
+  .progress-bar {
     display: none;
   }
 
-  .orange-egalizers{
+  .orange-egalizers {
     display: none;
   }
 
-  .container_hightlight:nth-child(3+4+5){
+  .container_hightlight:nth-child(3+4+5) {
     display: none;
   }
 
-  .btn-artiste{
+  .btn-artiste {
     font-size: 16px;
     width: 50%;
   }
-  
+
   .title_aPropos {
     font-size: 16px;
   }
@@ -1787,10 +1805,12 @@ input:checked+.slider:before {
     height: 100%;
     margin-bottom: 60px;
   }
+
   .container_aPropos h3 {
     padding: 20px;
     font-size: 30px;
   }
+
   .container_aPropos p {
     font-size: 16px;
     padding: 0 20px 20px;
@@ -1801,7 +1821,7 @@ input:checked+.slider:before {
     padding-left: 12%;
   }
 
-  .carrousel_hightlight{
+  .carrousel_hightlight {
     margin-bottom: 0;
   }
 
@@ -1811,16 +1831,18 @@ input:checked+.slider:before {
     margin: 0 10px 0 30px;
   }
 
-  .img1{
+  .img1 {
     width: 75%;
   }
 
-  .img2, .img3, .img4{
+  .img2,
+  .img3,
+  .img4 {
     display: none;
   }
 
-  .section-btn{
-    background-image:none;
+  .section-btn {
+    background-image: none;
     padding-bottom: 10%;
 
   }

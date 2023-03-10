@@ -92,10 +92,10 @@ while (have_posts()) : the_post(); ?>
 				<div class="galerie_area-nav">
 
 					<button class="btn__arrow" onclick="prevSlide()">
-						<i class="fa fa-duotone fa-square-caret-left arrowSingleArtist"></i>
+						<i class="fa fa-regular fa-duotone fa-square-caret-left arrowSingleArtist"></i>
 					</button>
 					<button class="btn__arrow" onclick="nextSlide()">
-						<i class="fa fa-duotone fa-square-caret-right arrowSigleArtist"></i>
+						<i class="fa fa-regular fa-duotone fa-square-caret-right arrowSigleArtist"></i>
 					</button>
 				</div>
 			</div>
@@ -161,7 +161,7 @@ while (have_posts()) : the_post(); ?>
 
 					<div class="agenda__concert--booked">
 						<a href="<?php echo get_permalink(get_page_by_title('agenda')->ID); ?>">
-							<i class="fa fa-calendar"></i>
+							<i class="fa fa-regular fa-calendar"></i>
 						</a>
 					</div>
 				</div>
@@ -179,7 +179,7 @@ while (have_posts()) : the_post(); ?>
 					</div>
 					<div class="agenda__footer--mail">
 						<a href="<?php echo get_permalink(get_page_by_title('contact')->ID); ?>">
-							<i class="fa fa-envelope"></i>
+							<i class="fa fa-regular fa-envelope"></i>
 						</a>
 					</div>
 
@@ -189,11 +189,40 @@ while (have_posts()) : the_post(); ?>
 				<div class="description">
 					<h2 class="description__title">
 						<div><?php echo $name_artiste; ?></div>
-						<!-- <div> <a href="<?php the_field('lien_soundcloud'); ?>" class="btn-filter" target="_blank">Playlist musical</a></div> -->
+						<!-- <div> <a href="<?php the_field('lien_playlist_musique'); ?>" class="btn-filter" target="_blank">Playlist musical</a></div> -->
 					</h2>
 					<div class="description__rs">
-						<i class="fa fa-facebook" aria-hidden="true"></i>
-						<i class="fa fa-twitter" aria-hidden="true"></i>
+						<?php
+						if (!empty(get_field('lien_facebook'))) {
+						?>
+							<a target="_blank" href="<?php the_field('lien_facebook'); ?>"><i class="fa fa-regular fa-facebook" aria-hidden="true"></i></a>
+						<?php
+						}
+
+						if (!empty(get_field('lien_twitter'))) {
+						?>
+						<a target="_blank" href="<?php the_field('lien_twitter'); ?>"><i class="fa fa-regular fa-twitter" aria-hidden="true"></i></a>
+						<?php
+						}
+
+						if (!empty(get_field('lien_instagram'))) {
+						?>
+						<a target="_blank" href="<?php the_field('lien_instagram'); ?>"><i class="fa fa-regular fa-instagram" aria-hidden="true"></i></a>
+						<?php
+						}
+
+						if (!empty(get_field('lien_youtube'))) {
+						?>
+						<a target="_blank" href="<?php the_field('lien_youtube'); ?>"><i class="fa fa-regular fa-youtube" aria-hidden="true"></i></a>
+						<?php
+						}
+
+						if (!empty(get_field('lien_playlist_musique'))) {
+						?>
+						<a target="_blank" href="<?php the_field('lien_playlist_musique'); ?>"><i class="fa fa-solid fa-music"></i></a>
+						<?php
+						}
+						?>
 					</div>
 					<div class="description__text">
 						<p class="description__short">
@@ -222,7 +251,7 @@ while (have_posts()) : the_post(); ?>
 			</div>
 			<div class="youtube yt1">
 				<div class="animation flexbox_player ">
-					<a href='<?php the_field('lien_soundcloud'); ?>' class='playBut test'>
+					<a href='<?php the_field('lien_playlist_musique'); ?>' class='playBut test'>
 						<div class="flexbox_player">
 							<?
 							if ($language == "fr") {

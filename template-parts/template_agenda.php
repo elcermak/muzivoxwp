@@ -286,7 +286,7 @@ function formatConcerts($concerts, $filtre)
                       $date_locale_obj = DateTime::createFromFormat('Ymd H:i', $date_locale . ' ' . $heure_locale, $timezone);
 
                       // Conversion en UTC
-                      $date_utc = $date_locale_obj->format('Ymd\THis');
+                      $date_utc = $date_locale_obj->format('Ymd');
 
                       $lien = "http://www.google.com/calendar/render?action=TEMPLATE" .
                         "&text=Concert de " . $infoConcert['artiste_name'] .

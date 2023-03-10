@@ -49,7 +49,7 @@
     endif;
     ?>
 
-    <div class="grid-item-footer">
+    <div class="grid-item-footer footer-media">
       <div class="media">
         <?php
         if (!empty($arraySocialMedia['facebook'])) { ?>
